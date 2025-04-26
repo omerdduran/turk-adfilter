@@ -21,3 +21,4 @@
 ! Katkı için: https://github.com/omerdduran/turk-adfilter
 
 ||adbetnetwork.com^
+||areabet.net^
