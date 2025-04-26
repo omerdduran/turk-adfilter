@@ -19,3 +19,5 @@
 !
 ! Türkiye merkezli reklam şirketleri için filtre listesi
 ! Katkı için: https://github.com/omerdduran/turk-adfilter
+
+||adbetnetwork.com^
