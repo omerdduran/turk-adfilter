@@ -56,7 +56,12 @@ jobs:
           git tag ${{ steps.bump_version.outputs.new_version }}
           git push origin ${{ steps.bump_version.outputs.new_version }}
 
-      - name: Trigger Release Drafter
-        uses: release-drafter/release-drafter@v6.1.0
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.bump_version.outputs.new_version }}
+          name: Release ${{ steps.bump_version.outputs.new_version }}
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
