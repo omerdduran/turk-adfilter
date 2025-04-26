@@ -134,7 +134,7 @@ jobs:
           # Get new version from the output of the create_tag step
           VERSION=${{ steps.create_tag.outputs.version }}
           # Prepare image links in markdown
-          IMAGE_NOTES="\\n### Generated Plots\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/tld_distribution.png' alt='TLD Distribution' width='600'/>\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/active_inactive_distribution.png' alt='Active/Inactive Distribution' width='600'/>"
+          IMAGE_NOTES="\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/tld_distribution.png' alt='TLD Distribution' width='600'/>\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/active_inactive_distribution.png' alt='Active/Inactive Distribution' width='600'/>"
           # Append image links to existing release notes
           gh release view $VERSION --json body --jq .body > current_notes.txt
           echo -e "$IMAGE_NOTES" >> current_notes.txt
