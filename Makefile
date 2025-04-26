@@ -1,3 +1,8 @@
+.PHONY: test dedup plot-stats install-deps
+
+# Default target (optional)
+all: test
+
 test:
 	@echo '--- Filter Lint ---'
 	python3 scripts/filter_lint.py
@@ -7,4 +12,12 @@ test:
 	python3 scripts/filter_stats.py
 
 dedup:
-	python3 scripts/remove_duplicates.py 
+	python3 scripts/remove_duplicates.py
+
+# Target to install dependencies
+install-deps:
+	python3 -m pip install -r requirements.txt
+
+# Target to generate the plot, depends on dependencies being installed
+plot-stats: install-deps
+	python3 scripts/plot_filter_stats.py 

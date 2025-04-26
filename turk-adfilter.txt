@@ -80,3 +80,7 @@
 ||metrics.egencia.com.tr^
 ||metrics.similac.com.tr^
 ||metrika.yandex.com.tr^
+||hellosmpl.com^
+||hepsiads-bff.hepsiburada.com^
+||hepsiads-gw.hepsiburada.com^
+||hepsiads-ui.hepsiburada.com^
