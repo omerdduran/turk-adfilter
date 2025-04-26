@@ -24,6 +24,22 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Remove duplicate domains
+        run: |
+          python scripts/remove_duplicates.py
+
+      - name: Lint filter (check format, duplicates, invalid chars)
+        run: |
+          python scripts/filter_lint.py
+
+      - name: Domain check (optional, devam etsin)
+        run: |
+          python scripts/domain_check.py || true
+
+      - name: Filter stats (bilgilendirme amaçlı)
+        run: |
+          python scripts/filter_stats.py
+
       - name: Get latest tag
         id: get_tag
         run: |
@@ -31,30 +47,35 @@ jobs:
           latest_tag=$(git describe --tags --abbrev=0 || echo "0.0.0")
           echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
 
-      - name: Bump version (patch)
-        id: bump_version
+      - name: Determine bump type from PR title
+        id: bump_type
         run: |
-          old_version=${{ steps.get_tag.outputs.latest_tag }}
-          IFS='.' read -r major minor patch <<< "$old_version"
-          if [ -z "$major" ]; then major=0; fi
-          if [ -z "$minor" ]; then minor=0; fi
-          if [ -z "$patch" ]; then patch=0; fi
-          new_version="$major.$minor.$((patch+1))"
-          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if echo "$PR_TITLE" | grep -iq '\[bump:major\]'; then
+            echo "type=major" >> $GITHUB_OUTPUT
+          elif echo "$PR_TITLE" | grep -iq '\[bump:minor\]'; then
+            echo "type=minor" >> $GITHUB_OUTPUT
+          elif echo "$PR_TITLE" | grep -iq '\[bump:patch\]'; then
+            echo "type=patch" >> $GITHUB_OUTPUT
+          else
+            echo "type=patch" >> $GITHUB_OUTPUT
+          fi
 
       - name: Update version in filter list
         run: |
-          python scripts/bump_version.py ${{ steps.bump_version.outputs.new_version }}
+          python scripts/bump_version.py ${{ steps.bump_type.outputs.type }}
 
       - name: Commit and push version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add turk-adfilter.txt
-          git commit -m "chore(release): bump version to ${{ steps.bump_version.outputs.new_version }} [skip ci]" || echo "No changes to commit"
+          git commit -m "chore(release): bump ${{ steps.bump_type.outputs.type }} version [skip ci]" || echo "No changes to commit"
           git push
 
       - name: Create tag
         run: |
-          git tag ${{ steps.bump_version.outputs.new_version }}
-          git push origin ${{ steps.bump_version.outputs.new_version }}
+          # Get new version from turk-adfilter.txt
+          VERSION=$(grep '^! Version:' turk-adfilter.txt | head -n1 | awk '{print $3}')
+          git tag $VERSION
+          git push origin $VERSION

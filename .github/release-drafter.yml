@@ -35,3 +35,8 @@ template: |
 
   $CHANGES
 
+  ---
+  ## 🧪 Otomatik Kalite Kontrolleri / QA Outputs
+
+  $APPENDEDBODY
+
