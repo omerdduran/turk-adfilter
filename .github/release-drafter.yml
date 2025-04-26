@@ -18,7 +18,18 @@ categories:
       - 'perf'
       - 'test'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+no-changes-template: 'Bu sürümde değişiklik yok. / No changes in this release.'
 template: |
-  ## Değişiklikler / Changes
+  # 📦 Sürüm: v$RESOLVED_VERSION
+  > Yayın tarihi: $DATE  
+  > Önceki sürüm: $PREVIOUS_TAG
 
-  $CHANGES 
+  ## 📝 Değişiklikler / Changes
+
+  $CHANGES
+
+  ---
+
+  ## 👥 Katkıda Bulunanlar / Contributors
+
+  $CONTRIBUTORS 
