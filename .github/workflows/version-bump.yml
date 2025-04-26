@@ -24,6 +24,22 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Remove duplicate domains
+        run: |
+          python scripts/remove_duplicates.py
+
+      - name: Lint filter (check format, duplicates, invalid chars)
+        run: |
+          python scripts/filter_lint.py
+
+      - name: Domain check (optional, devam etsin)
+        run: |
+          python scripts/domain_check.py || true
+
+      - name: Filter stats (bilgilendirme amaçlı)
+        run: |
+          python scripts/filter_stats.py
+
       - name: Get latest tag
         id: get_tag
         run: |
