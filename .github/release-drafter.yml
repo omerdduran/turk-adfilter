@@ -1,0 +1,24 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Özellikler / Features'
+    labels:
+      - 'feat'
+      - 'feature'
+      - 'enhancement'
+  - title: '🐛 Hata Düzeltmeleri / Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bug'
+  - title: '🧰 Bakım / Maintenance'
+    labels:
+      - 'chore'
+      - 'refactor'
+      - 'style'
+      - 'perf'
+      - 'test'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+template: |
+  ## Değişiklikler / Changes
+
+  $CHANGES 
