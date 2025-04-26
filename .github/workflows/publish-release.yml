@@ -10,8 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run filter lint
+        run: |
+          python scripts/filter_lint.py > lint_output.txt
+      - name: Run domain check
+        run: |
+          python scripts/domain_check.py > domain_check_output.txt
+      - name: Run filter stats
+        run: |
+          python scripts/filter_stats.py > stats_output.txt
+      - name: Combine QA outputs
+        run: |
+          echo '### Filter Lint\n' > release_qa.txt
+          cat lint_output.txt >> release_qa.txt
+          echo '\n### Domain Check\n' >> release_qa.txt
+          cat domain_check_output.txt >> release_qa.txt
+          echo '\n### Filter Stats\n' >> release_qa.txt
+          cat stats_output.txt >> release_qa.txt
       - uses: release-drafter/release-drafter@v6.1.0
         with:
           publish: true
+          append-body-from-file: release_qa.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
