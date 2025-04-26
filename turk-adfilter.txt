@@ -76,3 +76,7 @@
 ||appsflyer.com^
 ||ariyayin.com^
 ||artemisaffiliates.com^
+||metrica.yandex.com.tr^
+||metrics.egencia.com.tr^
+||metrics.similac.com.tr^
+||metrika.yandex.com.tr^
