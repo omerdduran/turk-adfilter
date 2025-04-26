@@ -108,6 +108,16 @@ jobs:
           echo '\\n### Filter Stats\\n' >> release_qa.txt
           cat stats_output.txt >> release_qa.txt
 
+      - name: Publish Release using Release Drafter
+        id: publish_release
+        uses: release-drafter/release-drafter@v6.1.0
+        with:
+          publish: true
+          tag: ${{ steps.create_tag.outputs.version }}
+          append-body-from-file: release_qa.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload release assets
         env:
           GH_TOKEN: ${{ github.token }}
@@ -116,21 +126,16 @@ jobs:
           VERSION=${{ steps.create_tag.outputs.version }}
           gh release upload $VERSION tld_distribution.png active_inactive_distribution.png
 
-      - name: Append images to QA outputs
+      - name: Add image links to Release Notes
         env:
           GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           # Get new version from the output of the create_tag step
           VERSION=${{ steps.create_tag.outputs.version }}
-          echo "\\n### Generated Plots\\n" >> release_qa.txt
-          echo "<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/tld_distribution.png' alt='TLD Distribution' width='600'/>" >> release_qa.txt
-          echo "<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/active_inactive_distribution.png' alt='Active/Inactive Distribution' width='600'/>" >> release_qa.txt
-
-      - name: Publish Release using Release Drafter
-        uses: release-drafter/release-drafter@v6.1.0
-        with:
-          publish: true
-          tag: ${{ steps.create_tag.outputs.version }}
-          append-body-from-file: release_qa.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Prepare image links in markdown
+          IMAGE_NOTES="\\n### Generated Plots\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/tld_distribution.png' alt='TLD Distribution' width='600'/>\\n<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/active_inactive_distribution.png' alt='Active/Inactive Distribution' width='600'/>"
+          # Append image links to existing release notes
+          gh release view $VERSION --json body --jq .body > current_notes.txt
+          echo -e "$IMAGE_NOTES" >> current_notes.txt
+          gh release edit $VERSION --notes-file current_notes.txt
