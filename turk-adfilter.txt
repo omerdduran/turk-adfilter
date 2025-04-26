@@ -91,3 +91,4 @@
 ||clickmerkez.com^
 ||clicks.hurriyet.com.tr^
 ||cookiebar.eticaret.com^
+||numarapaneli.com^
