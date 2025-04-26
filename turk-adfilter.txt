@@ -90,3 +90,4 @@
 ||clck.yandex.com.tr^
 ||clickmerkez.com^
 ||clicks.hurriyet.com.tr^
+||cookiebar.eticaret.com^
