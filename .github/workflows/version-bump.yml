@@ -1,41 +1,60 @@
 name: Version Bump & Release
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - main
 
 jobs:
   version-bump:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Automated Version Bump
-        id: version_bump
-        uses: phips28/gh-action-bump-version@v11.0.7
-        with:
-          tag-prefix: ""
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          git fetch --tags
+          latest_tag=$(git describe --tags --abbrev=0 || echo "0.0.0")
+          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
+
+      - name: Bump version (patch)
+        id: bump_version
+        run: |
+          old_version=${{ steps.get_tag.outputs.latest_tag }}
+          IFS='.' read -r major minor patch <<< "$old_version"
+          if [ -z "$major" ]; then major=0; fi
+          if [ -z "$minor" ]; then minor=0; fi
+          if [ -z "$patch" ]; then patch=0; fi
+          new_version="$major.$minor.$((patch+1))"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
       - name: Update version in filter list
         run: |
-          python scripts/bump_version.py ${{ steps.version_bump.outputs.newTag }}
+          python scripts/bump_version.py ${{ steps.bump_version.outputs.new_version }}
 
-      - name: Commit and push version bump to filter list
+      - name: Commit and push version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add turk-adfilter.txt
-          git commit -m "chore(release): update filter list version to ${{ steps.version_bump.outputs.newTag }} [skip ci]" || echo "No changes to commit"
+          git commit -m "chore(release): bump version to ${{ steps.bump_version.outputs.new_version }} [skip ci]" || echo "No changes to commit"
           git push
+
+      - name: Create tag
+        run: |
+          git tag ${{ steps.bump_version.outputs.new_version }}
+          git push origin ${{ steps.bump_version.outputs.new_version }}
 
       - name: Trigger Release Drafter
         uses: release-drafter/release-drafter@v6.1.0
