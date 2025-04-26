@@ -17,19 +17,21 @@ categories:
       - 'style'
       - 'perf'
       - 'test'
+      - 'chore(ci)'
+      - 'chore(deps)'
+      - 'chore(release)'
+      - 'chore(*)'
+  - title: '📚 Dokümantasyon / Documentation'
+    labels:
+      - 'docs'
+      - 'documentation'
+      - 'readme'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 no-changes-template: 'Bu sürümde değişiklik yok. / No changes in this release.'
 template: |
-  # 📦 Sürüm: v$RESOLVED_VERSION
-  > Yayın tarihi: $DATE  
   > Önceki sürüm: $PREVIOUS_TAG
 
   ## 📝 Değişiklikler / Changes
 
   $CHANGES
 
-  ---
-
-  ## 👥 Katkıda Bulunanlar / Contributors
-
-  $CONTRIBUTORS 
