@@ -84,3 +84,9 @@
 ||hepsiads-bff.hepsiburada.com^
 ||hepsiads-gw.hepsiburada.com^
 ||hepsiads-ui.hepsiburada.com^
+||chartbeat.com^
+||cinerreklam.com.tr^
+||citireklam.com^
+||clck.yandex.com.tr^
+||clickmerkez.com^
+||clicks.hurriyet.com.tr^
