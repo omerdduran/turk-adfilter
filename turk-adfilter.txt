@@ -3,7 +3,7 @@
 ! Description: Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. NextDNS, AdGuard, uBlock Origin ve benzeri servislerde kullanılabilir.
 ! This is a community-driven blocklist to block Turkish ad, tracker, and malicious content providers. Usable with NextDNS, AdGuard, uBlock Origin, etc.
 !
-! Version: 0.1.2 – 26.04.2025
+! Version: 0.2.0 – 26.04.2025
 ! Maintainer: github.com/omerdduran
 !
 ! ---------------------------------------------------------
