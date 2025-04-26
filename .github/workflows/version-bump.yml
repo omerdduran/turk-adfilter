@@ -1,0 +1,43 @@
+name: Version Bump & Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  version-bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Automated Version Bump
+        id: version_bump
+        uses: phips28/gh-action-bump-version@v11.0.7
+        with:
+          tag-prefix: ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Update version in filter list
+        run: |
+          python scripts/bump_version.py ${{ steps.version_bump.outputs.newTag }}
+
+      - name: Commit and push version bump to filter list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add turk-adfilter.txt
+          git commit -m "chore(release): update filter list version to ${{ steps.version_bump.outputs.newTag }} [skip ci]" || echo "No changes to commit"
+          git push
+
+      - name: Trigger Release Drafter
+        uses: release-drafter/release-drafter@v6.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
