@@ -19,5 +19,5 @@ install-deps:
 	python3 -m pip install -r requirements.txt
 
 # Target to generate the plot, depends on dependencies being installed
-plot-stats: install-deps
+stats: install-deps
 	python3 scripts/plot_filter_stats.py 

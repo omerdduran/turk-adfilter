@@ -74,8 +74,63 @@ jobs:
           git push
 
       - name: Create tag
+        id: create_tag
         run: |
           # Get new version from turk-adfilter.txt
           VERSION=$(grep '^! Version:' turk-adfilter.txt | head -n1 | awk '{print $3}')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
           git tag $VERSION
           git push origin $VERSION
+
+      - name: Install matplotlib for plotting
+        run: pip install matplotlib
+
+      - name: Run filter lint (for release notes)
+        run: |
+          python scripts/filter_lint.py > lint_output.txt
+      - name: Run domain check (for release notes)
+        run: |
+          python scripts/domain_check.py > domain_check_output.txt
+      - name: Run filter stats (for release notes)
+        run: |
+          python scripts/filter_stats.py > stats_output.txt
+
+      - name: Generate plot images
+        run: |
+          python scripts/plot_filter_stats.py
+
+      - name: Combine QA outputs
+        run: |
+          echo '### Filter Lint\\n' > release_qa.txt
+          cat lint_output.txt >> release_qa.txt
+          echo '\\n### Domain Check\\n' >> release_qa.txt
+          cat domain_check_output.txt >> release_qa.txt
+          echo '\\n### Filter Stats\\n' >> release_qa.txt
+          cat stats_output.txt >> release_qa.txt
+
+      - name: Upload release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get new version from the output of the create_tag step
+          VERSION=${{ steps.create_tag.outputs.version }}
+          gh release upload $VERSION tld_distribution.png active_inactive_distribution.png
+
+      - name: Append images to QA outputs
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # Get new version from the output of the create_tag step
+          VERSION=${{ steps.create_tag.outputs.version }}
+          echo "\\n### Generated Plots\\n" >> release_qa.txt
+          echo "<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/tld_distribution.png' alt='TLD Distribution' width='600'/>" >> release_qa.txt
+          echo "<img src='https://github.com/${GH_REPO}/releases/download/${VERSION}/active_inactive_distribution.png' alt='Active/Inactive Distribution' width='600'/>" >> release_qa.txt
+
+      - name: Publish Release using Release Drafter
+        uses: release-drafter/release-drafter@v6.1.0
+        with:
+          publish: true
+          tag: ${{ steps.create_tag.outputs.version }}
+          append-body-from-file: release_qa.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
