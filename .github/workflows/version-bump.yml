@@ -74,6 +74,28 @@ jobs:
           git commit -m "chore(release): bump ${{ steps.bump_type.outputs.type }} version [skip ci]" || echo "No changes to commit"
           git push
 
+      - name: Generate hosts.txt
+        run: |
+          # Use the script that also handles version bumping (it will read the new version)
+          # Assuming the script name is update_version_and_extract_domains as per previous context
+          python scripts/generate_hosts.py 
+          # Note: The script already updates the version in turk-adfilter.txt. 
+          # This might be redundant if bump_version.py already did it.
+          # Consider consolidating version logic if necessary. For now, assume generate_hosts.py is correct.
+
+      - name: Commit and push hosts.txt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Check if hosts.txt exists and has changed
+          if [[ -f hosts.txt ]] && git diff --quiet hosts.txt; then
+            echo "No changes in hosts.txt to commit."
+          else
+            git add hosts.txt
+            git commit -m "chore: generate hosts.txt [skip ci]"
+            git push
+          fi
+
       - name: Create tag
         id: create_tag
         run: |
