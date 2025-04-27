@@ -2112,14 +2112,12 @@ itemci.com#$#body { background: none !important; }
 /reklam-$image,script,domain=~donanimhaber.com|~mediacat.com
 /reklamresimleri/*
 /728x90reklam.
-.cfd/banner/
 /kral*/bet.js|$~third-party
 /spor*/bet.js|$~third-party
 /72890tipo.html
 /grandpasha.$image
 /video_onu_yeni.php?$~third-party,subdocument
 /_video_onu_yeni.php?$~third-party,subdocument
-.com/rek/
 /wp-content/uploads/*/hareketli.gif
 /thumb.php?src=*/images/banner/*
 /melbet728.gif
@@ -2153,11 +2151,6 @@ itemci.com#$#body { background: none !important; }
 /numarakayan.js
 /albet.
 ^wp-content/uploads*/betpas
-.com/bannerlar/
-.tr/ads/
-.tr/AdServer/
-.tr/images/banners/$domain=~akyatirim.com.tr
-/_js/adnet_
 /adaff.
 /adaff/*
 /adnet_async.
