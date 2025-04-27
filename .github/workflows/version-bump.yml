@@ -33,9 +33,9 @@ jobs:
         run: |
           python scripts/filter_lint.py
 
-      - name: Domain check (optional, devam etsin)
-        run: |
-          python scripts/domain_check.py || true
+      # - name: Domain check (optional, devam etsin)
+      #   run: |
+      #     python scripts/domain_check.py || true
 
       - name: Filter stats (bilgilendirme amaçlı)
         run: |
