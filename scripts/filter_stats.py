@@ -32,7 +32,13 @@ def main():
     print(f"Aktif domain: {active}")
     print(f"Pasif domain: {total - active}")
     # Kategoriye göre istatistik (örnek: domain uzantısı)
-    tlds = [d.split('.')[-1] for d in domains]
+    tlds = []
+    for d in domains:
+        hostname = d.split('/')[0] # example.com/path -> example.com
+        parts = hostname.split('.')
+        if len(parts) > 1: # Gerçek bir TLD olduğundan emin ol
+            tlds.append(parts[-1])
+
     tld_counts = Counter(tlds)
     print("\nUzantıya göre dağılım:")
     for tld, count in tld_counts.most_common():
