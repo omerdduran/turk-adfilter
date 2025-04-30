@@ -33,7 +33,7 @@
 
 [![Katkı Sağlayanlar](https://contrib.rocks/image?repo=omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=omerdduran/turk-adfilter&type=Timeline)](https://star-history.com/#fomerdduran/turk-adfilter)
+[![Star History Chart](https://api.star-history.com/svg?repos=omerdduran/turk-adfilter&type=Timeline)](https://star-history.com/#omerdduran/turk-adfilter)
 
 ## Lisans
 
