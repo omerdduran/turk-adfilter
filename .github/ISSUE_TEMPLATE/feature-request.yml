@@ -1,0 +1,18 @@
+name: 🌟 Feature Request
+description: Yeni bir filtre veya geliştirme önerisi.
+title: "[Feature Request] ..."
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Öneriniz nedir?
+      description: Ne eklenmesini/geliştirilmesini istiyorsunuz? Neden önemli?
+    validations:
+      required: true
+  - type: textarea
+    id: benefit
+    attributes:
+      label: Bu öneri ne fayda sağlayacak?
+    validations:
+      required: false
