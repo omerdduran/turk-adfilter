@@ -12,9 +12,10 @@ Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını enge
 
 ## Katkı
 
-- Yeni bir domain eklemek veya hata bildirmek için GitHub Issues veya Pull Request açabilirsiniz.
+- Yeni bir domain eklemek veya hata bildirmek için [GitHub Issues](https://github.com/omerdduran/turk-adfilter/issues) oluşturabilir veya projeye katkı sağlamak için [Pull Request](https://github.com/omerdduran/turk-adfilter/pulls) açabilirsiniz.
+
 - Sadece Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcıları eklenmelidir.
 
 ## Lisans
 
-MIT
+Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) altında lisansıdır. Lisans kuralları dahilinde istenildiği gibi kullanılabilir.
