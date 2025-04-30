@@ -1,0 +1,26 @@
+name: 📢 Missed Ad
+description: Kaçırılmış bir reklamı bildirin.
+title: "[Missed Ad] ..."
+labels: ["missed-ad", "triage"]
+body:
+  - type: input
+    id: domain
+    attributes:
+      label: Reklamın göründüğü domain
+      placeholder: örn. example.com
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Reklam nerede görünüyor?
+      description: Reklamın sayfa üzerindeki konumunu, ekran görüntüsü varsa bağlantısını paylaşın.
+    validations:
+      required: false
+  - type: textarea
+    id: filters
+    attributes:
+      label: Kullandığınız filtre listeleri
+      placeholder: örn. EasyList, uBlock filters, kendi listemiz
+    validations:
+      required: true

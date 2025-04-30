@@ -1,0 +1,42 @@
+name: 🐞 Genel Hata Bildirimi
+description: Diğer hata türleri için genel bir şablon
+title: "[Bug] ..."
+labels: ["bug", "triage"]
+body:
+  - type: input
+    id: domain
+    attributes:
+      label: Hangi sitede hata oluştu?
+      placeholder: örn. example.com (veya etkilenen sistem/uzantı)
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Hatanın açıklaması
+      description: Karşılaştığınız davranışı ve beklenen sonucu detaylı şekilde açıklayın.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Hata nasıl tekrarlanabilir?
+      description: Adım adım nasıl karşılaştığınızı belirtin. Gerekirse ekran görüntüsü veya bağlantı ekleyin.
+    validations:
+      required: false
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Hangi ortamda test ettiniz?
+      options:
+        - label: uBlock Origin
+        - label: NextDNS
+        - label: Diğer DNS (belirtin)
+        - label: Diğer tarayıcı eklentisi (belirtin)
+  - type: textarea
+    id: filters
+    attributes:
+      label: Aktif filtre listeleri
+      placeholder: örn. EasyList, uBlock filters, TR özel filtreler, vs.
+    validations:
+      required: true

@@ -1,0 +1,27 @@
+name: 🚫 False Positive
+description: Bir sitenin yanlışlıkla engellenmesiyle ilgili bir bildirim.
+title: "[False Positive] Engellenmemesi gereken site"
+labels: ["false-positive", "triage"]
+body:
+  - type: input
+    id: domain
+    attributes:
+      label: Hangi domain yanlışlıkla engelleniyor?
+      placeholder: örn. example.com
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Detaylar
+      description: Neden bu sitenin engellenmemesi gerektiğini açıklayın. İçeriği güvenli mi, reklam içermiyor mu?
+    validations:
+      required: true
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Ortam Bilgisi
+      options:
+        - label: NextDNS
+        - label: uBlock Origin
+        - label: Diğer (lütfen belirtin)
