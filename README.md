@@ -3,18 +3,17 @@
 <div align="center">
 
 [![License: GNU 3.0](https://img.shields.io/badge/License-GNU%203.0-orange.svg)](https://opensource.org/license/gpl-3-0)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![Last Commit](https://img.shields.io/github/last-commit/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/commits/main)
 [![Open Issues](https://img.shields.io/github/issues/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/issues)
 [![Open PRs](https://img.shields.io/github/issues-pr/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/pulls)
 [![Stars](https://img.shields.io/github/stars/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/stargazers)
 [![Forks](https://img.shields.io/github/forks/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/network/members)  
-[![Adblock Syntax](https://img.shields.io/badge/syntax-Adblock%20compatible-blue)](#)
+[![Adblock](https://img.shields.io/badge/syntax-Adblock%20Compatible-brightgreen)](#)
 [![uBlock Origin](https://img.shields.io/badge/uBlock%20Origin-supported-brightgreen)](https://github.com/gorhill/uBlock)
-[![NextDNS](https://img.shields.io/badge/NextDNS-ready-blueviolet)](https://nextdns.io)
+[![NextDNS](https://img.shields.io/badge/NextDNS-supported-brightgreen)](https://nextdns.io)
 
 </div>
-
-
 
 <p align="center">Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. NextDNS, AdGuard, uBlock Origin ve benzeri servislerle uyumlu şekilde çalışır.</p>
 
@@ -32,6 +31,12 @@
 
 - Sadece Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcıları eklenmelidir.
 
+[![Katkı Sağlayanlar](https://contrib.rocks/image?repo=omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=omerdduran/turk-adfilter&type=Timeline)](https://star-history.com/#fomerdduran/turk-adfilter)
+
 ## Lisans
 
 Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) altında lisansıdır. Lisans kuralları dahilinde istenildiği gibi kullanılabilir.
+
+
