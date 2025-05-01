@@ -45,6 +45,6 @@
 
 ## Lisans
 
-Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) altında lisansıdır. Lisans kuralları dahilinde istenildiği gibi kullanılabilir.
+Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) altında lisansıdır. Lisans kuralları dahilinde istenildiği gibi kullanılabilir. Lisansın Türkçe versiyonuna [buradan](GPL-3.0-TR) ulaşabilirsiniz.
 
 
