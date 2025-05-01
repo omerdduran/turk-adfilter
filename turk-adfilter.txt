@@ -6530,3 +6530,5 @@ www.sondakika.com##.show.notification-popup
 www.sondakika.com##.vl-notif-inner
 www.iskur.gov.tr##.show.cookiealert.text-center.alert
 www.ptt.gov.tr##.styles_cookieBanner__IP9dl
+www.ziraatbank.com.tr##.noindex.cookie-box
+www.vakifbank.com.tr##.kisisel-message
