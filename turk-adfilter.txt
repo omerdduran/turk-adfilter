@@ -6511,3 +6511,31 @@ festtravel.com#@##top-banner
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=beinsports.com
 tvtime.com,tvshowtime.com#@##top-banner
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=videonuz.ensonhaber.com
+www.sozcu.com.tr##.border-4.border-primary.border-top.cookie-message-content.align-items-start.d-flex.bg-dark.p-3
+www.sozcu.com.tr##.ym-video-sticky-close__top-left-side.ym-video-sticky-close__square.ym-video-sticky-close__lg.ym-video-sticky-close > div
+www.sozcu.com.tr##.ym-video--player-container
+www.donanimhaber.com##.cookie-kutu
+www.trthaber.com##.cookie-policy-container
+www.gazeteduvar.com.tr##.privacy-banner
+www.odatv.com##.privacy-banner
+www.haberturk.com##.dark\:text-gray-100.dark\:bg-gray-800.bg-yellow-special.shadow-xl.text-xs.p-5.bottom-14.z-100.fixed.min-w-xs.max-w-xs
+www.ensonhaber.com##.cookiepolicy-banner
+www.haber7.com##.cookie-message
+www.ntv.com.tr##.bar--cookie-bar.bar
+www.sondakika.com###cconsent-bar
+www.internethaber.com##.privacy-banner
+www.haberler.com###cconsent-bar
+www.haberler.com##.show.notification-popup
+www.sondakika.com##.show.notification-popup
+www.sondakika.com##.vl-notif-inner
+www.iskur.gov.tr##.show.cookiealert.text-center.alert
+www.ptt.gov.tr##.styles_cookieBanner__IP9dl
+www.ziraatbank.com.tr##.noindex.cookie-box
+www.vakifbank.com.tr##.kisisel-message
+www.sinemalar.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
+www.doviz.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
+uye.memurlar.net###PersonalDataInfoBar > div
+www.memurlar.net###PersonalDataInfoBar > div
+www.eleman.net##.is-open.js-modal-mobile.c-modal
+www.nowtv.com.tr##.consent-banner
+www.nowtv.com.tr##.gospock-banner-widget-center-right-aligned.gospock-banner
