@@ -1,3 +1,11 @@
+<p align="center">
+    <a href="https://reklamsiz-turkiye.com">
+        <img src="https://github.com/omerdduran/turk-adfilter/blob/main/assets/logo.png?raw=true" alt="logo" width="200">
+    </a>
+</p>
+
+
+
 <h1 align="center">🇹🇷 Turk-AdFilter – Turkish Ad & Tracker Blocklist 🇹🇷</h1>
 
 <div align="center">
