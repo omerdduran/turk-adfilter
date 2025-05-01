@@ -6534,3 +6534,6 @@ www.ziraatbank.com.tr##.noindex.cookie-box
 www.vakifbank.com.tr##.kisisel-message
 www.sinemalar.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
 www.doviz.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
+uye.memurlar.net###PersonalDataInfoBar > div
+www.memurlar.net###PersonalDataInfoBar > div
+www.eleman.net##.is-open.js-modal-mobile.c-modal
