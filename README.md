@@ -48,3 +48,17 @@
 Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) altında lisansıdır. Lisans kuralları dahilinde istenildiği gibi kullanılabilir. Lisansın Türkçe versiyonuna [buradan](GPL-3.0-TR) ulaşabilirsiniz.
 
 
+---
+
+
+<h3 align="center" ><strong>İnterneti temiz tut!</strong></h3>
+
+
+---
+
+[![https://gafam.info](https://ptrace.gafam.info/unofficial/img/color/lqdn-gafam-poster-tr-color-5x1-2560x.png)](https://gafam.info)
+
+---
+
+
+
