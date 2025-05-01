@@ -6537,3 +6537,5 @@ www.doviz.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
 uye.memurlar.net###PersonalDataInfoBar > div
 www.memurlar.net###PersonalDataInfoBar > div
 www.eleman.net##.is-open.js-modal-mobile.c-modal
+www.nowtv.com.tr##.consent-banner
+www.nowtv.com.tr##.gospock-banner-widget-center-right-aligned.gospock-banner
