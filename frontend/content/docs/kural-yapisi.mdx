@@ -1,0 +1,143 @@
+---
+title: Kural Yapısı
+description: Turk-AdFilter'da kullanılan filtreleme kurallarının sözdizimi
+---
+
+# Filtreleme Kuralları Yapısı
+
+Turk-AdFilter, Adblock Plus sözdizimini kullanır. Bu rehber, kuralların nasıl çalıştığını ve nasıl oluşturulduğunu açıklar.
+
+## Temel Kural Yapısı
+
+### Domain Engelleme Kuralları
+
+En temel kural biçimi, tam bir domaini engellemek için kullanılır:
+
+```
+||example.com^
+```
+
+Burada:
+- `||` = Domain işaretleyicisi (protokol kısmını belirtmeye gerek yoktur)
+- `example.com` = Engellenecek domain adı
+- `^` = Adres çubuğundaki domain adresiyle tam eşleşmeyi sağlar
+
+### Düzenli İfadelerle Filtreleme
+
+Daha karmaşık desenler için düzenli ifadeler kullanılabilir:
+
+```
+/banner\d+\.gif/
+```
+
+Bu kural, "banner" kelimesi + bir veya daha fazla rakam + ".gif" ile biten URL'leri engeller.
+
+### Başlangıç ve Bitiş Karakterleri
+
+- `|` = Adresin başlangıcını veya sonunu belirtir
+- `|https://example.com` = Sadece "https://example.com" ile başlayan adresleri engeller
+- `banner.gif|` = Sadece "banner.gif" ile biten adresleri engeller
+
+## Gelişmiş Seçiciler
+
+### Element Gizleme Kuralları
+
+CSS seçicilerini kullanarak sayfadaki belirli elementleri gizleyebilirsiniz:
+
+```
+example.com##.ad-banner
+```
+
+Bu kural, example.com sitesindeki "ad-banner" sınıfına sahip tüm elementleri gizler.
+
+```
+##div[class*="rekl"]
+```
+
+Bu kural, class özelliği içinde "rekl" kelimesi geçen tüm div elementlerini gizler.
+
+### İstisna Kuralları
+
+Filtreleme kuralını geçersiz kılmak için kullanılır:
+
+```
+@@||example.com/content/*
+```
+
+Bu kural, example.com/content/ altındaki içeriklerin engellenmesini önler.
+
+## Özel Filtre Seçenekleri
+
+Kuralların davranışını değiştirmek için seçenekler eklenebilir:
+
+```
+||ads.example.com^$third-party
+```
+
+Bu kural, ads.example.com'u yalnızca üçüncü taraf olarak yüklendiğinde engeller.
+
+Yaygın kullanılan seçenekler:
+
+- `$third-party` = Sadece üçüncü taraf kaynaklarını engeller
+- `$domain=example.com` = Sadece belirtilen domainde çalışır
+- `$image` = Sadece resimleri engeller
+- `$script` = Sadece scriptleri engeller
+- `$popup` = Popup pencereleri engeller
+
+## Yorum Ekleme
+
+Filtreleme kurallarına yorum eklemek için:
+
+```
+! Bu bir yorum satırıdır
+|| example.com^ ! Bu domain reklam içeriyor
+```
+
+## Kural Örnekleri
+
+### Basit domain engelleme
+```
+||ads.example.com^
+```
+
+### Belirli bir URL desenini engelleme
+```
+||example.com/*/banner/*
+```
+
+### Belirli bir element türünü engelleme
+```
+||example.com^$script
+```
+
+### Belirli bir sitedeki elementi gizleme
+```
+example.com##.reklam-alani
+```
+
+### Belirli bir site hariç tüm sitelerde engelleme
+```
+||ads.com^$domain=~trusted-site.com
+```
+
+## Kuralların Test Edilmesi
+
+Oluşturduğunuz kuralları test etmek için:
+
+1. Kuralı reklam engelleyicinize ekleyin
+2. İlgili web sitesini ziyaret edin
+3. Reklamın/içeriğin engellenip engellenmediğini kontrol edin
+4. Sorun varsa kuralı düzenleyin ve tekrar test edin
+
+## En İyi Uygulamalar
+
+1. Mümkün olduğunca genel kurallardan kaçının, çünkü bunlar yanlış pozitiflere neden olabilir
+2. Her zaman en spesifik kuralı kullanmaya çalışın
+3. Kuralları test edin ve yanlış pozitiflere neden olup olmadığını kontrol edin
+4. Anlaşılması için kurallara yorum ekleyin
+
+## Daha Fazla Bilgi
+
+Adblock Plus filtre sözdizimi hakkında daha fazla bilgi için:
+- [Adblock Plus Filtre Cheat Sheet](https://adblockplus.org/filter-cheatsheet)
+- [uBlock Origin Wiki](https://github.com/gorhill/uBlock/wiki) 

@@ -1,17 +1,46 @@
 ---
-title: Components
-description: Components
+title: Reklam Testi
+description: Turk-AdFilter'ın çalışıp çalışmadığını test etme
 ---
 
-## Code Block
+# Reklam Engelleme Testi
 
-```js
-console.log('Hello World');
+Turk-AdFilter'ın doğru şekilde çalışıp çalışmadığını test etmek için aşağıdaki kaynakları kullanabilirsiniz.
+
+## Test Sitesi
+
+[Reklamsız Türkiye](https://reklamsiz-turkiye.com/test) test sayfamızı ziyaret ederek filtrelerin çalışıp çalışmadığını kontrol edebilirsiniz.
+
+## Komut Satırı Testi
+
+Aşağıdaki komutu kullanarak bir domain'in listede olup olmadığını kontrol edebilirsiniz:
+
+```bash
+grep "domain.com" turk-adfilter.txt
 ```
 
-## Cards
+## Türk Reklamlarının Engellenme Örneği
+
+<img src="/assets/ad-blocking-example.png" alt="Reklam Engelleme Örneği" width="800" />
+
+## PopülerTürk Sitelerinde Test
+
+Aşağıdaki popüler Türk web sitelerinde Turk-AdFilter'ın etkisini test edebilirsiniz:
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card title="Haber Siteleri Testi" href="/docs/test-haber" />
+  <Card title="Video Siteleri Testi" href="/docs/test-video" />
+  <Card title="E-Ticaret Siteleri Testi" href="/docs/test-eticaret" />
 </Cards>
+
+## Manuel Test Aşamaları
+
+1. Reklam engelleyicinizi geçici olarak devre dışı bırakın
+2. Bir Türk web sitesini ziyaret edin ve reklamları not edin
+3. Reklam engelleyicinizi etkinleştirin ve **sadece** Turk-AdFilter listesini ekleyin
+4. Aynı siteyi tekrar ziyaret edin ve reklamların engellenip engellenmediğini kontrol edin
+5. Eksik bir reklam varsa [GitHub Issues](https://github.com/omerdduran/turk-adfilter/issues) üzerinden bildirebilirsiniz
+
+## Katkıda Bulunun
+
+Eğer reklamların geçtiğini veya bazı web sitelerinde sorunlar yaşadığınızı fark ederseniz, lütfen [katkıda bulunma](/docs/katki) sayfamızı ziyaret edin ve bize bildirin.
