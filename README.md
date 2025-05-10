@@ -4,7 +4,6 @@
     </a>
 </p>
 
-<!--- English users: For a simple English summary, see [README.en.md](README.en.md) -->
 <p align="center"><b>🇬🇧 For English: <a href="README.en.md">See the English README</a></b></p>
 
 <h1 align="center">🇹🇷 Turk-AdFilter – Türkçe Reklam & İzleyici Engelleme Listesi 🇹🇷</h1>
@@ -20,6 +19,7 @@
 [![Forks](https://img.shields.io/github/forks/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/network/members)  
 [![Adblock](https://img.shields.io/badge/syntax-Adblock%20Compatible-brightgreen)](#)
 [![uBlock Origin](https://img.shields.io/badge/uBlock%20Origin-supported-brightgreen)](https://github.com/gorhill/uBlock)
+[![https://stand-with-ukraine.pp.ua/](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/refs/heads/main/badges/StandWithUkraineFlat.svg)](https://stand-with-ukraine.pp.ua/)
 
 </div>
 
