@@ -25,7 +25,7 @@ export default function HomePage() {
           </p>
           
           <p className="mb-10 max-w-2xl text-center text-gray-600 dark:text-gray-400">
-            Topluluk tabanlı filtre listemiz, NextDNS, AdGuard, uBlock Origin ve benzeri servislerle
+            Topluluk tabanlı filtre listemiz, Pi-hole, AdGuard, uBlock Origin ve benzeri servislerle
             uyumlu şekilde çalışarak Türk web sitelerindeki reklamları ve izleyicileri engeller.
           </p>
           
@@ -90,7 +90,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Geniş Uyumluluk</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                NextDNS, AdGuard, uBlock Origin ve diğer popüler araçlarla uyumlu.
+                Pi-hole, AdGuard, uBlock Origin ve diğer popüler araçlarla uyumlu.
               </p>
             </div>
           </div>
@@ -132,12 +132,12 @@ export default function HomePage() {
             </div>
             
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
-              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">NextDNS ile</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">Pi-hole ile</h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
-                <li>NextDNS hesabınıza giriş yapın</li>
-                <li>Yapılandırma bölümüne gidin</li>
-                <li>"Gizlilik" sekmesinde aşağıya inin</li>
-                <li>"Özel filtreleri" bulun ve ekleyin:</li>
+                <li>Pi-hole yönetim panelinize giriş yapın</li>
+                <li>"Group Management" &gt; "Adlists" sekmesine gidin</li>
+                <li>"Add a new adlist" kısmına aşağıdaki URL'yi ekleyin:</li>
+                <li>"Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın</li>
               </ol>
               <div className="mt-4 p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all">
                 https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
