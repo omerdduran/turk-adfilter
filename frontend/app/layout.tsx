@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Turk-AdFilter",
   description: 'Türkiye merkezli reklam ve izleyici engelleme listesi',
-  keywords: ['reklam engelleme', 'adblock', 'türkiye', 'ublock origin', 'adguard', 'nextdns'],
+  keywords: ['reklam engelleme', 'adblock', 'türkiye', 'ublock origin', 'adguard'],
   authors: [{ name: 'Ömer Duran' }],
   creator: 'Ömer Duran',
   publisher: 'Turk-AdFilter',
