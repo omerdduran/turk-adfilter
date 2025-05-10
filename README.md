@@ -30,14 +30,22 @@
 ## Hızlı Başlangıç
 
 - **Filtre Listesi RAW Linki:**
+  GitHub:
   ```
-  GitHub: https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
-  Codeberg: https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt
+  https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
+  ```
+  Codeberg:
+  ```
+  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt
   ```
 - **DNS tabanlı reklam engelleyiciler (ör. Pi-hole, AdGuard DNS) için:**
+  GitHub:
   ```
-  GitHub: https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
-  Codeberg: https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
+  https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
+  ```
+  Codeberg:
+  ```
+  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
   ```
 
 ## Kurulum (Özet)
