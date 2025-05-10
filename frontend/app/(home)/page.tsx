@@ -204,7 +204,16 @@ export default function HomePage() {
               className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500"
             >
               <Download size={20} className="mr-2" />
-              Pi-hole için Hosts Listesini İndir
+              DNS ve Pi-hole için Hosts Listesini İndir
+            </a>
+            <a
+              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-700 hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-blue-500"
+            >
+              <Download size={20} className="mr-2" />
+              AdBlocker'lar için RAW Listeyi İndir
             </a>
           </div>
         </div>
