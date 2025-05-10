@@ -117,7 +117,6 @@ export default function AboutPage() {
               </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li>GitHub Issues üzerinden iletişime geçebilirsiniz</li>
-                <li>Discord sunucumuza katılabilirsiniz</li>
                 <li>E-posta ile bize ulaşabilirsiniz</li>
               </ul>
             </div>

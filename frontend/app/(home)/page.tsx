@@ -1,5 +1,8 @@
+"use client";
+
 import Link from 'next/link';
-import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink } from 'lucide-react';
+import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function HomePage() {
   return (
@@ -113,9 +116,7 @@ export default function HomePage() {
                 <li>"İçe aktar" butonuna tıklayın</li>
                 <li>Aşağıdaki URL'yi yapıştırın:</li>
               </ol>
-              <div className="mt-4 p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all">
-                https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
-              </div>
+              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
             </div>
             
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
@@ -126,9 +127,7 @@ export default function HomePage() {
                 <li>"Özel filtre ekle" seçeneğini bulun</li>
                 <li>Aşağıdaki URL'yi ekleyin:</li>
               </ol>
-              <div className="mt-4 p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all">
-                https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
-              </div>
+              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
             </div>
             
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
@@ -139,9 +138,7 @@ export default function HomePage() {
                 <li>"Add a new adlist" kısmına aşağıdaki URL'yi ekleyin:</li>
                 <li>"Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın</li>
               </ol>
-              <div className="mt-4 p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all">
-                https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
-              </div>
+              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt" />
             </div>
           </div>
           
@@ -162,12 +159,13 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">10,000+</div>
-              <p className="text-gray-600 dark:text-gray-400">Engellenen Domain</p>
+              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">6,500+</div>
+              <p className="text-gray-600 dark:text-gray-400">Engellenen Domain ve Reklam</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">5,000+</div>
+              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">100+</div>
               <p className="text-gray-600 dark:text-gray-400">Aktif Kullanıcı</p>
+              <p className="text-sm text-gray-500 dark:text-gray-500">(Tahmini)</p>
             </div>
             <div>
               <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">%40</div>
@@ -251,6 +249,43 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function CopyableLink({ link }: { link: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(link);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (err) {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-2 mt-4">
+      <div
+        className="p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all overflow-x-auto whitespace-nowrap select-all w-full custom-scrollbar-x"
+        tabIndex={0}
+      >
+        {link}
+      </div>
+      <button
+        onClick={handleCopy}
+        className="ml-1 p-2 bg-transparent hover:bg-gray-200 dark:hover:bg-[#222] rounded transition focus:outline-none focus:ring-2 focus:ring-red-400"
+        type="button"
+        aria-label="Kopyala"
+      >
+        <span className="sr-only">Kopyala</span>
+        <Copy size={18} className={copied ? 'text-green-500' : 'text-gray-500'} />
+        <span className="absolute opacity-0 pointer-events-none group-hover:opacity-100 group-focus:opacity-100 bg-gray-800 text-white text-xs rounded px-2 py-1 -mt-10 left-1/2 -translate-x-1/2 transition-opacity duration-200">
+          {copied ? 'Kopyalandı!' : 'Kopyala'}
+        </span>
+      </button>
     </div>
   );
 }
