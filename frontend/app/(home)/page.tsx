@@ -140,7 +140,7 @@ export default function HomePage() {
                 <li>"Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın</li>
               </ol>
               <div className="mt-4 p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all">
-                https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
+                https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
               </div>
             </div>
           </div>
@@ -200,13 +200,13 @@ export default function HomePage() {
             </a>
             
             <a
-              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt"
+              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500"
             >
               <Download size={20} className="mr-2" />
-              Filtre Listesini İndir
+              Pi-hole için Hosts Listesini İndir
             </a>
           </div>
         </div>
