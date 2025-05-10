@@ -5,6 +5,7 @@
 ## Quick Start
 
 - **Filter List RAW Link:**
+  
   GitHub:
   ```
   https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
@@ -14,6 +15,7 @@
   https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt
   ```
 - **For DNS-based blockers (e.g., Pi-hole, AdGuard DNS):**
+- 
   GitHub:
   ```
   https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
