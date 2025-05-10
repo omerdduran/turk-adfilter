@@ -112,12 +112,9 @@ export default function AboutPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-foreground">İletişim</h2>
             <div className="bg-card p-6 rounded-lg shadow-sm border">
-              <p className="text-muted-foreground mb-4">
-                Sorularınız, önerileriniz veya geri bildirimleriniz için:
-              </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li>GitHub Issues üzerinden iletişime geçebilirsiniz</li>
-                <li>E-posta ile bize ulaşabilirsiniz</li>
+                <li>E-posta ile iletişime geçebilirsiniz: <a href="mailto:hi@omerduran.dev" className="text-red-600 dark:text-red-400 hover:underline">hi@omerduran.dev</a></li>
               </ul>
             </div>
           </section>

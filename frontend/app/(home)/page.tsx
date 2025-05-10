@@ -107,8 +107,8 @@ export default function HomePage() {
             Nasıl Kullanılır
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 min-w-0">
+            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
               <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">uBlock Origin ile</h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>uBlock Origin ayarlarını açın</li>
@@ -119,7 +119,7 @@ export default function HomePage() {
               <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
             </div>
             
-            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
+            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
               <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">AdGuard ile</h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>AdGuard ayarlarını açın</li>
@@ -130,7 +130,7 @@ export default function HomePage() {
               <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
             </div>
             
-            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow">
+            <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
               <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">Pi-hole ile</h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>Pi-hole yönetim panelinize giriş yapın</li>
@@ -210,7 +210,7 @@ export default function HomePage() {
               href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-700 hover:bg-blue-800 dark:bg-blue-900 dark:hover:bg-blue-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-blue-500"
+              className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500"
             >
               <Download size={20} className="mr-2" />
               AdBlocker'lar için RAW Listeyi İndir
@@ -276,10 +276,11 @@ function CopyableLink({ link }: { link: string }) {
   };
 
   return (
-    <div className="flex items-center gap-2 mt-4">
+    <div className="flex items-center gap-2 mt-4 min-w-0">
       <div
-        className="p-3 bg-gray-100 dark:bg-[#121212] rounded text-sm font-mono text-gray-800 dark:text-gray-300 break-all overflow-x-auto whitespace-nowrap select-all w-full custom-scrollbar-x"
+        className="flex-1 min-w-0 max-w-full p-2 md:p-1 bg-gray-100 dark:bg-[#121212] rounded text-sm md:text-xs font-mono text-gray-800 dark:text-gray-300 break-all overflow-x-auto whitespace-nowrap select-all truncate custom-scrollbar-x"
         tabIndex={0}
+        title={link}
       >
         {link}
       </div>
