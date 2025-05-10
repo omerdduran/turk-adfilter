@@ -1,10 +1,23 @@
 "use client";
 
 import Link from 'next/link';
-import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy } from 'lucide-react';
+import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy, ChevronDown } from 'lucide-react';
 import React, { useState } from 'react';
 
+type SourceType = 'github' | 'codeberg';
+
 export default function HomePage() {
+  const [sharedListSource, setSharedListSource] = useState<SourceType>('github');
+
+  const filterListLinks = {
+    github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt",
+    codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt"
+  };
+  const hostsListLinks = {
+    github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt",
+    codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt"
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b ">
       {/* Hero Section */}
@@ -32,16 +45,36 @@ export default function HomePage() {
             uyumlu şekilde çalışarak Türk web sitelerindeki reklamları ve izleyicileri engeller.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a
-              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg flex items-center justify-center transition-all"
-            >
-              <Download size={20} className="mr-2" />
-              Filtre Listesini İndir
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
+            {/* Dropdown Button for Filter List */}
+            <div className="relative group">
+              <button
+                type="button"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg flex items-center justify-center transition-all w-full sm:w-auto"
+              >
+                <Download size={20} className="mr-2" />
+                Tarayıcılar için Reklam Filtresi
+                <ChevronDown size={20} className="ml-2" />
+              </button>
+              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+                <a
+                  href={filterListLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={filterListLinks.codeberg}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Codeberg
+                </a>
+              </div>
+            </div>
             <Link
               href="/docs"
               className="bg-white dark:bg-[#191919] text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 px-8 py-4 rounded-lg font-semibold shadow hover:shadow-md flex items-center justify-center transition-all"
@@ -114,9 +147,24 @@ export default function HomePage() {
                 <li>uBlock Origin ayarlarını açın</li>
                 <li>Filtre listeleri sekmesine gidin</li>
                 <li>"İçe aktar" butonuna tıklayın</li>
-                <li>Aşağıdaki URL'yi yapıştırın:</li>
+                <li>Aşağıdaki URL'lerden birini yapıştırın:</li>
               </ol>
-              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
+              <div className="flex items-center gap-2 text-sm mt-3 mb-2">
+                <span className="text-gray-600 dark:text-gray-400">Kaynak:</span>
+                <button
+                  onClick={() => setSharedListSource('github')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'github' ? 'bg-red-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  GitHub
+                </button>
+                <button
+                  onClick={() => setSharedListSource('codeberg')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'codeberg' ? 'bg-[#2D81C9] text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  Codeberg
+                </button>
+              </div>
+              <CopyableLink link={filterListLinks[sharedListSource]} />
             </div>
             
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
@@ -125,9 +173,24 @@ export default function HomePage() {
                 <li>AdGuard ayarlarını açın</li>
                 <li>Filtreler bölümüne gidin</li>
                 <li>"Özel filtre ekle" seçeneğini bulun</li>
-                <li>Aşağıdaki URL'yi ekleyin:</li>
+                <li>Aşağıdaki URL'lerden birini ekleyin:</li>
               </ol>
-              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt" />
+              <div className="flex items-center gap-2 text-sm mt-3 mb-2">
+                <span className="text-gray-600 dark:text-gray-400">Kaynak:</span>
+                <button
+                  onClick={() => setSharedListSource('github')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'github' ? 'bg-red-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  GitHub
+                </button>
+                <button
+                  onClick={() => setSharedListSource('codeberg')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'codeberg' ? 'bg-[#2D81C9] text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  Codeberg
+                </button>
+              </div>
+              <CopyableLink link={filterListLinks[sharedListSource]} />
             </div>
             
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
@@ -135,10 +198,25 @@ export default function HomePage() {
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>Pi-hole yönetim panelinize giriş yapın</li>
                 <li>"Group Management" &gt; "Adlists" sekmesine gidin</li>
-                <li>"Add a new adlist" kısmına aşağıdaki URL'yi ekleyin:</li>
+                <li>"Add a new adlist" kısmına aşağıdaki URL\'lerden birini ekleyin:</li>
                 <li>"Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın</li>
               </ol>
-              <CopyableLink link="https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt" />
+              <div className="flex items-center gap-2 text-sm mt-3 mb-2">
+                <span className="text-gray-600 dark:text-gray-400">Kaynak:</span>
+                <button
+                  onClick={() => setSharedListSource('github')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'github' ? 'bg-red-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  GitHub
+                </button>
+                <button
+                  onClick={() => setSharedListSource('codeberg')}
+                  className={`px-2 py-1 rounded text-xs font-medium ${sharedListSource === 'codeberg' ? 'bg-[#2D81C9] text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+                >
+                  Codeberg
+                </button>
+              </div>
+              <CopyableLink link={hostsListLinks[sharedListSource]} />
             </div>
           </div>
           
@@ -184,7 +262,7 @@ export default function HomePage() {
             Şimdi filtre listemizi ekleyin ve internette gezinirken rahatsız edici reklamlardan, izleyicilerden kurtulun.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap items-start">
             <a
               href="https://github.com/omerdduran/turk-adfilter"
               target="_blank"
@@ -197,24 +275,65 @@ export default function HomePage() {
               GitHub'da Katkıda Bulun
             </a>
             
-            <a
-              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500"
-            >
-              <Download size={20} className="mr-2" />
-              DNS ve Pi-hole için Hosts Listesini İndir
-            </a>
-            <a
-              href="https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500"
-            >
-              <Download size={20} className="mr-2" />
-              AdBlocker'lar için RAW Listeyi İndir
-            </a>
+            {/* Dropdown Button for Hosts List */}
+            <div className="relative group">
+              <button
+                type="button"
+                className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500 w-full sm:w-auto"
+              >
+                <Download size={20} className="mr-2" />
+                DNS Filtresi
+                <ChevronDown size={20} className="ml-2" />
+              </button>
+              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+                <a
+                  href={hostsListLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={hostsListLinks.codeberg}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Codeberg
+                </a>
+              </div>
+            </div>
+
+            {/* Dropdown Button for RAW Filter List */}
+            <div className="relative group">
+              <button
+                type="button"
+                className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500 w-full sm:w-auto"
+              >
+                <Download size={20} className="mr-2" />
+                Eklentiler için Filtre
+                <ChevronDown size={20} className="ml-2" />
+              </button>
+              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+                <a
+                  href={filterListLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={filterListLinks.codeberg}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Codeberg
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
