@@ -3,27 +3,137 @@ title: Turk-AdFilter Rehberi
 description: Türkiye merkezli reklam ve izleyici engelleme listesi hakkında bilgi
 ---
 
+import { Accordions, Accordion } from 'fumadocs-ui/components/accordion';
+import { Globe, RefreshCw, Shield, Github, HelpCircle, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
+
 # Turk-AdFilter Projesi
 
-Turk-AdFilter, Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. Bu liste NextDNS, AdGuard, uBlock Origin ve benzeri reklam engelleme servislerinde kullanılabilir.
+Turk-AdFilter <span className='text-fd-muted-foreground text-sm'>(Türk Reklam Filtresi)</span> is a **topluluk tabanlı filtre listesi** designed to be fast, flexible,
+and works seamlessly with popular ad blockers.
 
 ## Proje Hakkında
 
 Bu proje, Türkçe internet kullanıcıları için özel olarak oluşturulmuş ve Türkiye'deki web sitelerinde ve uygulamalarda karşılaşılan reklamları, izleyicileri ve zararlı içerikleri engellemeyi amaçlar.
 
-## Özellikler
+<Cards>
+  <Card title='Türkiye Odaklı' icon={<Globe className="w-5 h-5" />}>
+    Özellikle Türk web siteleri ve uygulamaları için optimize edilmiştir
+  </Card>
 
-- **Türkiye odaklı**: Özellikle Türk web siteleri ve uygulamaları için optimize edilmiştir
-- **Sürekli güncelleme**: Topluluk katkılarıyla sürekli olarak güncellenir
-- **Geniş uyumluluk**: NextDNS, AdGuard, uBlock Origin ve diğer popüler reklam engelleyiciler ile uyumludur
-- **Açık kaynak**: GPL-3.0 lisansı altında özgürce kullanılabilir
+  <Card title='Sürekli Güncelleme' icon={<RefreshCw className="w-5 h-5" />}>
+    Topluluk katkılarıyla sürekli olarak güncellenir
+  </Card>
+
+  <Card title='Geniş Uyumluluk' icon={<Shield className="w-5 h-5" />}>
+    NextDNS, AdGuard, uBlock Origin ve diğer popüler reklam engelleyiciler ile uyumludur
+  </Card>
+
+  <Card title='Açık Kaynak' icon={<Github className="w-5 h-5" />}>
+    GPL-3.0 lisansı altında özgürce kullanılabilir
+  </Card>
+</Cards>
+
+<Callout title="Başlamak İster misiniz?" icon={<CheckCircle className="w-5 h-5" />}>
+  Detaylı [Kurulum Rehberi](/docs/kurulum) sayfamızı inceleyebilirsiniz.
+</Callout>
+
+## Desteklenen Platformlar
+
+### Tarayıcı Eklentileri
+<Cards>
+  <Card title="uBlock Origin">
+    En popüler ve güçlü reklam engelleyici eklentisi
+  </Card>
+  <Card title="AdGuard">
+    Gelişmiş özelliklere sahip reklam engelleyici
+  </Card>
+  <Card title="AdBlock Plus">
+    Yaygın olarak kullanılan reklam engelleyici
+  </Card>
+</Cards>
+
+### Mobil Uygulamalar
+<Cards>
+  <Card title="AdGuard for Android">
+    Android için en kapsamlı reklam engelleyici
+  </Card>
+  <Card title="AdGuard for iOS">
+    iOS için güçlü reklam engelleyici
+  </Card>
+  <Card title="Blokada">
+    Sistem seviyesinde reklam engelleme
+  </Card>
+  <Card title="DNS66">
+    DNS tabanlı reklam engelleme
+  </Card>
+</Cards>
+
+### DNS Servisleri
+<Cards>
+  <Card title="NextDNS">
+    Özelleştirilebilir DNS filtreleme
+  </Card>
+  <Card title="AdGuard DNS">
+    AdGuard'ın DNS tabanlı çözümü
+  </Card>
+  <Card title="Pi-hole">
+    Ağ seviyesinde reklam engelleme
+  </Card>
+</Cards>
+
+## Sık Sorulan Sorular
+
+<Accordions>
+  <Accordion id='nasil-kullanilir' title="Turk-AdFilter nasıl kullanılır?" icon={<HelpCircle className="w-5 h-5" />}>
+    Turk-AdFilter'ı kullanmak için aşağıdaki adımları takip edebilirsiniz:
+
+    1. [Kurulum Rehberi](/docs/kurulum) sayfasını ziyaret edin
+    2. Kullandığınız platforma göre kurulum adımlarını takip edin
+    3. RAW bağlantısını kopyalayıp ilgili uygulamaya ekleyin
+  </Accordion>
+
+  <Accordion id='katkida-bulun' title="Projeye nasıl katkıda bulunabilirim?" icon={<Github className="w-5 h-5" />}>
+    Projeye katkıda bulunmak için:
+
+    1. GitHub üzerinden issue açabilirsiniz
+    2. Pull request gönderebilirsiniz
+    3. Yeni domain önerilerinde bulunabilirsiniz
+    4. Dokümantasyona katkı sağlayabilirsiniz
+  </Accordion>
+
+  <Accordion id='test' title="Kurulumu nasıl test edebilirim?" icon={<CheckCircle className="w-5 h-5" />}>
+    Kurulumun başarılı olup olmadığını test etmek için:
+    
+    1. [Test Sayfası](/docs/test) adresini ziyaret edin
+    2. Reklamların engellenip engellenmediğini kontrol edin
+  </Accordion>
+</Accordions>
 
 ## Başlarken
 
 Turk-AdFilter'ı kullanmaya başlamak için rehberimizi takip edin:
 
 <Cards>
-  <Card title="Kurulum Rehberi" href="/docs/kurulum" />
-  <Card title="Katkıda Bulunma" href="/docs/katki" />
-  <Card title="SSS" href="/docs/sss" />
+  <Card 
+    title="Kurulum Rehberi" 
+    href="/docs/kurulum"
+    description="Farklı platformlarda kurulum adımları"
+    icon={<BookOpen className="w-5 h-5" />}
+  />
+  <Card 
+    title="Katkıda Bulunma" 
+    href="/docs/katki"
+    description="Projeye nasıl katkıda bulunabilirsiniz"
+    icon={<Github className="w-5 h-5" />}
+  />
+  <Card 
+    title="SSS" 
+    href="/docs/sss"
+    description="Sık sorulan sorular ve cevapları"
+    icon={<MessageSquare className="w-5 h-5" />}
+  />
 </Cards>
+
+<Callout title="Daha Fazla Bilgi" icon={<Github className="w-5 h-5" />}>
+  Detaylı bilgi için [GitHub Repository](https://github.com/omerdduran/turk-adfilter)'mizi ziyaret edebilirsiniz.
+</Callout>
