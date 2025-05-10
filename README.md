@@ -19,7 +19,6 @@
 [![Forks](https://img.shields.io/github/forks/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/network/members)  
 [![Adblock](https://img.shields.io/badge/syntax-Adblock%20Compatible-brightgreen)](#)
 [![uBlock Origin](https://img.shields.io/badge/uBlock%20Origin-supported-brightgreen)](https://github.com/gorhill/uBlock)
-[![NextDNS](https://img.shields.io/badge/NextDNS-supported-brightgreen)](https://nextdns.io)
 
 </div>
 
