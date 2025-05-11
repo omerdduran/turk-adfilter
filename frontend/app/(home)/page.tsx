@@ -178,7 +178,13 @@ export default function HomePage() {
           
           {metrics?.lastUpdated && (
             <p className="text-sm text-gray-500 dark:text-gray-500 mb-12 text-center">
-              Son güncelleme: {new Date(metrics.lastUpdated).toLocaleDateString('tr-TR')}
+              Son güncelleme: {new Date(metrics.lastUpdated).toLocaleString('tr-TR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              })}
             </p>
           )}
         </div>
