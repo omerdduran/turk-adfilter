@@ -48,20 +48,3 @@ jobs:
           git add CONTRIBUTING.md
           git commit -m "docs: sync CONTRIBUTING.md with katki.mdx [skip ci]"
           git push
-
-      - name: Create Pull Request
-        if: github.event_name == 'push' && steps.git-check.outputs.changes == 'true'
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "docs: sync CONTRIBUTING.md with katki.mdx"
-          title: "docs: sync CONTRIBUTING.md with katki.mdx"
-          body: |
-            Bu PR, `katki.mdx` dosyasındaki değişiklikleri `CONTRIBUTING.md` dosyasına senkronize eder.
-            
-            Otomatik olarak oluşturuldu.
-          branch: sync-contributing
-          base: main
-          labels: |
-            documentation
-            automated pr 
