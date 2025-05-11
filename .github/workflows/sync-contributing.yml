@@ -1,0 +1,67 @@
+name: Sync CONTRIBUTING.md
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/content/docs/katki.mdx'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'frontend/content/docs/katki.mdx'
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Tüm commit geçmişini al
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Run sync script
+        run: |
+          python3 scripts/sync_contributing.py
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add CONTRIBUTING.md
+          git commit -m "docs: sync CONTRIBUTING.md with katki.mdx [skip ci]"
+          git push
+
+      - name: Create Pull Request
+        if: github.event_name == 'push' && steps.git-check.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: sync CONTRIBUTING.md with katki.mdx"
+          title: "docs: sync CONTRIBUTING.md with katki.mdx"
+          body: |
+            Bu PR, `katki.mdx` dosyasındaki değişiklikleri `CONTRIBUTING.md` dosyasına senkronize eder.
+            
+            Otomatik olarak oluşturuldu.
+          branch: sync-contributing
+          base: main
+          labels: |
+            documentation
+            automated pr 
