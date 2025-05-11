@@ -1,6 +1,6 @@
 # Katkıda Bulunma Rehberi
 
-Turk-AdFilter, topluluk tabanlı bir projedir ve katkılarınıza açıktır. Bu rehber, projeye nasıl katkıda bulunabileceğinizi açıklar.
+Turk-AdFilter; %100 açık kaynaklı, topluluk tabanlı bir projedir ve katkılarınıza açıktır. Bu rehber, projeye nasıl katkıda bulunabileceğinizi açıklar.
 
 ## Katkı Türleri
 
