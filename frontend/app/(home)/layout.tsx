@@ -3,5 +3,9 @@ import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/app/layout.config';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
+  return (
+    <div className="[&_.fumadocs-nav]:bg-white/95 [&_.fumadocs-nav]:dark:bg-[#191919]/95 [&_.fumadocs-nav]:backdrop-blur-sm [&_.fumadocs-nav]:border-b [&_.fumadocs-nav]:border-gray-200 [&_.fumadocs-nav]:dark:border-gray-800 [&_.fumadocs-nav]:shadow-sm">
+      <HomeLayout {...baseOptions}>{children}</HomeLayout>
+    </div>
+  );
 }

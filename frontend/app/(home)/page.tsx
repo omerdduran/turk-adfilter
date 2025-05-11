@@ -2,12 +2,22 @@
 
 import Link from 'next/link';
 import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy, ChevronDown } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 type SourceType = 'github' | 'codeberg';
 
+type Metrics = {
+  totalDomains: number;
+  filterListDomains: number;
+  hostsListDomains: number;
+  lastUpdated: string;
+};
+
 export default function HomePage() {
   const [sharedListSource, setSharedListSource] = useState<SourceType>('github');
+  const [metrics, setMetrics] = useState<Metrics | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const filterListLinks = {
     github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt",
@@ -18,20 +28,56 @@ export default function HomePage() {
     codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt"
   };
 
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      try {
+        const response = await fetch('/api/metrics');
+        const data = await response.json();
+        setMetrics(data);
+      } catch (error) {
+        console.error('Error fetching metrics:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchMetrics();
+    // Refresh metrics every hour
+    const interval = setInterval(fetchMetrics, 3600000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.dropdown-container')) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  const toggleDropdown = (dropdownName: string) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b ">
       {/* Hero Section */}
       <header className="relative overflow-hidden py-20 md:py-32 px-4 min-h-screen">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="flex items-center mb-6">
+          <div className="flex flex-col items-center mb-8">
             <img
               src="/assets/logo.png"
               alt="Turk-AdFilter Logo"
               width={90}
               height={90}
-              className="rounded-full"
+              className="rounded-full mb-4"
             />
-            <h1 className="ml-4 text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-700 dark:from-red-500 dark:to-red-400">
+            <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-700 dark:from-red-500 dark:to-red-400">
               Turk-AdFilter
             </h1>
           </div>
@@ -45,23 +91,31 @@ export default function HomePage() {
             uyumlu şekilde çalışarak Türk web sitelerindeki reklamları ve izleyicileri engeller.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-12">
+            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> %100 Açık Kaynak</span>
+            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Düzenli Güncelleme</span>
+            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Topluluk Destekli</span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center">
             {/* Dropdown Button for Filter List */}
-            <div className="relative group">
+            <div className="relative dropdown-container">
               <button
                 type="button"
+                onClick={() => toggleDropdown('browser')}
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg flex items-center justify-center transition-all w-full sm:w-auto"
               >
                 <Download size={20} className="mr-2" />
                 Tarayıcılar için Reklam Filtresi
                 <ChevronDown size={20} className="ml-2" />
               </button>
-              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+              <div className={`absolute ${activeDropdown === 'browser' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'} transform transition-all duration-200 ease-out top-full mt-px w-full bg-red-600 dark:bg-red-700 shadow-lg rounded-md py-1 z-20`}>
                 <a
                   href={filterListLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-700 dark:hover:bg-red-800"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   GitHub
                 </a>
@@ -69,7 +123,8 @@ export default function HomePage() {
                   href={filterListLinks.codeberg}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-700 dark:hover:bg-red-800"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   Codeberg
                 </a>
@@ -84,11 +139,48 @@ export default function HomePage() {
             </Link>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> %100 Açık Kaynak</span>
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Düzenli Güncelleme</span>
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Topluluk Destekli</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto w-full text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">
+                {isLoading ? (
+                  <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
+                ) : (
+                  metrics?.totalDomains.toLocaleString() ?? '0'
+                )}
+              </div>
+              <p className="text-gray-600 dark:text-gray-400">Toplam Domain</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">
+                {isLoading ? (
+                  <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
+                ) : (
+                  metrics?.filterListDomains.toLocaleString() ?? '0'
+                )}
+              </div>
+              <p className="text-gray-600 dark:text-gray-400">Reklam Filtresi</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">
+                {isLoading ? (
+                  <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
+                ) : (
+                  metrics?.hostsListDomains.toLocaleString() ?? '0'
+                )}
+              </div>
+              <p className="text-gray-600 dark:text-gray-400">DNS Filtresi</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">%40</div>
+              <p className="text-gray-600 dark:text-gray-400">Hız Artışı</p>
+            </div>
           </div>
+          
+          {metrics?.lastUpdated && (
+            <p className="text-sm text-gray-500 dark:text-gray-500 mb-12 text-center">
+              Son güncelleme: {new Date(metrics.lastUpdated).toLocaleDateString('tr-TR')}
+            </p>
+          )}
         </div>
       </header>
 
@@ -230,28 +322,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 px-4 bg-white dark:bg-[#191919]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">6,500+</div>
-              <p className="text-gray-600 dark:text-gray-400">Engellenen Domain ve Reklam</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">100+</div>
-              <p className="text-gray-600 dark:text-gray-400">Aktif Kullanıcı</p>
-              <p className="text-sm text-gray-500 dark:text-gray-500">(Tahmini)</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-600 dark:text-red-500 mb-2">%40</div>
-              <p className="text-gray-600 dark:text-gray-400">Daha Hızlı Sayfa Yükleme</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </section>      
       
       {/* CTA */}
       <section className="py-16 px-4 bg-gradient-to-r from-red-600 to-red-700 dark:from-red-800 dark:to-red-900 text-white">
@@ -276,21 +347,23 @@ export default function HomePage() {
             </a>
             
             {/* Dropdown Button for Hosts List */}
-            <div className="relative group">
+            <div className="relative dropdown-container">
               <button
                 type="button"
+                onClick={() => toggleDropdown('dns')}
                 className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500 w-full sm:w-auto"
               >
                 <Download size={20} className="mr-2" />
                 DNS Filtresi
                 <ChevronDown size={20} className="ml-2" />
               </button>
-              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+              <div className={`absolute ${activeDropdown === 'dns' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'} transform transition-all duration-200 ease-out top-full mt-px w-full bg-red-700 dark:bg-red-800 shadow-lg rounded-md py-1 z-20`}>
                 <a
                   href={hostsListLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-800 dark:hover:bg-red-900"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   GitHub
                 </a>
@@ -298,7 +371,8 @@ export default function HomePage() {
                   href={hostsListLinks.codeberg}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-800 dark:hover:bg-red-900"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   Codeberg
                 </a>
@@ -306,21 +380,23 @@ export default function HomePage() {
             </div>
 
             {/* Dropdown Button for RAW Filter List */}
-            <div className="relative group">
+            <div className="relative dropdown-container">
               <button
                 type="button"
+                onClick={() => toggleDropdown('raw')}
                 className="bg-red-700 hover:bg-red-800 dark:bg-red-900 dark:hover:bg-red-950 text-white px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center border border-red-500 w-full sm:w-auto"
               >
                 <Download size={20} className="mr-2" />
                 Eklentiler için Filtre
                 <ChevronDown size={20} className="ml-2" />
               </button>
-              <div className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto transform transition-all duration-200 ease-out top-full mt-px w-full bg-white dark:bg-gray-800 shadow-lg rounded-md py-1 z-20">
+              <div className={`absolute ${activeDropdown === 'raw' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'} transform transition-all duration-200 ease-out top-full mt-px w-full bg-red-700 dark:bg-red-800 shadow-lg rounded-md py-1 z-20`}>
                 <a
                   href={filterListLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-800 dark:hover:bg-red-900"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   GitHub
                 </a>
@@ -328,7 +404,8 @@ export default function HomePage() {
                   href={filterListLinks.codeberg}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="block px-4 py-2 text-sm text-white hover:bg-red-800 dark:hover:bg-red-900"
+                  onClick={() => setActiveDropdown(null)}
                 >
                   Codeberg
                 </a>
