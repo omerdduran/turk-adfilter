@@ -42,8 +42,8 @@ export default function HomePage() {
     };
 
     fetchMetrics();
-    // Refresh metrics every hour
-    const interval = setInterval(fetchMetrics, 3600000);
+    // Refresh metrics every 15 minutes (matching the server-side cache)
+    const interval = setInterval(fetchMetrics, 15 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -178,13 +178,7 @@ export default function HomePage() {
           
           {metrics?.lastUpdated && (
             <p className="text-sm text-gray-500 dark:text-gray-500 mb-12 text-center">
-              Son güncelleme: {new Date(metrics.lastUpdated).toLocaleString('tr-TR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-              })}
+              Son güncelleme: {metrics.lastUpdated} <span className="ml-1">(GMT+3)</span>
             </p>
           )}
         </div>

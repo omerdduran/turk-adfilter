@@ -1,5 +1,25 @@
 import { NextResponse } from 'next/server';
 
+// Cache data structure
+interface CachedData {
+  metrics: Metrics;
+  timestamp: number;
+}
+
+// Metrics interface
+interface Metrics {
+  totalDomains: number;
+  filterListDomains: number;
+  hostsListDomains: number;
+  lastUpdated: string;
+}
+
+// Cache duration in milliseconds (15 minutes)
+const CACHE_DURATION = 15 * 60 * 1000;
+
+// In-memory cache
+let metricsCache: CachedData | null = null;
+
 async function fetchFilterList(url: string) {
   try {
     const response = await fetch(url);
@@ -19,7 +39,26 @@ function countDomains(text: string) {
   return lines.length;
 }
 
+// Get Turkey local time
+function getTurkeyTime() {
+  return new Date().toLocaleString('tr-TR', { 
+    timeZone: 'Europe/Istanbul',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+}
+
 export async function GET() {
+  // Check if we have cached data that's not expired
+  const now = Date.now();
+  if (metricsCache && (now - metricsCache.timestamp) < CACHE_DURATION) {
+    return NextResponse.json(metricsCache.metrics);
+  }
+
   const filterListUrls = {
     github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt",
     codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt"
@@ -41,7 +80,13 @@ export async function GET() {
       totalDomains: countDomains(filterList) + countDomains(hostsList),
       filterListDomains: countDomains(filterList),
       hostsListDomains: countDomains(hostsList),
-      lastUpdated: new Date().toISOString()
+      lastUpdated: getTurkeyTime()
+    };
+
+    // Update cache
+    metricsCache = {
+      metrics,
+      timestamp: now
     };
 
     return NextResponse.json(metrics);
