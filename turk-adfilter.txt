@@ -1,7 +1,7 @@
 ! Title: Turk-AdFilter – Turkish Ad & Tracker Blocklist
-! Homepage: https://github.com/kullaniciadi/turk-adfilter/
-! Description: Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. NextDNS, AdGuard, uBlock Origin ve benzeri servislerde kullanılabilir.
-! This is a community-driven blocklist to block Turkish ad, tracker, and malicious content providers. Usable with NextDNS, AdGuard, uBlock Origin, etc.
+! Homepage: https://github.com/omerdduran/turk-adfilter/
+! Description: Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. AdGuard, uBlock Origin ve benzeri servislerde kullanılabilir.
+! This is a community-driven blocklist to block Turkish ad, tracker, and malicious content providers. Usable with Pihole, AdGuard, uBlock Origin, etc.
 !
 ! Version: 1.3.0 – 01.05.2025
 ! Maintainer: github.com/omerdduran
