@@ -56,7 +56,11 @@ export async function GET() {
   // Check if we have cached data that's not expired
   const now = Date.now();
   if (metricsCache && (now - metricsCache.timestamp) < CACHE_DURATION) {
-    return NextResponse.json(metricsCache.metrics);
+    return NextResponse.json(metricsCache.metrics, {
+      headers: {
+        'Cache-Control': 'public, max-age=900, stale-while-revalidate=60'
+      }
+    });
   }
 
   const filterListUrls = {
@@ -89,7 +93,11 @@ export async function GET() {
       timestamp: now
     };
 
-    return NextResponse.json(metrics);
+    return NextResponse.json(metrics, {
+      headers: {
+        'Cache-Control': 'public, max-age=900, stale-while-revalidate=60'
+      }
+    });
   } catch (error) {
     console.error('Error getting metrics:', error);
     return NextResponse.json(
