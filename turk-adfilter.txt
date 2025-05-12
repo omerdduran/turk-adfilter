@@ -1387,8 +1387,6 @@
 ||wonoddgiris.com^$third-party
 ||yedimedia.net^$third-party
 ||youtubesave.org^
-
-
 ||bitcasino365.b-cdn.net^
 ||d2pspvbdjxwkpo.cloudfront.net^
 ||rotorfon.go-prod.dogt.xyz^
@@ -1449,7 +1447,6 @@ kuponuna170.top,kuponuna171.top,kuponuna172.top,kuponuna173.top,kuponuna174.top,
 kuponuna170.top,kuponuna171.top,kuponuna172.top,kuponuna173.top,kuponuna174.top,kuponuna175.top,kuponuna176.top,kuponuna177.top,kuponuna178.top,kuponuna179.top,kuponuna180.top,kuponuna181.top,kuponuna182.top,kuponuna183.top,kuponuna184.top,kuponuna185.top,kuponuna186.top,kuponuna187.top,kuponuna188.top,kuponuna189.top,kuponuna190.top,kuponuna191.top,kuponuna192.top,kuponuna193.top,kuponuna194.top,kuponuna195.top,kuponuna196.top,kuponuna197.top,kuponuna198.top,kuponuna199.top,kuponuna200.top,kuponuna201.top,kuponuna202.top,kuponuna203.top,kuponuna204.top,kuponuna205.top,kuponuna206.top,kuponuna207.top,kuponuna208.top,kuponuna209.top,kuponuna210.top,kuponuna211.top,kuponuna212.top,kuponuna213.top,kuponuna214.top,kuponuna215.top,kuponuna216.top,kuponuna217.top,kuponuna218.top,kuponuna219.top,kuponuna220.top,kuponuna221.top,kuponuna222.top,kuponuna223.top,kuponuna224.top,kuponuna225.top,kuponuna226.top,kuponuna227.top,kuponuna228.top,kuponuna229.top,kuponuna230.top,kuponuna231.top,kuponuna232.top,kuponuna233.top,kuponuna234.top,kuponuna235.top,kuponuna236.top,kuponuna237.top,kuponuna238.top,kuponuna239.top,kuponuna240.top,kuponuna241.top,kuponuna242.top,kuponuna243.top,kuponuna244.top,kuponuna245.top,kuponuna246.top,kuponuna247.top,kuponuna248.top,kuponuna249.top,kuponuna250.top##+js(no-setTimeout-if, $('body').empty().append)
 /r/*$domain=kuponuna170.top|kuponuna171.top|kuponuna172.top|kuponuna173.top|kuponuna174.top|kuponuna175.top|kuponuna176.top|kuponuna177.top|kuponuna178.top|kuponuna179.top|kuponuna180.top|kuponuna181.top|kuponuna182.top|kuponuna183.top|kuponuna184.top|kuponuna185.top|kuponuna186.top|kuponuna187.top|kuponuna188.top|kuponuna189.top|kuponuna190.top|kuponuna191.top|kuponuna192.top|kuponuna193.top|kuponuna194.top|kuponuna195.top|kuponuna196.top|kuponuna197.top|kuponuna198.top|kuponuna199.top|kuponuna200.top|kuponuna201.top|kuponuna202.top|kuponuna203.top|kuponuna204.top|kuponuna205.top|kuponuna206.top|kuponuna207.top|kuponuna208.top|kuponuna209.top|kuponuna210.top|kuponuna211.top|kuponuna212.top|kuponuna213.top|kuponuna214.top|kuponuna215.top|kuponuna216.top|kuponuna217.top|kuponuna218.top|kuponuna219.top|kuponuna220.top|kuponuna221.top|kuponuna222.top|kuponuna223.top|kuponuna224.top|kuponuna225.top|kuponuna226.top|kuponuna227.top|kuponuna228.top|kuponuna229.top|kuponuna230.top|kuponuna231.top|kuponuna232.top|kuponuna233.top|kuponuna234.top|kuponuna235.top|kuponuna236.top|kuponuna237.top|kuponuna238.top|kuponuna239.top|kuponuna240.top|kuponuna241.top|kuponuna242.top|kuponuna243.top|kuponuna244.top|kuponuna245.top|kuponuna246.top|kuponuna247.top|kuponuna248.top|kuponuna249.top|kuponuna250.top
 canlitribun237.live,canlitribun238.live,canlitribun239.live,canlitribun240.live,canlitribun241.live,canlitribun242.live,canlitribun243.live,canlitribun244.live,canlitribun245.live,canlitribun246.live##+js(no-xhr-if, /advert.js)
-[$domain=/(^\|.+\.)canlitribun\d+\.live/]##+js(no-xhr-if, /advert.js)
 raindropteamfan.com##+js(no-fetch-if, https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=mangawt.com
 mangawt.com##+js(no-xhr-if, static.doubleclick.net/instream/ad_status.js)
@@ -6112,7 +6109,6 @@ dizilla.nl,dizilla10.nl,dizilla11.nl,dizilla12.nl,dizilla13.nl,dizilla14.nl,dizi
 dizilla.nl##.player > .flex:has(> div:only-child > img[alt*="ad"])
 dizilla.nl###router-view > div > div > div[class]:has(> div:only-child > ad)
 ||googleusercontent.com/img/*/crt$domain=/selcuksportshd\d+\.xyz/
-[$domain=/^i\[a-z\]*\.strmrdr\[a-z0-9\]+\..*/]##+js(set-constant, adscfg.enabled, false)
 cinque.668a396e58bcbc27.click##+js(set-constant, config.advertisement.enabled, false)
 [$domain=/selcuksportshd\d+\.xyz/]##.banner
 [$domain=/selcuksportshd\d+\.xyz/]##.banners
@@ -6128,13 +6124,11 @@ selcuksportshd1590.xyz,selcuksportshd1591.xyz,selcuksportshd1592.xyz,selcuksport
 ||selcuksportshd*.xyz/img/g/crtswp-s-min.png
 ||selcuksportshd*.xyz/img/*.gif
 ||selcuksportshd*.*/images/grnd/*.jpg
-[$domain=/tvboff\d+\.com/]##+js(set-constant, getFrontVideo, noopFunc)
 [$domain=/tvboff\d+\.com/]##.bannetr
 [$domain=/webspor\d+\.xyz/]##.nomobil
 [$domain=/webspor\d+\.xyz/]##.list > div.item:has(> a[target="_blank"])
 [$domain=/webspor\d+\.xyz/]#$?#video > style { remove: true; }
 [$domain=/dizikral(?:\d+\.pro|\.live)/]#$#body > header { margin-top: 0 !important; }
-[$domain=/dizikral(?:\d+\.pro|\.live)/]##+js(set-constant, puShown, true)
 [$domain=/dizikral(?:\d+\.pro|\.live)/]#$#body > header { margin-top: 0 !important; }
 ||kuponuna*.top/r/
 kuponuna284.top,kuponuna285.top,kuponuna286.top,kuponuna287.top,kuponuna288.top,kuponuna289.top,kuponuna290.top,kuponuna291.top,kuponuna292.top,kuponuna293.top,kuponuna294.top##.iframe_728
@@ -6234,19 +6228,16 @@ webteizle.info,webteizle1.info,webteizle2.info,webteizle3.info,webteizle4.info,w
 [$domain=/^webteizle\d+\.xyz/]##img[alt="reklam"]
 [$domain=/^webteizle\d+\.xyz/]#$#body { background-image: none !important; }
 [$domain=/^webteizle\d+\.xyz/]#$#body #site { margin-top: 0px !important; }
-[$domain=/^webteizle\d+\.xyz/]##+js(set-constant, isShow, true)
 [$domain=/^webteizle\d+\.com/]###site > div[id="header"]
 [$domain=/^webteizle\d+\.com/]#$?##sol > #embed:has(iframe) ~ #video-onu2 { remove: true; }
 [$domain=/^webteizle\d+\.com/]##img[alt="reklam"]
 [$domain=/^webteizle\d+\.com/]#$#body { background-image: none !important; }
 [$domain=/^webteizle\d+\.com/]#$#body #site { margin-top: 0px !important; }
-[$domain=/^webteizle\d+\.com/]##+js(set-constant, isShow, true)
 [$domain=/^webteizle\d+\.info/]###site > div[id="header"]
 [$domain=/^webteizle\d+\.info/]#$?##sol > #embed:has(iframe) ~ #video-onu2 { remove: true; }
 [$domain=/^webteizle\d+\.info/]##img[alt="reklam"]
 [$domain=/^webteizle\d+\.info/]#$#body { background-image: none !important; }
 [$domain=/^webteizle\d+\.info/]#$#body #site { margin-top: 0px !important; }
-[$domain=/^webteizle\d+\.info/]##+js(set-constant, isShow, true)
 ||dcdlplayer8a06f4.xyz/c.gif
 ||dizi*.life/assets/img/bg.jpg
 ||dizi*.life/assets/img/*.gif
@@ -6270,7 +6261,6 @@ dizi1.life,dizi2.life,dizi3.life,dizi4.life,dizi5.life,dizi6.life,dizi7.life,diz
 [$domain=/(^\|.+\.)xyzsports\d+\.xyz/]###banners
 [$domain=/(^\|.+\.)xyzsports\d+\.xyz/]##.headbar
 [$domain=/(^\|.+\.)xyzsports\d+\.xyz/]#$#.table-area { visibility: hidden !important; }
-[$domain=/(^\|.+\.)xyzsports\d+\.xyz/]##+js(set-constant, window.config.advertisement.0.enabled, 0)
 xyzsports173.xyz,xyzsports174.xyz,xyzsports175.xyz,xyzsports176.xyz,xyzsports177.xyz,xyzsports178.xyz,xyzsports179.xyz,xyzsports180.xyz,xyzsports181.xyz,xyzsports182.xyz,xyzsports183.xyz,xyzsports184.xyz,xyzsports185.xyz,xyzsports186.xyz,xyzsports187.xyz,xyzsports188.xyz,xyzsports189.xyz,xyzsports190.xyz,xyzsports191.xyz,xyzsports192.xyz,xyzsports193.xyz,xyzsports194.xyz,xyzsports195.xyz,xyzsports196.xyz,xyzsports197.xyz,xyzsports198.xyz,xyzsports199.xyz,xyzsports200.xyz###sticky-footer
 xyzsports173.xyz,xyzsports174.xyz,xyzsports175.xyz,xyzsports176.xyz,xyzsports177.xyz,xyzsports178.xyz,xyzsports179.xyz,xyzsports180.xyz,xyzsports181.xyz,xyzsports182.xyz,xyzsports183.xyz,xyzsports184.xyz,xyzsports185.xyz,xyzsports186.xyz,xyzsports187.xyz,xyzsports188.xyz,xyzsports189.xyz,xyzsports190.xyz,xyzsports191.xyz,xyzsports192.xyz,xyzsports193.xyz,xyzsports194.xyz,xyzsports195.xyz,xyzsports196.xyz,xyzsports197.xyz,xyzsports198.xyz,xyzsports199.xyz,xyzsports200.xyz###banners
 xyzsports173.xyz,xyzsports174.xyz,xyzsports175.xyz,xyzsports176.xyz,xyzsports177.xyz,xyzsports178.xyz,xyzsports179.xyz,xyzsports180.xyz,xyzsports181.xyz,xyzsports182.xyz,xyzsports183.xyz,xyzsports184.xyz,xyzsports185.xyz,xyzsports186.xyz,xyzsports187.xyz,xyzsports188.xyz,xyzsports189.xyz,xyzsports190.xyz,xyzsports191.xyz,xyzsports192.xyz,xyzsports193.xyz,xyzsports194.xyz,xyzsports195.xyz,xyzsports196.xyz,xyzsports197.xyz,xyzsports198.xyz,xyzsports199.xyz,xyzsports200.xyz##.headbar
@@ -6373,25 +6363,19 @@ inattv454.xyz,inattv455.xyz,inattv456.xyz,inattv457.xyz,inattv458.xyz,inattv459.
 inattv454.xyz,inattv455.xyz,inattv456.xyz,inattv457.xyz,inattv458.xyz,inattv459.xyz,inattv460.xyz,inattv461.xyz,inattv462.xyz,inattv463.xyz,inattv464.xyz,inattv465.xyz,inattv466.xyz,inattv467.xyz,inattv468.xyz,inattv469.xyz,inattv470.xyz,inattv471.xyz,inattv472.xyz,inattv473.xyz,inattv474.xyz,inattv475.xyz,inattv476.xyz,inattv477.xyz,inattv478.xyz,inattv479.xyz,inattv480.xyz,inattv481.xyz,inattv482.xyz,inattv483.xyz,inattv484.xyz,inattv485.xyz,inattv486.xyz,inattv487.xyz,inattv488.xyz,inattv489.xyz,inattv490.xyz,inattv491.xyz,inattv492.xyz,inattv493.xyz,inattv494.xyz,inattv495.xyz,inattv496.xyz,inattv497.xyz,inattv498.xyz,inattv499.xyz,inattv500.xyz##body > a[target="_blank"]
 [$domain=/^inattv\d+\.xyz$/]##div[style^="bottom:0;height:50px;left:0;position:fixed;"]
 inattv454.xyz,inattv455.xyz,inattv456.xyz,inattv457.xyz,inattv458.xyz,inattv459.xyz,inattv460.xyz,inattv461.xyz,inattv462.xyz,inattv463.xyz,inattv464.xyz,inattv465.xyz,inattv466.xyz,inattv467.xyz,inattv468.xyz,inattv469.xyz,inattv470.xyz,inattv471.xyz,inattv472.xyz,inattv473.xyz,inattv474.xyz,inattv475.xyz,inattv476.xyz,inattv477.xyz,inattv478.xyz,inattv479.xyz,inattv480.xyz,inattv481.xyz,inattv482.xyz,inattv483.xyz,inattv484.xyz,inattv485.xyz,inattv486.xyz,inattv487.xyz,inattv488.xyz,inattv489.xyz,inattv490.xyz,inattv491.xyz,inattv492.xyz,inattv493.xyz,inattv494.xyz,inattv495.xyz,inattv496.xyz,inattv497.xyz,inattv498.xyz,inattv499.xyz,inattv500.xyz##div[style^="bottom:0;height:50px;left:0;position:fixed;"]
-[$domain=/^inattv\d+\.xyz$/]##+js(set-constant, config.adv, {})
 inattv454.xyz,inattv455.xyz,inattv456.xyz,inattv457.xyz,inattv458.xyz,inattv459.xyz,inattv460.xyz,inattv461.xyz,inattv462.xyz,inattv463.xyz,inattv464.xyz,inattv465.xyz,inattv466.xyz,inattv467.xyz,inattv468.xyz,inattv469.xyz,inattv470.xyz,inattv471.xyz,inattv472.xyz,inattv473.xyz,inattv474.xyz,inattv475.xyz,inattv476.xyz,inattv477.xyz,inattv478.xyz,inattv479.xyz,inattv480.xyz,inattv481.xyz,inattv482.xyz,inattv483.xyz,inattv484.xyz,inattv485.xyz,inattv486.xyz,inattv487.xyz,inattv488.xyz,inattv489.xyz,inattv490.xyz,inattv491.xyz,inattv492.xyz,inattv493.xyz,inattv494.xyz,inattv495.xyz,inattv496.xyz,inattv497.xyz,inattv498.xyz,inattv499.xyz,inattv500.xyz##+js(set-constant, config.adv, {})
 ||inattvhd*.xyz/baywin*.gif
 ||inattvhd*.xyz/betinevideo.mp4
 inattvhd188.xyz,inattvhd189.xyz,inattvhd190.xyz,inattvhd191.xyz,inattvhd192.xyz,inattvhd193.xyz,inattvhd194.xyz,inattvhd195.xyz,inattvhd196.xyz,inattvhd197.xyz,inattvhd198.xyz,inattvhd199.xyz,inattvhd200.xyz,inattvhd201.xyz,inattvhd202.xyz,inattvhd203.xyz,inattvhd204.xyz,inattvhd205.xyz,inattvhd206.xyz,inattvhd207.xyz,inattvhd208.xyz,inattvhd209.xyz,inattvhd210.xyz,inattvhd211.xyz,inattvhd212.xyz,inattvhd213.xyz,inattvhd214.xyz,inattvhd215.xyz,inattvhd216.xyz,inattvhd217.xyz,inattvhd218.xyz,inattvhd219.xyz,inattvhd220.xyz,inattvhd221.xyz##+js(set-constant, puShown, true)
-[$domain=/^inattv\d+\.xyz$/]##+js(set-constant, puShown, true)
 inattvhd188.xyz,inattvhd189.xyz,inattvhd190.xyz,inattvhd191.xyz,inattvhd192.xyz,inattvhd193.xyz,inattvhd194.xyz,inattvhd195.xyz,inattvhd196.xyz,inattvhd197.xyz,inattvhd198.xyz,inattvhd199.xyz,inattvhd200.xyz,inattvhd201.xyz,inattvhd202.xyz,inattvhd203.xyz,inattvhd204.xyz,inattvhd205.xyz,inattvhd206.xyz,inattvhd207.xyz,inattvhd208.xyz,inattvhd209.xyz,inattvhd210.xyz,inattvhd211.xyz,inattvhd212.xyz,inattvhd213.xyz,inattvhd214.xyz,inattvhd215.xyz,inattvhd216.xyz,inattvhd217.xyz,inattvhd218.xyz,inattvhd219.xyz,inattvhd220.xyz,inattvhd221.xyz##+js(remove-attr, data-time, .video-skip[data-time])
-[$domain=/^inattv\d+\.xyz$/]##+js(remove-attr, data-time, .video-skip[data-time])
 inattvhd188.xyz,inattvhd189.xyz,inattvhd190.xyz,inattvhd191.xyz,inattvhd192.xyz,inattvhd193.xyz,inattvhd194.xyz,inattvhd195.xyz,inattvhd196.xyz,inattvhd197.xyz,inattvhd198.xyz,inattvhd199.xyz,inattvhd200.xyz,inattvhd201.xyz,inattvhd202.xyz,inattvhd203.xyz,inattvhd204.xyz,inattvhd205.xyz,inattvhd206.xyz,inattvhd207.xyz,inattvhd208.xyz,inattvhd209.xyz,inattvhd210.xyz,inattvhd211.xyz,inattvhd212.xyz,inattvhd213.xyz,inattvhd214.xyz,inattvhd215.xyz,inattvhd216.xyz,inattvhd217.xyz,inattvhd218.xyz,inattvhd219.xyz,inattvhd220.xyz,inattvhd221.xyz##+js(set-attr, .video-skip, data-time, 0)
-[$domain=/^inattv\d+\.xyz$/]##+js(set-attr, .video-skip, data-time, 0)
 inattvhd188.xyz,inattvhd189.xyz,inattvhd190.xyz,inattvhd191.xyz,inattvhd192.xyz,inattvhd193.xyz,inattvhd194.xyz,inattvhd195.xyz,inattvhd196.xyz,inattvhd197.xyz,inattvhd198.xyz,inattvhd199.xyz,inattvhd200.xyz,inattvhd201.xyz,inattvhd202.xyz,inattvhd203.xyz,inattvhd204.xyz,inattvhd205.xyz,inattvhd206.xyz,inattvhd207.xyz,inattvhd208.xyz,inattvhd209.xyz,inattvhd210.xyz,inattvhd211.xyz,inattvhd212.xyz,inattvhd213.xyz,inattvhd214.xyz,inattvhd215.xyz,inattvhd216.xyz,inattvhd217.xyz,inattvhd218.xyz,inattvhd219.xyz,inattvhd220.xyz,inattvhd221.xyz##marquee
 [$domain=/^inattv\d+\.xyz$/]##marquee
 inattvhd188.xyz,inattvhd189.xyz,inattvhd190.xyz,inattvhd191.xyz,inattvhd192.xyz,inattvhd193.xyz,inattvhd194.xyz,inattvhd195.xyz,inattvhd196.xyz,inattvhd197.xyz,inattvhd198.xyz,inattvhd199.xyz,inattvhd200.xyz,inattvhd201.xyz,inattvhd202.xyz,inattvhd203.xyz,inattvhd204.xyz,inattvhd205.xyz,inattvhd206.xyz,inattvhd207.xyz,inattvhd208.xyz,inattvhd209.xyz,inattvhd210.xyz,inattvhd211.xyz,inattvhd212.xyz,inattvhd213.xyz,inattvhd214.xyz,inattvhd215.xyz,inattvhd216.xyz,inattvhd217.xyz,inattvhd218.xyz,inattvhd219.xyz,inattvhd220.xyz,inattvhd221.xyz##.custom-banner
 [$domain=/^inattv\d+\.xyz$/]##.custom-banner
 [$domain=/^trgoals\d+\.xyz$/]#$#.player-poster { background-image: none !important; }
 trgoals967.xyz,trgoals968.xyz,trgoals969.xyz,trgoals970.xyz,trgoals971.xyz,trgoals972.xyz,trgoals973.xyz,trgoals974.xyz,trgoals975.xyz,trgoals976.xyz,trgoals977.xyz,trgoals978.xyz,trgoals979.xyz,trgoals980.xyz,trgoals981.xyz,trgoals982.xyz,trgoals983.xyz,trgoals984.xyz,trgoals985.xyz,trgoals986.xyz,trgoals987.xyz,trgoals988.xyz,trgoals989.xyz,trgoals990.xyz,trgoals991.xyz,trgoals992.xyz,trgoals993.xyz,trgoals994.xyz,trgoals995.xyz,trgoals996.xyz,trgoals997.xyz,trgoals998.xyz,trgoals999.xyz,trgoals1000.xyz,trgoals1001.xyz,trgoals1002.xyz,trgoals1003.xyz,trgoals1004.xyz,trgoals1005.xyz,trgoals1006.xyz,trgoals1007.xyz,trgoals1008.xyz,trgoals1009.xyz,trgoals1010.xyz#$#.player-poster { background-image: none !important; }
-[$domain=/^trgoals\d+\.xyz$/]##+js(set-constant, config.adv, {})
 trgoals967.xyz,trgoals968.xyz,trgoals969.xyz,trgoals970.xyz,trgoals971.xyz,trgoals972.xyz,trgoals973.xyz,trgoals974.xyz,trgoals975.xyz,trgoals976.xyz,trgoals977.xyz,trgoals978.xyz,trgoals979.xyz,trgoals980.xyz,trgoals981.xyz,trgoals982.xyz,trgoals983.xyz,trgoals984.xyz,trgoals985.xyz,trgoals986.xyz,trgoals987.xyz,trgoals988.xyz,trgoals989.xyz,trgoals990.xyz,trgoals991.xyz,trgoals992.xyz,trgoals993.xyz,trgoals994.xyz,trgoals995.xyz,trgoals996.xyz,trgoals997.xyz,trgoals998.xyz,trgoals999.xyz,trgoals1000.xyz,trgoals1001.xyz,trgoals1002.xyz,trgoals1003.xyz,trgoals1004.xyz,trgoals1005.xyz,trgoals1006.xyz,trgoals1007.xyz,trgoals1008.xyz,trgoals1009.xyz,trgoals1010.xyz##+js(set-constant, config.adv, {})
-[$domain=/^trgoals\d+\.xyz$/]##+js(set-constant, isShow, true)
 trgoals967.xyz,trgoals968.xyz,trgoals969.xyz,trgoals970.xyz,trgoals971.xyz,trgoals972.xyz,trgoals973.xyz,trgoals974.xyz,trgoals975.xyz,trgoals976.xyz,trgoals977.xyz,trgoals978.xyz,trgoals979.xyz,trgoals980.xyz,trgoals981.xyz,trgoals982.xyz,trgoals983.xyz,trgoals984.xyz,trgoals985.xyz,trgoals986.xyz,trgoals987.xyz,trgoals988.xyz,trgoals989.xyz,trgoals990.xyz,trgoals991.xyz,trgoals992.xyz,trgoals993.xyz,trgoals994.xyz,trgoals995.xyz,trgoals996.xyz,trgoals997.xyz,trgoals998.xyz,trgoals999.xyz,trgoals1000.xyz,trgoals1001.xyz,trgoals1002.xyz,trgoals1003.xyz,trgoals1004.xyz,trgoals1005.xyz,trgoals1006.xyz,trgoals1007.xyz,trgoals1008.xyz,trgoals1009.xyz,trgoals1010.xyz##+js(set-constant, isShow, true)
 ||trgoals*.xyz/images/ikimisli*.gif
 [$domain=/^trgoals\d+\.xyz$/]##div[style^="bottom:0;height:50px;left:0;position:fixed;"]
