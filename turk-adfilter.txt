@@ -6523,3 +6523,82 @@ www.memurlar.net###PersonalDataInfoBar > div
 www.eleman.net##.is-open.js-modal-mobile.c-modal
 www.nowtv.com.tr##.consent-banner
 www.nowtv.com.tr##.gospock-banner-widget-center-right-aligned.gospock-banner
+www.haberler.com###cconsent-bar
+www.eleman.net##.is-open.js-modal-mobile.c-modal
+www.odatv.com##.privacy-banner
+www.sinemalar.com##.active.cookie-disclaimer.dialog
+www.sinemalar.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
+www.sinemalar.com##.ad-300x250.empower-ad.ad
+www.sinemalar.com##.top.billboard.empower-ad.ad
+www.sinemalar.com##.bottom.billboard.empower-ad.ad
+www.trthaber.com##.cookie-policy-container
+arsiv.mackolik.com##.cookie-consent-rectangle
+www.doviz.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
+www.doviz.com##.reveal.cookie-disclaimer
+www.memurlar.net##.click-tracker.item.col-6.pc\:col-6
+www.memurlar.net###PersonalDataInfoBar > div
+www.internethaber.com##.privacy-banner
+www.internethaber.com##div.masthead-fixed.desktop-ad.adpro:nth-of-type(1)
+www.internethaber.com##.mb-site.ad-box-big.desktop-ad.adpro
+www.internethaber.com##.w-336.w-lg-300 > .mb-site.ad-box.desktop-ad.adpro
+www.internethaber.com##.mb-site.ad-box.desktop-ad.adpro
+www.fanatik.com.tr###\39 927946\,22420904089\/fanatik\/anasayfa\/header_728x90_masthead
+www.donanimhaber.com##.cookie-kutu
+www.yenicaggazetesi.com.tr##.mb-0.mt-4.banner-wide.banner.container > dfp-ad
+www.nefisyemektarifleri.com###webpush-info-div
+onedio.com##.p-2\.5.text-white.bg-opacity-90.bg-gray-900.fixed.left-0.bottom-0.w-full.bg-black-70.u-center.z-cookie.modal--cookie
+www.ntv.com.tr##.bar--cookie-bar.bar
+www.cumhuriyet.com.tr##.right-row.col-lg-4.col-md-4.col-sm-4.col-xs-12 > [href="https://tatil.cumhuriyet.com.tr"]
+www.haber7.com##.cookie-message
+www.yasemin.com##div.mt20.content-ad:nth-of-type(3)
+www.haber7.com##.comment-ad > .content
+www.sondakika.com##.show.notification-popup
+www.sondakika.com##.vl-notif-inner
+www.sondakika.com###cconsent-bar
+www.ensonhaber.com##.cookiepolicy-banner
+www.mynet.com###privacy-notification
+||eksiseyler.com/sozluk/baslik/6955054?style=white$subdocument
+||www.buljet.com/sayfa/iframe?yatay=1$subdocument
+||www.filmcus.site/wp-content/uploads/2025/02/reklam.bmp$image
+||www.filmbari.com/uploads/chps3.webp$image
+||www.filmbari.com/uploads/chps3.webp$image
+||www.filmbari.com/uploads/chps3.webp$image
+www.buzfilmizle3.com##.poper_show.poper
+www.buzfilmizle3.com##.iv6bGFFrBm2OTsdCZq8K
+www.buzfilmizle3.com##.amMb78RPPU8tNuFfBZUD._rGGQOLsfdi_VLt1WJu6.uYZBnLDnIyswhKWzZLSW.VjIk2TJT4stQgyeHQSMo.mboJcBcmq4BzeSkocC95.frvBxo3OzNO6g_x_mz5H._4KjPzfFqnPyBgIgiXkX
+utanmazkizlar.com##.show-check-also.check-also-right.container-wrapper
+ouo.press##.text-center > div
+||ouo.press/images/b1.png$image
+||www.thawinewa.pro/301305/351376/641281_58b90z.webm$media
+cpmlink.net##.vjs-ad-playing.vjs-has-started.vjs-playing.vjs-user-active.vjs-v7.vjs-workinghover.vjs-controls-enabled.dimensions-▶__video.video-js.▶__video
+cpmlink.net##.▶__close
+cpmlink.net###adm-container-10
+www.flv2mp3.by##.iv6bGFFrBm2OTsdCZq8K
+www.flv2mp3.by##.amMb78RPPU8tNuFfBZUD.sXMjiAYIyLfUvykrs3RT.uYZBnLDnIyswhKWzZLSW.VjIk2TJT4stQgyeHQSMo.YT4KyBxROV_k96PW_DLJ._Y4RX_iS668QQk_wmtaZ._4KjPzfFqnPyBgIgiXkX
+www.flv2mp3.by###div_netpub_banner_nqeyilyddme6n7tk5x4pd
+www.flv2mp3.by###bg-ssp-3018-1540873533735 > .bg-ssp-3018
+www.flv2mp3.by##section.section_wsp > .container > .horizontal-area.hidden-mobile
+www.flv2mp3.by##.bg-ssp-3019
+www.flv2mp3.by##.square-area
+notube.net##.show.cookiealert.text-center.alert
+smallseotools.com##.bg_popup.p-3
+smallseotools.com##.show.g_popup.fade.modal
+smallseotools.com##.show.fade.modal-backdrop
+smallseotools.com##.mps.pb-4.px-4.col > .mx-auto.text-center.my-2 > .g250.text-center
+smallseotools.com##.gb-1.g90.text-center
+smallseotools.com##.sede_ara.ml-0.ml-md-4 > div.mx-auto.text-center.my-2 > .g250.text-center
+smallseotools.com###video-downloader-form > div.mx-auto.text-center.my-2 > .g250.text-center
+snapsave.app###how-section > .section > div.container > .ad-slot
+snapsave.app##section.ads-section.section > .container > .ad-slot
+tiktok.tr.uptodown.com###uptodown-turbo-promo
+||www.wemod.com/static/images/views/homepage/maps-bg-7a9c3b767c.jpg$image
+oyun-hileleri.tr.uptodown.com##.c1 > .ad
+oyun-hileleri.tr.uptodown.com##.no-adsense.ad
+oyun-hileleri.tr.uptodown.com###uptodown-turbo-promo
+vanced.tr.uptodown.com##.c1 > .ad
+www.oggusto.com##.Cookie_cookie__fWV9G
+dehost.com.tr###cookieConsent
+fluakademi.com##.e-lazyloaded.e-parent.e-con.e-con-boxed.e-flex.elementor-hidden-tablet.elementor-hidden-mobile.elementor-element-f974580.elementor-element.lqd-hide-onstuck
+starzbet173.com##.pushengage-opt-in__sleek-opt-in-box--light.pushengage-opt-in__sleek-opt-in-box--pe-top-center.pushengage-opt-in__sleek-opt-in-box
+bycasino223.com##.pushengage-opt-in__large-safari-style--light.pushengage-opt-in__large-safari-style--desktop.pushengage-opt-in__large-safari-style
+1000kitap.com##.right-4.mb-4.bottom-alt-menu.z-index-ultra.rounded-4.fixed.pv-6.ph-6.border-cizgi.max-w-90vw.border-t.mt-2.gap-4.shadow.bg-ana.dr
