@@ -37,7 +37,7 @@ export const baseOptions: BaseLayoutProps = {
       icon: "❓ ",
     },
     {
-      text: "Geribildirim",
+      text: "Geri Bildirim",
       url: "/feedback",
       active: "nested-url",
       icon: "💬 ",

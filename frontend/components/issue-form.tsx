@@ -10,6 +10,8 @@ export default function IssueForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -18,10 +20,55 @@ export default function IssueForm() {
     });
   };
 
-  function handleSubmit() {}
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      const response = await fetch("/api/issues", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: formData.title,
+          body: `## Açıklama\n${formData.description}\n\n## Önem Seviyesi\n${formData.priority}`,
+          labels: ["user-feedback"],
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Bir hata oluştu. Lütfen tekrar deneyin.");
+      }
+
+      setSuccess(true);
+      setFormData({
+        title: "",
+        description: "",
+        priority: "low",
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Bir hata oluştu. Lütfen tekrar deneyin.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+      {error && (
+        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          {error}
+        </div>
+      )}
+      {success && (
+        <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+          Geri bildiriminiz başarıyla gönderildi. Teşekkür ederiz!
+        </div>
+      )}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2 text-left">Sorununuz ne?</label>
         <p className="text-left opacity-50 text-xs mb-2">Açıklayıcı bir başlık belirleyin</p>
