@@ -37,6 +37,12 @@ export const baseOptions: BaseLayoutProps = {
       icon: "❓ ",
     },
     {
+      text: "Geribildirim",
+      url: "/feedback",
+      active: "nested-url",
+      icon: "💬 ",
+    },
+    {
       type: "icon",
       url: "https://github.com/omerdduran/turk-adfilter",
       text: "Github",
