@@ -119,14 +119,6 @@ export default function AboutPage() {
             </div>
           </section>
         </div>
-
-        {/* Footer */}
-        <footer className="mt-16 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Turk-AdFilter. Tüm hakları saklıdır.</p>
-          <p className="mt-2">
-            Made with <Heart className="inline text-red-500" size={14} /> by the Turk-AdFilter Community
-          </p>
-        </footer>
       </main>
     </div>
   );
