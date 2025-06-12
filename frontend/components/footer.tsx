@@ -20,16 +20,22 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <Link
+              href="/about"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+            >
+              Hakkımızda
+            </Link>
+            <Link
               href="/docs"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
             >
               Dokümantasyon
             </Link>
             <Link
-              href="/about"
+              href="/releases"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
             >
-              Hakkımızda
+              Sürüm Notları
             </Link>
             <a
               href="https://github.com/omerdduran/turk-adfilter"

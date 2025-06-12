@@ -25,16 +25,22 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
+      text: "Hakkımızda",
+      url: "/about",
+      active: "nested-url",
+      icon: "❓ ",
+    },
+    {
       text: "Dokümantasyon",
       url: "/docs",
       active: "nested-url",
       icon: "📚 ",
     },
     {
-      text: "Hakkımızda",
-      url: "/about",
+      text: "Sürüm Notları",
+      url: "/releases",
       active: "nested-url",
-      icon: "❓ ",
+      icon: "📋 ",
     },
     {
       text: "Geri Bildirim",
