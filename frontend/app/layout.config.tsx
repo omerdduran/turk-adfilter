@@ -43,6 +43,12 @@ export const baseOptions: BaseLayoutProps = {
       icon: "📋 ",
     },
     {
+      text: "Filtre Yedekleri",
+      url: "/backups",
+      active: "nested-url",
+      icon: "💾 ",
+    },
+    {
       text: "Geri Bildirim",
       url: "/feedback",
       active: "nested-url",

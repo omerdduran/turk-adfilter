@@ -1,4 +1,9 @@
 .next
 node_modules
 pnpm-lock.yaml
-.DS_STORE
+.DS_Store
+
+# Yedekleme sistemi ile ilgili geçici dosyalar
+*.restore_safety_*
+*.tmp
+*.backup_temp

@@ -83,6 +83,13 @@ jobs:
           # This might be redundant if bump_version.py already did it.
           # Consider consolidating version logic if necessary. For now, assume generate_hosts.py is correct.
 
+      - name: Backup filter files before release
+        run: |
+          # Yedekler klasörünü oluştur
+          mkdir -p yedekler
+          # Release öncesi yedekleme yap
+          python scripts/backup_filters.py --force
+
       - name: Commit and push hosts.txt
         run: |
           git config user.name "github-actions[bot]"
@@ -93,6 +100,13 @@ jobs:
           else
             git add hosts.txt
             git commit -m "chore: generate hosts.txt [skip ci]"
+            git push
+          fi
+          
+          # Yedekleri de commit et
+          if ! git diff --quiet yedekler/ || ! git diff --cached --quiet yedekler/; then
+            git add yedekler/
+            git commit -m "🔄 Release öncesi filtre yedekleme [skip ci]"
             git push
           fi
 

@@ -1,0 +1,86 @@
+name: Otomatik Filtre Yedekleme
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'hosts.txt'
+      - 'turk-adfilter.txt'
+  workflow_dispatch:
+    inputs:
+      force_backup:
+        description: 'Değişiklik olmasa da zorla yedekle'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  backup-filters:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      - name: Yedekler klasörü kontrolü
+        run: |
+          if [ ! -d "yedekler" ]; then
+            mkdir -p yedekler
+            echo "📁 Yedekler klasörü oluşturuldu"
+          fi
+          
+      - name: Otomatik yedekleme çalıştır
+        run: |
+          if [ "${{ github.event.inputs.force_backup }}" = "true" ]; then
+            python scripts/backup_filters.py --force
+          else
+            python scripts/backup_filters.py
+          fi
+          
+      - name: Yedek dosyalarını commit et
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Yedekler klasöründe değişiklik var mı kontrol et
+          if git diff --quiet yedekler/ && git diff --cached --quiet yedekler/; then
+            echo "✅ Yeni yedek oluşturulmadı (değişiklik yok)"
+          else
+            git add yedekler/
+            
+            # Commit mesajını oluştur
+            COMMIT_MSG="🔄 Otomatik filtre yedekleme"
+            
+            if [ "${{ github.event.inputs.force_backup }}" = "true" ]; then
+              COMMIT_MSG="$COMMIT_MSG (manuel tetikleme)"
+            else
+              # Hangi dosyalar değişti bilgisini ekle
+              CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- hosts.txt turk-adfilter.txt | tr '\n' ' ')
+              if [ ! -z "$CHANGED_FILES" ]; then
+                COMMIT_MSG="$COMMIT_MSG - Değişen dosyalar: $CHANGED_FILES"
+              fi
+            fi
+            
+            git commit -m "$COMMIT_MSG [skip ci]"
+            git push
+            
+            echo "✅ Yedekler commit edildi ve push yapıldı"
+          fi
+          
+      - name: Yedek istatistiklerini göster
+        run: |
+          echo "📊 Yedek İstatistikleri:"
+          python scripts/backup_filters.py --info
+          
+      - name: Eski yedekleri temizle (30 günden eski)
+        run: |
+          python scripts/restore_backup.py --cleanup 30 

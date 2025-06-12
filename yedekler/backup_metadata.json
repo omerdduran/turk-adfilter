@@ -1,0 +1,28 @@
+{
+  "hosts.txt": {
+    "backups": [
+      {
+        "backup_file": "hosts_20250612_225840.txt",
+        "timestamp": "20250612_225840",
+        "size": 31899,
+        "hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
+        "created_at": "2025-06-12T22:58:40.754935"
+      }
+    ],
+    "last_hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
+    "last_backup": "20250612_225840"
+  },
+  "turk-adfilter.txt": {
+    "backups": [
+      {
+        "backup_file": "turk-adfilter_20250612_225840.txt",
+        "timestamp": "20250612_225840",
+        "size": 376032,
+        "hash": "0e78ccb86454c58eec6c933249555a767d0b2da0d94d934bcae2f69c1a9911d5",
+        "created_at": "2025-06-12T22:58:40.756597"
+      }
+    ],
+    "last_hash": "0e78ccb86454c58eec6c933249555a767d0b2da0d94d934bcae2f69c1a9911d5",
+    "last_backup": "20250612_225840"
+  }
+}
