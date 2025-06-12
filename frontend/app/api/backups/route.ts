@@ -1,6 +1,4 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
 interface BackupInfo {
   backup_file: string;
@@ -40,39 +38,27 @@ export async function GET() {
       });
     }
 
-    // Get the project root (go up from frontend/app/api/backups/)
-    const projectRoot = path.resolve(process.cwd(), '../');
-    const backupDir = path.join(projectRoot, 'yedekler');
-    const metadataFile = path.join(backupDir, 'backup_metadata.json');
-
-    // Check if backup directory exists
-    if (!fs.existsSync(backupDir)) {
-      return NextResponse.json({
-        error: 'Yedek klasörü bulunamadı',
-        backups: {},
-        stats: {
-          totalFiles: 0,
-          totalBackups: 0,
-          lastBackup: null
-        }
-      });
+    // Fetch metadata from GitHub
+    const metadataUrl = 'https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/yedekler/backup_metadata.json';
+    
+    const response = await fetch(metadataUrl);
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        return NextResponse.json({
+          error: 'Henüz yedek dosyası oluşturulmamış',
+          backups: {},
+          stats: {
+            totalFiles: 0,
+            totalBackups: 0,
+            lastBackup: null
+          }
+        });
+      }
+      throw new Error(`GitHub'dan metadata alınamadı: ${response.statusText}`);
     }
 
-    // Check if metadata file exists
-    if (!fs.existsSync(metadataFile)) {
-      return NextResponse.json({
-        error: 'Yedek metadata dosyası bulunamadı',
-        backups: {},
-        stats: {
-          totalFiles: 0,
-          totalBackups: 0,
-          lastBackup: null
-        }
-      });
-    }
-
-    // Read and parse metadata
-    const metadataContent = fs.readFileSync(metadataFile, 'utf-8');
+    const metadataContent = await response.text();
     const metadata: BackupMetadata = JSON.parse(metadataContent);
 
     // Process backup data
@@ -91,7 +77,10 @@ export async function GET() {
         lastHash: fileData.last_hash,
         backups: sortedBackups.map(backup => ({
           ...backup,
-          downloadUrl: `/api/backups/download?file=${encodeURIComponent(backup.backup_file)}`,
+          downloadUrl: `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/yedekler/${backup.backup_file}`,
+          githubUrl: `https://github.com/omerdduran/turk-adfilter/blob/main/yedekler/${backup.backup_file}`,
+          codebergUrl: `https://codeberg.org/omerdduran/turk-adfilter/src/branch/main/yedekler/${backup.backup_file}`,
+          codebergRawUrl: `https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/yedekler/${backup.backup_file}`,
           readableDate: formatTimestamp(backup.timestamp),
           readableSize: formatSize(backup.size)
         }))

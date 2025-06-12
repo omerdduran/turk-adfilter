@@ -10,6 +10,9 @@ interface BackupFile {
   hash: string;
   created_at: string;
   downloadUrl: string;
+  githubUrl: string;
+  codebergUrl: string;
+  codebergRawUrl: string;
   readableDate: string;
   readableSize: string;
 }
@@ -64,10 +67,11 @@ export default function BackupsPage() {
   }, []);
 
   const handleDownload = (downloadUrl: string, fileName: string) => {
-    // Create a temporary link and trigger download
+    // Create a temporary link and trigger download from raw URL
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = fileName;
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -243,13 +247,22 @@ export default function BackupsPage() {
                             </div>
                           </div>
                           
-                          <button
-                            onClick={() => handleDownload(backup.downloadUrl, backup.backup_file)}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-                          >
-                            <Download className="w-4 h-4" />
-                            İndir
-                          </button>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleDownload(backup.downloadUrl, backup.backup_file)}
+                              className="inline-flex items-center gap-2 px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm"
+                            >
+                              <Download className="w-4 h-4" />
+                              GitHub
+                            </button>
+                            <button
+                              onClick={() => handleDownload(backup.codebergRawUrl, backup.backup_file)}
+                              className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm"
+                            >
+                              <Download className="w-4 h-4" />
+                              Codeberg
+                            </button>
+                          </div>
                         </div>
                       </div>
                     ))
