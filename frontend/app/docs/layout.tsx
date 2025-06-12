@@ -5,8 +5,7 @@ import { source } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout tree={source.pageTree} {...baseOptions}>
-      {children}
+    <DocsLayout tree={source.pageTree} {...baseOptions} {...({ children } as any)}>
     </DocsLayout>
   );
 }
