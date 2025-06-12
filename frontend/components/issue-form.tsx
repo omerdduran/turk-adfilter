@@ -80,8 +80,8 @@ export default function IssueForm() {
       )}
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2 text-left">Sorununuz ne?</label>
-        <p className="text-left opacity-50 text-xs mb-2">Açıklayıcı bir başlık belirleyin</p>
+        <label className="block text-sm font-medium mb-1 text-left">Sorununuz ne?</label>
+        <p className="text-left opacity-50 text-xs mb-1">Açıklayıcı bir başlık belirleyin</p>
         <input
           type="text"
           name="title"
@@ -94,7 +94,7 @@ export default function IssueForm() {
 
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1 text-left">Detaylı Açıklama</label>
-        <p className="text-left opacity-50 text-xs mb-2">Sorununuzu ve bu sorunun neden / nasıl oluştuğunu detaylı bir şekilde açıklayın.</p>
+        <p className="text-left opacity-50 text-xs mb-1">Sorununuzu ve bu sorunun neden / nasıl oluştuğunu detaylı bir şekilde açıklayın.</p>
         <textarea
           name="description"
           value={formData.description}
@@ -106,8 +106,8 @@ export default function IssueForm() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2 text-left">Önem Seviyesi</label>
-        <p className="text-left opacity-50 text-xs mb-2">Bu sorun sizin için ne kadar kritik?</p>
+        <label className="block text-sm font-medium mb-1 text-left">Önem Seviyesi</label>
+        <p className="text-left opacity-50 text-xs mb-1">Bu sorun sizin için ne kadar kritik?</p>
         <select
           name="priority"
           value={formData.priority}

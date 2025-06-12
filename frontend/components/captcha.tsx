@@ -108,10 +108,10 @@ export default function Captcha({ onVerify }: CaptchaProps) {
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium mb-2 text-left">
+      <label className="block text-sm font-medium mb-1 text-left">
         Güvenlik Doğrulaması
       </label>
-      <p className="text-left opacity-50 text-xs mb-2">
+      <p className="text-left opacity-50 text-xs mb-1">
         Lütfen aşağıdaki kodu girin
       </p>
 
