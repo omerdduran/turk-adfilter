@@ -72,6 +72,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add turk-adfilter.txt
           git commit -m "chore(release): bump ${{ steps.bump_type.outputs.type }} version [skip ci]" || echo "No changes to commit"
+          git pull --no-rebase --no-edit origin main
           git push
 
       - name: Generate hosts.txt
