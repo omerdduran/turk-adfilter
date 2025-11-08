@@ -6602,3 +6602,12 @@ fluakademi.com##.e-lazyloaded.e-parent.e-con.e-con-boxed.e-flex.elementor-hidden
 starzbet173.com##.pushengage-opt-in__sleek-opt-in-box--light.pushengage-opt-in__sleek-opt-in-box--pe-top-center.pushengage-opt-in__sleek-opt-in-box
 bycasino223.com##.pushengage-opt-in__large-safari-style--light.pushengage-opt-in__large-safari-style--desktop.pushengage-opt-in__large-safari-style
 1000kitap.com##.right-4.mb-4.bottom-alt-menu.z-index-ultra.rounded-4.fixed.pv-6.ph-6.border-cizgi.max-w-90vw.border-t.mt-2.gap-4.shadow.bg-ana.dr
+dev.to##.crayons-article-sticky .js-billboard-container
+||anizle.com/images/episode-ust-foto-*$image
+[$domain=/dizipal\d+.com/]##.footer-ad-container
+[$domain=/dizipal\d+.com/]##.ads_single_font
+||blogger.googleusercontent.com/img/*/s1000/prme5.gif$image
+||blogger.googleusercontent.com/img/*/s1000/pari150.gif$image
+presidente-beer.com##.ads-container, .rnd-qwert, .header2 > .pd-none.container-ads-adjustment.container
+dizirella.com##.videoust
+||sporcafe-*.xyz/assets/uploads/*$image
