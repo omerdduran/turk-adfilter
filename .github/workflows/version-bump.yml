@@ -33,6 +33,11 @@ jobs:
         run: |
           python scripts/filter_lint.py
 
+      - name: Pull latest changes
+        run: |
+          git fetch origin main
+          git merge origin/main
+
       # - name: Domain check (optional, devam etsin)
       #   run: |
       #     python scripts/domain_check.py || true
