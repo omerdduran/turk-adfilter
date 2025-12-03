@@ -3,9 +3,6 @@ name: Otomatik Filtre Yedekleme
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'hosts.txt'
-      - 'turk-adfilter.txt'
   workflow_dispatch:
     inputs:
       force_backup:
@@ -51,10 +48,6 @@ jobs:
           else
             python scripts/backup_filters.py
           fi
-      
-      - name: Eski yedekleri temizle (30 günden eski)
-        run: |
-          python scripts/restore_backup.py --cleanup 30
           
       - name: Yedek dosyalarını commit et
         run: |
