@@ -1,7 +1,7 @@
 name: Version Bump & Release
 
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
     branches:
       - main
@@ -19,11 +19,18 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
       - name: Remove duplicate domains
         run: |
@@ -32,11 +39,6 @@ jobs:
       - name: Lint filter (check format, duplicates, invalid chars)
         run: |
           python scripts/filter_lint.py
-
-      - name: Pull latest changes
-        run: |
-          git fetch origin main
-          git merge origin/main
 
       # - name: Domain check (optional, devam etsin)
       #   run: |
@@ -120,13 +122,11 @@ jobs:
         id: create_tag
         run: |
           # Get new version from turk-adfilter.txt
-          VERSION=$(grep '^! Version:' turk-adfilter.txt | head -n1 | awk '{print $3}')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          git tag $VERSION
-          git push origin $VERSION
-
-      - name: Install matplotlib for plotting
-        run: pip install matplotlib
+          NUM_VERSION=$(grep '^! Version:' turk-adfilter.txt | head -n1 | awk '{print $3}')
+          VERSION_TAG="v${NUM_VERSION}"
+          echo "version=$VERSION_TAG" >> $GITHUB_OUTPUT
+          git tag "$VERSION_TAG"
+          git push origin "$VERSION_TAG"
 
       - name: Run filter lint (for release notes)
         run: |
