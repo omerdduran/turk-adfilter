@@ -30,6 +30,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
           
       - name: Yedekler klasörü kontrolü
         run: |
@@ -45,6 +51,10 @@ jobs:
           else
             python scripts/backup_filters.py
           fi
+      
+      - name: Eski yedekleri temizle (30 günden eski)
+        run: |
+          python scripts/restore_backup.py --cleanup 30
           
       - name: Yedek dosyalarını commit et
         run: |
@@ -80,7 +90,3 @@ jobs:
         run: |
           echo "📊 Yedek İstatistikleri:"
           python scripts/backup_filters.py --info
-          
-      - name: Eski yedekleri temizle (30 günden eski)
-        run: |
-          python scripts/restore_backup.py --cleanup 30 
