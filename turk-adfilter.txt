@@ -6611,3 +6611,6 @@ dev.to##.crayons-article-sticky .js-billboard-container
 presidente-beer.com##.ads-container, .rnd-qwert, .header2 > .pd-none.container-ads-adjustment.container
 dizirella.com##.videoust
 ||sporcafe-*.xyz/assets/uploads/*$image
+[$domain=/sporcafe-.*\.xyz/]##.top-text-banner
+||dizi25.life/assets/images/*.gif$image
+dizi25.life##img[src^="/assets/images/"][src$=".gif"]
