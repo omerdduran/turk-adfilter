@@ -6614,3 +6614,5 @@ dizirella.com##.videoust
 [$domain=/sporcafe-.*\.xyz/]##.top-text-banner
 ||dizi25.life/assets/images/*.gif$image
 dizi25.life##img[src^="/assets/images/"][src$=".gif"]
+[$domain=/sporcafe-.*\.xyz/]###betting-sites-section
+
