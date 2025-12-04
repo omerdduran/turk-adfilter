@@ -1,0 +1,69 @@
+name: Notify Discord on Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Send release notification to Discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare payload
+        id: prep
+        env:
+          RELEASE_NAME: ${{ github.event.release.name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.release.author.login }}
+        run: |
+          safe_name="${RELEASE_NAME:-$RELEASE_TAG}"
+          payload=$(jq -n \
+            --arg username "Turk-AdFilter Bot" \
+            --arg avatar "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/assets/logo.png" \
+            --arg title "$safe_name" \
+            --arg url "$RELEASE_URL" \
+            --arg description "$RELEASE_BODY" \
+            --arg repo "$REPO" \
+            --arg tag "$RELEASE_TAG" \
+            --arg author "$AUTHOR" \
+            '{
+              username: $username,
+              avatar_url: $avatar,
+              embeds: [
+                {
+                  title: "Yeni sürüm yayınlandı: " + $title,
+                  url: $url,
+                  description: ($description // "" | if length > 3900 then .[0:3900] + "…" else . end),
+                  color: 39423,
+                  fields: [
+                    { "name": "Repo", "value": $repo, "inline": true },
+                    { "name": "Tag", "value": $tag, "inline": true },
+                    { "name": "Yayınlayan", "value": $author, "inline": true }
+                  ],
+                  timestamp: (now | todateiso8601)
+                }
+              ]
+            }')
+          {
+            echo "payload<<JSON_EOF"
+            echo "$payload"
+            echo "JSON_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Send to Discord
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          PAYLOAD: ${{ steps.prep.outputs.payload }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ]; then
+            echo "Missing DISCORD_WEBHOOK_URL secret" >&2
+            exit 1
+          fi
+          curl -sS -H "Content-Type: application/json" -X POST -d "$PAYLOAD" "$WEBHOOK_URL"
