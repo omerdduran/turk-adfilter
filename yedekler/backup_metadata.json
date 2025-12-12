@@ -21,10 +21,17 @@
         "size": 31899,
         "hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
         "created_at": "2025-12-04T00:23:17.245563"
+      },
+      {
+        "backup_file": "hosts_20251212_044239.txt",
+        "timestamp": "20251212_044239",
+        "size": 31899,
+        "hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
+        "created_at": "2025-12-12T04:42:39.104554"
       }
     ],
     "last_hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
-    "last_backup": "20251204_002317"
+    "last_backup": "20251212_044239"
   },
   "turk-adfilter.txt": {
     "backups": [
@@ -69,9 +76,16 @@
         "size": 376714,
         "hash": "dcc383d0d542fe41abd8ff0e4d27b2669cf0f403afe2fdbbce427a129741f99f",
         "created_at": "2025-12-04T00:23:17.246677"
+      },
+      {
+        "backup_file": "turk-adfilter_20251212_044239.txt",
+        "timestamp": "20251212_044239",
+        "size": 376714,
+        "hash": "eccd27bc06fbf582654860fdebbfd067b2ece40812bae49f5f6da1a72f138e4d",
+        "created_at": "2025-12-12T04:42:39.105685"
       }
     ],
-    "last_hash": "dcc383d0d542fe41abd8ff0e4d27b2669cf0f403afe2fdbbce427a129741f99f",
-    "last_backup": "20251204_002317"
+    "last_hash": "eccd27bc06fbf582654860fdebbfd067b2ece40812bae49f5f6da1a72f138e4d",
+    "last_backup": "20251212_044239"
   }
 }
