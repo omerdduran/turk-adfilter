@@ -77,4 +77,4 @@ Katkıda bulunan tüm katılımcılara teşekkür ederiz! Sizin sayenizde daha i
 ## İletişim
 
 - GitHub: [@omerdduran/turk-adfilter](https://github.com/omerdduran/turk-adfilter)
-- Matrix: [#reklamsiz-turkiye:matrix.org](https://matrix.to/#/#reklamsiz-turkiye:matrix.org)
+- Discord: [Discord Sunucusu](https://discord.gg/u2eRbGnd)
