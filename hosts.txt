@@ -1,5 +1,5 @@
 # Generated from turk-adfilter.txt for DNS blocklists
-# Total domains: 1256
+# Total domains: 1336
 
 0.0.0.0 0638.info
 0.0.0.0 109.73.75.29
@@ -27,6 +27,7 @@
 0.0.0.0 acxdyn.com
 0.0.0.0 ad-cdn.bilgin.pro
 0.0.0.0 ad-delivery.net
+0.0.0.0 ad-maven.com
 0.0.0.0 ad-plus.com.tr
 0.0.0.0 ad-score.com
 0.0.0.0 ad-service.shop
@@ -97,7 +98,9 @@
 0.0.0.0 addresseepaper.com
 0.0.0.0 adeko.mobi
 0.0.0.0 adentifi.com
+0.0.0.0 adf.ly
 0.0.0.0 adfarm1.adition.com
+0.0.0.0 adfoc.us
 0.0.0.0 adfor.io
 0.0.0.0 adform.net
 0.0.0.0 adformdsp.net
@@ -118,7 +121,9 @@
 0.0.0.0 admax.com.tr
 0.0.0.0 admdspc.com
 0.0.0.0 admeld.com
+0.0.0.0 admitad.com
 0.0.0.0 admitlead.ru
+0.0.0.0 admob.com
 0.0.0.0 admost.com
 0.0.0.0 admoxi.com
 0.0.0.0 adn.bursadabugun.com
@@ -133,6 +138,7 @@
 0.0.0.0 adnxs.com
 0.0.0.0 adocean.pl
 0.0.0.0 adon.io
+0.0.0.0 adoperator.com
 0.0.0.0 adotmob.com
 0.0.0.0 adplay.com.tr
 0.0.0.0 adplus.yaani.com.tr
@@ -162,6 +168,7 @@
 0.0.0.0 ads.ak.facebook.com.edgesuite.net
 0.0.0.0 ads.betweendigital.com
 0.0.0.0 ads.bluelithium.com
+0.0.0.0 ads.brave.com
 0.0.0.0 ads.code.com.tr
 0.0.0.0 ads.converge-digital.com
 0.0.0.0 ads.creative-serving.com
@@ -186,6 +193,7 @@
 0.0.0.0 ads.linksrequest.com
 0.0.0.0 ads.macskorlari.net
 0.0.0.0 ads.macsonuclari.mobi
+0.0.0.0 ads.microsoft.com
 0.0.0.0 ads.modabetaff.com
 0.0.0.0 ads.mopub.com
 0.0.0.0 ads.motosiklet.net
@@ -228,6 +236,7 @@
 0.0.0.0 adsblok.com
 0.0.0.0 adsby.io
 0.0.0.0 adscale.de
+0.0.0.0 adsense.com
 0.0.0.0 adserve.donanimhaber.com
 0.0.0.0 adserver.a24.com.tr
 0.0.0.0 adserver.adklik.com.tr
@@ -242,6 +251,7 @@
 0.0.0.0 adservice.google.com
 0.0.0.0 adservice.google.com.tr
 0.0.0.0 adshare3.freedocast.com
+0.0.0.0 adshrink.it
 0.0.0.0 adsim.sabah.com.tr
 0.0.0.0 adslidango.com
 0.0.0.0 adsnative.com
@@ -251,6 +261,7 @@
 0.0.0.0 adsp.haberturk.com
 0.0.0.0 adsrv.eacdn.com
 0.0.0.0 adsrvr.org
+0.0.0.0 adsterra.com
 0.0.0.0 adsupp.network
 0.0.0.0 adsymptotic.com
 0.0.0.0 adtarget.com.tr
@@ -260,6 +271,7 @@
 0.0.0.0 adtrack.king.com
 0.0.0.0 adv.letitbit.net
 0.0.0.0 advancenative.com
+0.0.0.0 adversal.com
 0.0.0.0 advert.livesportmedia.eu
 0.0.0.0 advertag.in
 0.0.0.0 advertising.a2z.com
@@ -360,10 +372,13 @@
 0.0.0.0 atemda.com
 0.0.0.0 athena-event-provider.n11.com
 0.0.0.0 avlsh.visilabs.net
+0.0.0.0 awin.com
 0.0.0.0 axbet20.com
 0.0.0.0 axbetb.com
 0.0.0.0 axbetb2.com
+0.0.0.0 ay.live
 0.0.0.0 ayandns.com
+0.0.0.0 aylink.co
 0.0.0.0 b.cdn.md
 0.0.0.0 b6roqgi.com
 0.0.0.0 baglanbize.net
@@ -381,7 +396,9 @@
 0.0.0.0 basvformu3.xyz
 0.0.0.0 basvformu4.xyz
 0.0.0.0 basvformu5.xyz
+0.0.0.0 bat.bing.com
 0.0.0.0 bbelements.com
+0.0.0.0 bc.vc
 0.0.0.0 bcvc.mobi
 0.0.0.0 bcvcrdr.xyz
 0.0.0.0 beacon.securestudies.com
@@ -397,6 +414,7 @@
 0.0.0.0 bildirt.com
 0.0.0.0 bilink.xyz
 0.0.0.0 binaryad.com
+0.0.0.0 bingads.microsoft.com
 0.0.0.0 bitcasino365.b-cdn.net
 0.0.0.0 bizographics.com
 0.0.0.0 bkrtx.com
@@ -412,6 +430,7 @@
 0.0.0.0 bumerang.hurriyet.com.tr
 0.0.0.0 bumerangshowsites.hurriyet.com.tr
 0.0.0.0 buttons-config.sharethis.com
+0.0.0.0 buysellads.com
 0.0.0.0 buzzreklam.com
 0.0.0.0 bwcdn.xyz
 0.0.0.0 bwtsrv.com
@@ -465,11 +484,18 @@
 0.0.0.0 chartbeat.com
 0.0.0.0 cinerreklam.com.tr
 0.0.0.0 citireklam.com
+0.0.0.0 cj.com
+0.0.0.0 clarity.ms
 0.0.0.0 clck.yandex.com.tr
+0.0.0.0 clickadu.com
+0.0.0.0 clickaine.com
+0.0.0.0 clickbank.com
 0.0.0.0 clickmerkez.com
 0.0.0.0 clicks.hurriyet.com.tr
 0.0.0.0 clicktale.net
 0.0.0.0 clifads.com
+0.0.0.0 clik.pw
+0.0.0.0 clk.sh
 0.0.0.0 cloudflareinsights.com
 0.0.0.0 cm.g.doubleclick.net
 0.0.0.0 cmsbetconstruct.com
@@ -504,6 +530,7 @@
 0.0.0.0 cp.pushwoosh.com
 0.0.0.0 cpatrendreklam.com
 0.0.0.0 cplayer.pw
+0.0.0.0 cpm.link
 0.0.0.0 crashlytics.com
 0.0.0.0 crazyegg.com
 0.0.0.0 creativecdn.com
@@ -537,6 +564,7 @@
 0.0.0.0 dbfukofby5ycr.cloudfront.net
 0.0.0.0 demand.supply
 0.0.0.0 demdex.net
+0.0.0.0 denemebonusuverensiteleriz.com
 0.0.0.0 device-metrics-us-2.amazon.com
 0.0.0.0 diken.xyz
 0.0.0.0 dimml.io
@@ -548,6 +576,7 @@
 0.0.0.0 dogus-ads-cdn.dygdigital.com
 0.0.0.0 dolarkurum.com
 0.0.0.0 dontmakethem.club
+0.0.0.0 doubleclick.com
 0.0.0.0 doubleclick.net
 0.0.0.0 downads.com
 0.0.0.0 ds.macellan.online
@@ -568,10 +597,12 @@
 0.0.0.0 eqads.com
 0.0.0.0 erkaseriilan.com.tr
 0.0.0.0 ero-advertising.com
+0.0.0.0 eroadvertising.com
 0.0.0.0 escinteractive.com
 0.0.0.0 etcodes.com
 0.0.0.0 etracker.com
 0.0.0.0 eue.d-teknoloji.com.tr
+0.0.0.0 evadav.com
 0.0.0.0 event-collector.analytics.onedio.com
 0.0.0.0 event.demirorenteknoloji.com
 0.0.0.0 event.dengage.com
@@ -581,7 +612,9 @@
 0.0.0.0 events3alt.adcolony.com
 0.0.0.0 evs.data.ciceksepeti.com
 0.0.0.0 exelator.com
+0.0.0.0 exoclick.com
 0.0.0.0 eyeviewads.com
+0.0.0.0 ezoic.com
 0.0.0.0 faggrim.com
 0.0.0.0 fast-redirecting.com
 0.0.0.0 fingersoft-log.scientificrevenue.com
@@ -594,8 +627,10 @@
 0.0.0.0 franecki.net
 0.0.0.0 freegeoip.net
 0.0.0.0 frknseo.info
+0.0.0.0 froggyads.com
 0.0.0.0 fsuseaad1.blob.core.windows.net
 0.0.0.0 fvbaffiliate.com
+0.0.0.0 galaksion.com
 0.0.0.0 ganalytics.live
 0.0.0.0 gemius.pl
 0.0.0.0 genelajans.com
@@ -617,6 +652,7 @@
 0.0.0.0 googleads2.g.doubleclick.net
 0.0.0.0 googleadservices.com
 0.0.0.0 googlesyndication.com
+0.0.0.0 googletagservices.com
 0.0.0.0 gorselcdn.com
 0.0.0.0 gorselpanel.com
 0.0.0.0 gr.hdream.cfd
@@ -633,6 +669,7 @@
 0.0.0.0 hepsiads-gw.hepsiburada.com
 0.0.0.0 hepsiads-ui.hepsiburada.com
 0.0.0.0 hepsiburada01.webtrekk.net
+0.0.0.0 hilltopads.com
 0.0.0.0 histats.com
 0.0.0.0 hit.8digits.com
 0.0.0.0 hit.demirorenteknoloji.com
@@ -725,6 +762,12 @@
 0.0.0.0 lijit.com
 0.0.0.0 likebtn.com
 0.0.0.0 likevertising.com
+0.0.0.0 link.tc
+0.0.0.0 link.tl
+0.0.0.0 linkkisaltma.com
+0.0.0.0 linkperisi.com
+0.0.0.0 linkvertise.com
+0.0.0.0 linkwi.se
 0.0.0.0 linkz.net
 0.0.0.0 liveadexchanger.com
 0.0.0.0 liverail.com
@@ -759,15 +802,20 @@
 0.0.0.0 marketing.modalife.com
 0.0.0.0 marketing.turkiyefinans.com.tr
 0.0.0.0 marketo.net
+0.0.0.0 mc.webvisor.com
+0.0.0.0 mc.webvisor.ru
+0.0.0.0 mc.yandex.com
 0.0.0.0 mc.yandex.ru
 0.0.0.0 med4ad.com
 0.0.0.0 media-match.com
 0.0.0.0 media.betexperaff.com
 0.0.0.0 media.fastclick.net
 0.0.0.0 media.marsaffiliates.com
+0.0.0.0 media.net
 0.0.0.0 media.opencandy.com
 0.0.0.0 mediapeartree.com
 0.0.0.0 mediaplex.com
+0.0.0.0 mediavine.com
 0.0.0.0 medyaklik.com
 0.0.0.0 medyanative.com
 0.0.0.0 medyanetads.com
@@ -778,6 +826,7 @@
 0.0.0.0 metrics.similac.com.tr
 0.0.0.0 metrics34.com
 0.0.0.0 metrika.yandex.com.tr
+0.0.0.0 metrika.yandex.ru
 0.0.0.0 mgid.com
 0.0.0.0 minireklam.com
 0.0.0.0 mkazanc.com
@@ -796,6 +845,8 @@
 0.0.0.0 mobisla.com
 0.0.0.0 mobon.com
 0.0.0.0 mobytrks.com
+0.0.0.0 monetag.com
+0.0.0.0 monumetric.com
 0.0.0.0 mookie1.com
 0.0.0.0 movturs.click
 0.0.0.0 mp.subservis.com
@@ -851,6 +902,8 @@
 0.0.0.0 os.yefeneri2.com
 0.0.0.0 os2.yefeneri2.com
 0.0.0.0 otclick-adv.ru
+0.0.0.0 ouo.io
+0.0.0.0 ouo.press
 0.0.0.0 outbrain.com
 0.0.0.0 outbrainimg.com
 0.0.0.0 outcome.supersonicads.com
@@ -906,7 +959,9 @@
 0.0.0.0 pnsdkapi.turktelekom.com.tr
 0.0.0.0 poeticmetric.com
 0.0.0.0 popads.net
+0.0.0.0 popcent.net
 0.0.0.0 popmarker.com
+0.0.0.0 popmyads.com
 0.0.0.0 portalciyiz.biz
 0.0.0.0 postaffiliatepro.com
 0.0.0.0 powferads.com
@@ -921,6 +976,7 @@
 0.0.0.0 programattik.com
 0.0.0.0 projeanaliz.com
 0.0.0.0 promoviral.com
+0.0.0.0 propellerads.com
 0.0.0.0 ptreklam.com
 0.0.0.0 ptreklam.com.tr
 0.0.0.0 ptreklamcrv.com.tr
@@ -928,6 +984,7 @@
 0.0.0.0 pub2srv.com
 0.0.0.0 pubads.g.doubleclick.net
 0.0.0.0 public-prod-dspcookiematching.dmxleo.com
+0.0.0.0 publift.com
 0.0.0.0 pubmatic.com
 0.0.0.0 pxlad.io
 0.0.0.0 qservz.com
@@ -940,6 +997,8 @@
 0.0.0.0 r.tooplay.com
 0.0.0.0 r.yabancidizi.in
 0.0.0.0 rainstar.gen.tf
+0.0.0.0 rakutenadvertising.com
+0.0.0.0 raptive.com
 0.0.0.0 rdrtr.com
 0.0.0.0 reali.st
 0.0.0.0 realist.gen.tr
@@ -993,13 +1052,17 @@
 0.0.0.0 rekmob.com
 0.0.0.0 relateddigital.com
 0.0.0.0 report.appmetrica.yandex.net
+0.0.0.0 revcontent.com
 0.0.0.0 revenueflex.com
+0.0.0.0 revenuehits.com
 0.0.0.0 reviveservers.com
 0.0.0.0 revotas.com
 0.0.0.0 revsci.net
 0.0.0.0 rezync.com
 0.0.0.0 rfihub.com
+0.0.0.0 richads.com
 0.0.0.0 richaudience.com
+0.0.0.0 richpops.com
 0.0.0.0 rlcdn.com
 0.0.0.0 rogxwgqovb.com
 0.0.0.0 rotabetaffiliates.com
@@ -1049,6 +1112,11 @@
 0.0.0.0 serving-sys.com
 0.0.0.0 setrowid.com
 0.0.0.0 setting.adzcore.com
+0.0.0.0 setupad.com
+0.0.0.0 shemedia.com
+0.0.0.0 shotzon.com
+0.0.0.0 shrinkearn.com
+0.0.0.0 shrinkme.io
 0.0.0.0 signals.teknosa.com
 0.0.0.0 skinected.com
 0.0.0.0 slhgfdsir.com
@@ -1059,6 +1127,7 @@
 0.0.0.0 smetrics.capitalone.com
 0.0.0.0 smetrics.kone.com.tr
 0.0.0.0 smetrics.vodafone.com.tr
+0.0.0.0 smoner.com
 0.0.0.0 smopy.com
 0.0.0.0 smrtbnr.club
 0.0.0.0 smrtbnr.com
@@ -1069,6 +1138,7 @@
 0.0.0.0 smrtbnr.top
 0.0.0.0 smrtbnr.xyz
 0.0.0.0 smrtcdn.club
+0.0.0.0 snigel.com
 0.0.0.0 sociomantic.com
 0.0.0.0 softreklam.com
 0.0.0.0 sohbetpaneli.xyz
@@ -1141,12 +1211,14 @@
 0.0.0.0 thresholdeliminate.com
 0.0.0.0 tidint.pro
 0.0.0.0 tm.zedo.com
+0.0.0.0 tmearn.net
 0.0.0.0 top-fwz1.mail.ru
 0.0.0.0 top10.yazete.com
 0.0.0.0 toroadvertisingmedia.com
 0.0.0.0 tpc.googlesyndication.com
 0.0.0.0 tr.bannersdf.com
 0.0.0.0 tr.hit.gemius.pl
+0.0.0.0 tr.link
 0.0.0.0 track.adform.net
 0.0.0.0 track.tooplay.com
 0.0.0.0 track.vitringez.com
@@ -1167,15 +1239,20 @@
 0.0.0.0 tradeadexchange.com
 0.0.0.0 trafficdok.com
 0.0.0.0 trafficfactory.biz
+0.0.0.0 trafficforce.com
+0.0.0.0 trafficshop.com
+0.0.0.0 trafficstars.com
 0.0.0.0 trbetmedia.com
 0.0.0.0 triggit.com
 0.0.0.0 trkwinaff13.com
+0.0.0.0 trlink.pro
 0.0.0.0 truvacdn.com
 0.0.0.0 ttauri.livescience.com
 0.0.0.0 turkeyrank.com
 0.0.0.0 turn.com
 0.0.0.0 turngrind.com
 0.0.0.0 tutkazan1.com
+0.0.0.0 twinred.com
 0.0.0.0 tynt.com
 0.0.0.0 ua.supersonicads.com
 0.0.0.0 uazmti.a101.com.tr
@@ -1228,6 +1305,7 @@
 0.0.0.0 widget.cdn.vidyome.com
 0.0.0.0 winaffiliates.com
 0.0.0.0 wlgtaffiliates.eacdn.com
+0.0.0.0 wordego.com
 0.0.0.0 ws.tapjoyads.com
 0.0.0.0 wtg-ads.com
 0.0.0.0 ww3.smartadserver.com
@@ -1257,3 +1335,5 @@
 0.0.0.0 youtubex.top
 0.0.0.0 yx-ads6.com
 0.0.0.0 zafrc.5780.site
+0.0.0.0 zeropark.com
+0.0.0.0 zoomd.com
