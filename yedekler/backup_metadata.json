@@ -83,9 +83,16 @@
         "size": 376714,
         "hash": "eccd27bc06fbf582654860fdebbfd067b2ece40812bae49f5f6da1a72f138e4d",
         "created_at": "2025-12-12T04:42:39.105685"
+      },
+      {
+        "backup_file": "turk-adfilter_20260226_164302.txt",
+        "timestamp": "20260226_164302",
+        "size": 377996,
+        "hash": "7b900b27dd08e0452525efaaba8920f4f684c095d25b51c0dc7051e6fdc91e6c",
+        "created_at": "2026-02-26T16:43:02.742336"
       }
     ],
-    "last_hash": "eccd27bc06fbf582654860fdebbfd067b2ece40812bae49f5f6da1a72f138e4d",
-    "last_backup": "20251212_044239"
+    "last_hash": "7b900b27dd08e0452525efaaba8920f4f684c095d25b51c0dc7051e6fdc91e6c",
+    "last_backup": "20260226_164302"
   }
 }
