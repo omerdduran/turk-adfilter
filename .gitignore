@@ -7,3 +7,8 @@ pnpm-lock.yaml
 *.restore_safety_*
 *.tmp
 *.backup_temp
+
+# CI'da release asset olarak uretilen DNS format dosyalari
+dnsmasq.conf
+unbound.conf
+rpz.zone
