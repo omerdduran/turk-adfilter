@@ -58,6 +58,49 @@
 - **Mobil (Android/iOS):** AdGuard, Blokada, DNS66 gibi uygulamalarda özel liste olarak ekleyin.
 - **Tarayıcılar:** Chrome, Firefox, Edge, Opera ve Safari'de ilgili reklam engelleyici eklentisiyle kullanılabilir.
 
+### DNS Çözümleyici Formatları
+
+Her release'de dnsmasq, Unbound ve BIND RPZ formatlarında dosyalar yayınlanır. [Son release](https://github.com/omerdduran/turk-adfilter/releases/latest) sayfasından indirebilirsiniz.
+
+- **dnsmasq:**
+  ```bash
+  # Dosyayı indirin
+  curl -o /etc/dnsmasq.d/turk-adfilter.conf https://github.com/omerdduran/turk-adfilter/releases/latest/download/dnsmasq.conf
+  # Servisi yeniden başlatın
+  sudo systemctl restart dnsmasq
+  ```
+
+- **Unbound:**
+  ```bash
+  # Dosyayı indirin
+  curl -o /etc/unbound/turk-adfilter.conf https://github.com/omerdduran/turk-adfilter/releases/latest/download/unbound.conf
+  ```
+  `unbound.conf` dosyanıza ekleyin:
+  ```
+  include: /etc/unbound/turk-adfilter.conf
+  ```
+  ```bash
+  sudo systemctl restart unbound
+  ```
+
+- **BIND (RPZ):**
+  ```bash
+  # Zone dosyasını indirin
+  curl -o /etc/bind/zones/turk-adfilter.rpz https://github.com/omerdduran/turk-adfilter/releases/latest/download/rpz.zone
+  ```
+  `named.conf` dosyanıza ekleyin:
+  ```
+  response-policy { zone "turk-adfilter.rpz"; };
+
+  zone "turk-adfilter.rpz" {
+      type master;
+      file "/etc/bind/zones/turk-adfilter.rpz";
+  };
+  ```
+  ```bash
+  sudo systemctl restart named
+  ```
+
 Detaylı kurulum ve dokümantasyon için: [Kurulum Rehberi](https://www.reklamsiz-turkiye.com/docs/kurulum)
 
 ## Desteklenen Platformlar
