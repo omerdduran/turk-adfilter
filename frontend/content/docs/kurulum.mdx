@@ -50,6 +50,56 @@ description: Turk-AdFilter'ı farklı platformlarda nasıl kurabileceğinizi ö�
 > https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
 > ```
 
+## DNS Çözümleyici Formatları
+
+Her release'de dnsmasq, Unbound ve BIND RPZ formatlarında dosyalar yayınlanır. [Son release](https://github.com/omerdduran/turk-adfilter/releases/latest) sayfasından indirebilirsiniz.
+
+### dnsmasq
+
+1. **Dosyayı İndirin**:
+```bash
+curl -o /etc/dnsmasq.d/turk-adfilter.conf https://github.com/omerdduran/turk-adfilter/releases/latest/download/dnsmasq.conf
+```
+2. **Servisi Yeniden Başlatın**:
+```bash
+sudo systemctl restart dnsmasq
+```
+
+### Unbound
+
+1. **Dosyayı İndirin**:
+```bash
+curl -o /etc/unbound/turk-adfilter.conf https://github.com/omerdduran/turk-adfilter/releases/latest/download/unbound.conf
+```
+2. **Yapılandırmaya Ekleyin**: `unbound.conf` dosyanıza şu satırı ekleyin:
+```
+include: /etc/unbound/turk-adfilter.conf
+```
+3. **Servisi Yeniden Başlatın**:
+```bash
+sudo systemctl restart unbound
+```
+
+### BIND (RPZ)
+
+1. **Zone Dosyasını İndirin**:
+```bash
+curl -o /etc/bind/zones/turk-adfilter.rpz https://github.com/omerdduran/turk-adfilter/releases/latest/download/rpz.zone
+```
+2. **Yapılandırmaya Ekleyin**: `named.conf` dosyanıza şu blokları ekleyin:
+```
+response-policy { zone "turk-adfilter.rpz"; };
+
+zone "turk-adfilter.rpz" {
+    type master;
+    file "/etc/bind/zones/turk-adfilter.rpz";
+};
+```
+3. **Servisi Yeniden Başlatın**:
+```bash
+sudo systemctl restart named
+```
+
 ## Mobil Cihazlarda Kullanım
 
 ### Android
