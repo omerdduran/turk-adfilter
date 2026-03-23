@@ -91,6 +91,10 @@ jobs:
           # This might be redundant if bump_version.py already did it.
           # Consider consolidating version logic if necessary. For now, assume generate_hosts.py is correct.
 
+      - name: Generate DNS format files
+        run: |
+          python scripts/generate_formats.py all
+
       - name: Backup filter files before release
         run: |
           # Yedekler klasörünü oluştur
@@ -166,7 +170,7 @@ jobs:
         run: |
           # Get new version from the output of the create_tag step
           VERSION=${{ steps.create_tag.outputs.version }}
-          gh release upload $VERSION tld_distribution.png active_inactive_distribution.png
+          gh release upload $VERSION tld_distribution.png active_inactive_distribution.png dnsmasq.conf unbound.conf rpz.zone
 
       - name: Add image links to Release Notes
         env:
