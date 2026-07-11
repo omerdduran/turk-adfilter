@@ -69,6 +69,9 @@ export default function IssueForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+      <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 rounded text-sm text-left">
+        ⚠️ Gönderdiğiniz başlık ve açıklama <strong>herkese açık</strong> bir GitHub issue&apos;su olarak yayınlanır. Lütfen ad, e-posta, telefon gibi kişisel bilgilerinizi paylaşmayın.
+      </div>
       {error && (
         <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
           {error}
