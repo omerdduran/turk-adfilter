@@ -22,7 +22,9 @@ export default function Captcha({ onVerify }: CaptchaProps) {
       onVerify(token);
       setError(null);
     };
-    const handleError = () => {
+    const handleError = (e: Event) => {
+      const detail = (e as CustomEvent<{ message?: string }>).detail;
+      if (detail?.message) console.warn("[cap-widget] hata:", detail.message);
       onVerify(null);
       setError("Doğrulama başarısız oldu. Lütfen tekrar deneyin.");
     };
@@ -47,7 +49,7 @@ export default function Captcha({ onVerify }: CaptchaProps) {
   return (
     <div className="mb-4">
       <Script
-        src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.25"
+        src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.56"
         strategy="afterInteractive"
       />
       <label className="block text-sm font-medium mb-1 text-left">
