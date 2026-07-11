@@ -1,0 +1,20 @@
+# Turk-AdFilter
+
+> Türkiye merkezli, açık kaynak, topluluk tabanlı reklam / izleyici / zararlı içerik engelleme filtre listesi. AdGuard, uBlock Origin, Pi-hole, AdGuard Home ve NextDNS ile uyumlu. İllegal bahis ve phishing domainlerine özel Türkiye odaklı kapsam. Günlük güncellenir, GPL-3.0 lisanslı.
+
+## Filtre Listeleri (abonelik linkleri)
+- Adblock / uBlock Origin / AdGuard: https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
+- DNS / hosts (Pi-hole, AdGuard Home): https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt
+- Codeberg aynası: https://codeberg.org/omerdduran/turk-adfilter
+
+## Bağlantılar
+- Web sitesi: https://reklamsiz-turkiye.com
+- Kurulum: https://reklamsiz-turkiye.com/docs/kurulum
+- GitHub: https://github.com/omerdduran/turk-adfilter
+- Sürümler: https://reklamsiz-turkiye.com/releases
+
+## Öne çıkanlar
+- ~2.300 ağ kuralı + ~3.700 kozmetik kural, ~1.400 domain
+- 5 çıktı formatı: Adblock, hosts, dnsmasq, unbound, BIND RPZ
+- Türkiye'ye özgü reklam ağları, illegal bahis ve phishing/scam domainleri
+- Aktif bakım, günlük güncelleme, iki dilli dokümantasyon
