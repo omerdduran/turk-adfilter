@@ -50,13 +50,6 @@
   "turk-adfilter.txt": {
     "backups": [
       {
-        "backup_file": "turk-adfilter_20251203_233823.txt",
-        "timestamp": "20251203_233823",
-        "size": 376660,
-        "hash": "ab8b696073ac002df7a039d3e9721364fac338325a7163f03969a510dce812e6",
-        "created_at": "2025-12-03T23:38:23.155025"
-      },
-      {
         "backup_file": "turk-adfilter_20251204_001731.txt",
         "timestamp": "20251204_001731",
         "size": 376714,
@@ -118,9 +111,16 @@
         "size": 375300,
         "hash": "05e5ab72289c71c098c351b5b873ef93d90905becb880c96bd1a4c907e3de0d9",
         "created_at": "2026-07-11T19:07:11.411137"
+      },
+      {
+        "backup_file": "turk-adfilter_20260711_195655.txt",
+        "timestamp": "20260711_195655",
+        "size": 375355,
+        "hash": "6d17639d4758b3deac453db8a07e3a6dea104d8c41d75fe738e0f7f7b7b799c5",
+        "created_at": "2026-07-11T19:56:55.815993"
       }
     ],
-    "last_hash": "05e5ab72289c71c098c351b5b873ef93d90905becb880c96bd1a4c907e3de0d9",
-    "last_backup": "20260711_190711"
+    "last_hash": "6d17639d4758b3deac453db8a07e3a6dea104d8c41d75fe738e0f7f7b7b799c5",
+    "last_backup": "20260711_195655"
   }
 }
