@@ -141,5 +141,8 @@ def main():
         total_reported_errors = len(domain_format_errors) + len(potentially_malformed_errors) + len(unrecognized_errors)
         print(f"\nLinting finished. Found {len(duplicates)} duplicate domain(s) and {total_reported_errors} other potential issue(s).")
 
+    return issue_count
+
 if __name__ == '__main__':
-    main() 
+    # Sorun bulunduğunda sıfırdan farklı çıkış kodu ver ki CI kalite kapısı kırılsın.
+    sys.exit(1 if main() else 0) 

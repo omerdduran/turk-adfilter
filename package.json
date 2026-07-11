@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "lint": "aglint",
+    "lint:fix": "aglint --fix"
+  },
   "dependencies": {
     "@adguard/aglint": "^2.1.5",
     "init": "^0.1.2"

@@ -1,0 +1,50 @@
+name: PR Doğrula (Filtre Kalite Kapısı)
+
+# Katkı MERGE edilmeden ÖNCE filtre listesini doğrular.
+# pull_request (pull_request_target DEĞİL) → fork PR'larında token read-only, güvenli.
+on:
+  pull_request:
+    paths:
+      - 'turk-adfilter.txt'
+      - '.aglintrc.yaml'
+      - 'scripts/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Filtre kalite kontrolü
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: aglint bağımlılığını kur
+        run: npm install
+
+      - name: AGLint (AdGuard filtre linteri)
+        run: npx aglint
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: filter_lint (format, duplicate, geçersiz karakter)
+        run: python scripts/filter_lint.py
+
+      - name: Duplicate kontrolü (temizlik değişiklik yaratmamalı)
+        run: |
+          python scripts/remove_duplicates.py
+          if ! git diff --quiet turk-adfilter.txt; then
+            echo "::error::Listede duplicate ||domain^ kuralları var. Yerelde 'python scripts/remove_duplicates.py' çalıştırıp commit'leyin."
+            git diff --stat turk-adfilter.txt
+            exit 1
+          fi
+          echo "Duplicate bulunamadı."
