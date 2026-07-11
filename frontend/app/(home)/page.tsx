@@ -28,6 +28,12 @@ export default function HomePage() {
     codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt"
   };
 
+  const categoryLists = [
+    { emoji: "🛡️", title: "Tam Liste", badge: "Önerilen", desc: "Reklam, izleyici, zararlı içerik ve bahis dahil her şeyi engeller. Tam koruma.", file: "turk-adfilter.txt" },
+    { emoji: "🎰", title: "Bahis Kalkanı", badge: null, desc: "Yalnızca illegal bahis/kumar sitelerini engeller. Aile, okul, işyeri ve kurumlar için.", file: "turk-adfilter-bahis.txt" },
+    { emoji: "🧹", title: "Lite", badge: null, desc: "Bahis hariç yalnızca reklam ve izleyicileri engeller.", file: "turk-adfilter-lite.txt" },
+  ];
+
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
@@ -230,6 +236,44 @@ export default function HomePage() {
                 Pi-hole, AdGuard, uBlock Origin ve diğer popüler araçlarla uyumlu.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Kategori Listeleri */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200">
+            Kategori Listeleri
+          </h2>
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+            İhtiyacına göre seç — hepsi ana listeden otomatik üretilir ve güncellenir.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {categoryLists.map((cat) => {
+              const raw = `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/${cat.file}`;
+              const abp = `abp:subscribe?location=${encodeURIComponent(raw)}&title=${encodeURIComponent("Turk-AdFilter " + cat.title)}`;
+              return (
+                <div key={cat.file} className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow flex flex-col">
+                  <div className="text-3xl mb-3">{cat.emoji}</div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                    {cat.title}
+                    {cat.badge && (
+                      <span className="text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 px-2 py-0.5 rounded-full">{cat.badge}</span>
+                    )}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 flex-1 text-sm">{cat.desc}</p>
+                  <CopyableLink link={raw} />
+                  <a
+                    href={abp}
+                    className="mt-3 bg-red-600 hover:bg-red-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-all"
+                    title="uBlock Origin veya AdGuard'a tek tıkla ekler"
+                  >
+                    Tek Tıkla Ekle
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

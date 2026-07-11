@@ -25,6 +25,18 @@
   https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
   ```
 
+## Category Lists
+
+`turk-adfilter.txt` (full) contains everything. Pick a variant if you prefer — all auto-generated from the main list:
+
+| List | For whom | File |
+|------|----------|------|
+| **Full** (recommended) | Ads + trackers + malware + gambling + phishing | `turk-adfilter.txt` |
+| 🎰 **Gambling Shield** | Only illegal gambling/betting sites — families, schools, workplaces, institutions | `turk-adfilter-bahis.txt` |
+| 🧹 **Lite** | Ads + trackers only (no gambling blocking) | `turk-adfilter-lite.txt` |
+
+Raw: `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/<file>`
+
 ## How to Use
 - Add the RAW link above to your ad blocker (uBlock Origin, AdGuard, etc.) as a custom filter.
 - For DNS-based blockers, add the hosts.txt link to your adlists.

@@ -5,6 +5,23 @@ description: Turk-AdFilter'ı farklı platformlarda nasıl kurabileceğinizi ö�
 
 # Kurulum Rehberi
 
+## Hangi Listeyi Seçmeliyim?
+
+Turk-AdFilter üç varyantta sunulur — hepsi ana listeden otomatik üretilir. İhtiyacına göre seç:
+
+| Liste | Kimler için | Dosya |
+|-------|-------------|-------|
+| **Tam** (önerilen) | Reklam + izleyici + zararlı + bahis + phishing — tam koruma | `turk-adfilter.txt` |
+| 🎰 **Bahis Kalkanı** | Yalnızca illegal bahis/kumar engelleme — aile, okul, işyeri, kurum | `turk-adfilter-bahis.txt` |
+| 🧹 **Lite** | Yalnızca reklam + izleyici (bahis engellemez) | `turk-adfilter-lite.txt` |
+
+Aşağıdaki kurulum adımlarında RAW bağlantısındaki dosya adını seçtiğin listeyle değiştir. Varsayılan olarak **Tam** liste önerilir:
+```bash
+# Tam:  .../main/turk-adfilter.txt
+# Bahis: .../main/turk-adfilter-bahis.txt
+# Lite:  .../main/turk-adfilter-lite.txt
+```
+
 > Turk-AdFilter'ı kullanmak için aşağıdaki RAW bağlantılarından birini kullanabilirsiniz:
 >
 > **GitHub:**
