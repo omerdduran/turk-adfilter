@@ -29,6 +29,18 @@
 
 ## Hızlı Başlangıç
 
+<p align="center">
+  <a href="abp:subscribe?location=https%3A%2F%2Fraw.githubusercontent.com%2Fomerdduran%2Fturk-adfilter%2Fmain%2Fturk-adfilter.txt&amp;title=Turk-AdFilter">
+    <img src="https://img.shields.io/badge/uBlock%20Origin%20%2F%20AdGuard-Tek%20T%C4%B1kla%20Ekle-brightgreen?style=for-the-badge" alt="uBlock Origin veya AdGuard'a tek tıkla ekle">
+  </a>
+  &nbsp;
+  <a href="adguard:add_filter_subscription?url=https%3A%2F%2Fraw.githubusercontent.com%2Fomerdduran%2Fturk-adfilter%2Fmain%2Fturk-adfilter.txt&amp;title=Turk-AdFilter">
+    <img src="https://img.shields.io/badge/AdGuard%20Uygulamas%C4%B1-Tek%20T%C4%B1kla%20Ekle-68bc71?style=for-the-badge&amp;logo=adguard&amp;logoColor=white" alt="AdGuard uygulamasına tek tıkla ekle">
+  </a>
+</p>
+
+> 💡 **Tek tıkla ekle:** Yukarıdaki butonlar listeyi uBlock Origin / AdGuard'a otomatik ekler. Buton çalışmazsa aşağıdaki RAW linklerini manuel ekleyebilirsiniz.
+
 - **Filtre Listesi RAW Linki:**
   
   GitHub:

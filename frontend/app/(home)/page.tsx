@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy, ChevronDown } from 'lucide-react';
+import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy, ChevronDown, Zap } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
 type SourceType = 'github' | 'codeberg';
@@ -98,6 +98,15 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center">
+            {/* Tek Tıkla Ekle — abp:subscribe (uBlock Origin + AdGuard eklentisi) */}
+            <a
+              href="abp:subscribe?location=https%3A%2F%2Fraw.githubusercontent.com%2Fomerdduran%2Fturk-adfilter%2Fmain%2Fturk-adfilter.txt&title=Turk-AdFilter"
+              title="uBlock Origin veya AdGuard eklentisine tek tıkla ekler"
+              className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-lg font-semibold shadow-xl ring-2 ring-red-400/40 flex items-center justify-center transition-all w-full sm:w-auto"
+            >
+              <Zap size={20} className="mr-2" />
+              Tek Tıkla Ekle
+            </a>
             {/* Dropdown Button for Filter List */}
             <div className="relative dropdown-container">
               <button

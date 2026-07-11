@@ -1,6 +1,6 @@
 import sys
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 FILTER_LIST = 'turk-adfilter.txt'
 
@@ -10,6 +10,7 @@ if len(sys.argv) < 2:
 
 arg = sys.argv[1]
 today = datetime.today().strftime('%d.%m.%Y')
+iso_now = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 with open(FILTER_LIST, 'r', encoding='utf-8') as f:
     lines = f.readlines()
@@ -46,7 +47,14 @@ else:
 
 lines[version_line_idx] = f'! Version: {new_version} – {today}\n'
 
+# Update "! Last modified:" (ISO 8601 UTC) if the header field exists
+lastmod_pattern = re.compile(r'^! Last modified:')
+for i, line in enumerate(lines):
+    if lastmod_pattern.match(line):
+        lines[i] = f'! Last modified: {iso_now}\n'
+        break
+
 with open(FILTER_LIST, 'w', encoding='utf-8') as f:
     f.writelines(lines)
 
-print(f'Updated version to {new_version} on {today}') 
+print(f'Updated version to {new_version} on {today} (Last modified: {iso_now})') 
