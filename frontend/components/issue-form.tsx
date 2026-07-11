@@ -13,7 +13,7 @@ export default function IssueForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -25,8 +25,8 @@ export default function IssueForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     
-    if (!isCaptchaVerified) {
-      setError("Lütfen CAPTCHA'yı doğrulayın");
+    if (!captchaToken) {
+      setError("Lütfen güvenlik doğrulamasını tamamlayın");
       return;
     }
 
@@ -43,7 +43,7 @@ export default function IssueForm() {
         body: JSON.stringify({
           title: formData.title,
           body: `## Açıklama\n${formData.description}\n\n## Önem Seviyesi\n${formData.priority}`,
-          labels: ["user-feedback"],
+          captchaToken,
         }),
       });
 
@@ -58,7 +58,7 @@ export default function IssueForm() {
         description: "",
         priority: "low",
       });
-      setIsCaptchaVerified(false);
+      setCaptchaToken(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Bir hata oluştu. Lütfen tekrar deneyin.");
     } finally {
@@ -120,11 +120,11 @@ export default function IssueForm() {
         </select>
       </div>
 
-      <Captcha onVerify={setIsCaptchaVerified} />
+      <Captcha onVerify={setCaptchaToken} />
 
       <button
         type="submit"
-        disabled={isSubmitting || !isCaptchaVerified}
+        disabled={isSubmitting || !captchaToken}
         className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 disabled:opacity-50"
       >
         {isSubmitting ? "Gönderiliyor..." : "Gönder"}
