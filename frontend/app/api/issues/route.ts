@@ -80,18 +80,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Geçersiz istek" }, { status: 400 });
   }
 
-  const { title, body, captchaToken } = (payload ?? {}) as {
+  const { title, description, priority, captchaToken } = (payload ?? {}) as {
     title?: unknown;
-    body?: unknown;
+    description?: unknown;
+    priority?: unknown;
     captchaToken?: unknown;
   };
 
-  if (typeof title !== "string" || typeof body !== "string" || !title.trim() || !body.trim()) {
+  if (
+    typeof title !== "string" ||
+    typeof description !== "string" ||
+    !title.trim() ||
+    !description.trim()
+  ) {
     return NextResponse.json({ message: "Başlık ve açıklama zorunludur" }, { status: 400 });
   }
-  if (title.length > MAX_TITLE || body.length > MAX_BODY) {
+  if (title.length > MAX_TITLE || description.length > MAX_BODY) {
     return NextResponse.json({ message: "Başlık veya açıklama çok uzun" }, { status: 400 });
   }
+
+  // Öncelik yalnızca bilinen değerlerden biri olabilir (istemciye güvenilmez).
+  const PRIORITY_TR: Record<string, string> = { low: "Düşük", medium: "Orta", high: "Yüksek" };
+  const prio = typeof priority === "string" && priority in PRIORITY_TR ? priority : "low";
 
   // --- CAPTCHA doğrulama (fail-safe) ---
   if (!CAP_SECRET) {
@@ -123,8 +133,15 @@ export async function POST(request: Request) {
           Accept: "application/vnd.github+json",
           "Content-Type": "application/json",
         },
-        // labels istemciden ALINMAZ — sabit atanır.
-        body: JSON.stringify({ title, body, labels: ["user-feedback"] }),
+        // Gövde, labels ve assignee sunucuda oluşturulur — istemciye güvenilmez.
+        body: JSON.stringify({
+          title,
+          body:
+            `## Açıklama\n\n${description}\n\n## Önem Seviyesi\n\n${PRIORITY_TR[prio]}\n\n` +
+            `---\n<sub>🌐 reklamsiz-turkiye.com geri bildirim formundan otomatik oluşturuldu.</sub>`,
+          labels: ["user-feedback", `priority: ${prio}`],
+          assignees: ["omerdduran"],
+        }),
       }
     );
 

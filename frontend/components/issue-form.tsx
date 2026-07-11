@@ -42,7 +42,8 @@ export default function IssueForm() {
         },
         body: JSON.stringify({
           title: formData.title,
-          body: `## Açıklama\n${formData.description}\n\n## Önem Seviyesi\n${formData.priority}`,
+          description: formData.description,
+          priority: formData.priority,
           captchaToken,
         }),
       });
