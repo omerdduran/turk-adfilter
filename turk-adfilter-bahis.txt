@@ -1,0 +1,101 @@
+! Title: Turk-AdFilter — Bahis/Kumar Kalkanı
+! Homepage: https://github.com/omerdduran/turk-adfilter/
+! Expires: 1 day
+! Description: Türkiye'ye yönelik illegal bahis ve kumar sitelerini engeller. Aile, okul, işyeri ve kurum kullanımı için turk-adfilter'ın alt listesi.
+! Maintainer: github.com/omerdduran
+!
+! OTOMATIK ÜRETİLDİ — düzenlemeyin. Kaynak: turk-adfilter.txt
+! (scripts/generate_categories.py). Katkı için ana listeyi kullanın.
+!
+||axbet20.com^
+||axbetb.com^
+||axbetb2.com^
+||mobilbahis365.mobi^
+||partner.superbahisaffiliates248.com^
+||partners.betbooaffiliates.com^
+||reklam.bahisanaliz.com^
+||partner.superbahisaffiliates*.com^
+||bitcasino365.b-cdn.net^
+@@||iddaaorantahmin.com/cm-site/tema/iddaa/js/adsby.js
+iddaaorantahmin.com#$#.reklam-alan-tam { position: absolute!important; left: -3000px!important; }
+iddaaorantahmin.com##+js(set-constant, canRunAds, true)
+^wp-content/uploads*/betpas
+/rombahis-*.
+/supertotobet*.mp4
+nesine.com#$##mod-base { display: none !important; }
+nesine.com#$#.modal-backdrop { display: none !important; }
+nesine.com#$#.modal-open { overflow: auto !important; }
+||bahiskilavuz4.com/images/banners/
+bahiskilavuz4.com###widget_455
+bahiskilavuz4.com##.ad_header_inner
+bahiskilavuz4.com##.canvas-layout-container > table[width="100%"][cellspacing="0"]
+||exsvc.nesine.com/*/coupon/MostPlayedCoupons
+||iddaa.sporx.com/web/kutu_iddaa_bulten.php
+||iddaa.sporx.com/web/kutu_kral_kupon.php
+||iddaa.sporx.com/web/kutu_ozel_etkinlik.php
+jukeduke.com,stargamescasinoonline.com##img[height="250"][width="300"]
+||bahisanaliz*.com/js_xd/
+||bahisanaliz*.com/gunun_maci/
+||bahisanaliz*.com/a_kutu/
+||canli-betboo-pw.cdn.ampproject.org/i/s/canli.betboo.pw/rek/
+casinokazan.net##.ustbar
+casinokazan.net##.onerilenler
+||casinoportali*.com/wp-content/html-tables/$third-party
+||jojobet*.tv/assets/uploads/banners/
+||vdcasinotv*.com/assets/uploads/banners^
+||bahisşirketleri*.com/wp-content/html-tables/$third-party
+||canlibahisler*.com/wp-content/html-tables/$third-party
+||enbahissiteleri*.com/wp-content/uploads/tablolar/$third-party
+[$domain=/(^\|.+\.)kuponuna\d+\.top/]###xbetpu
+/wp-content/uploads/2025/01/xslot-pageskin-reklam.png
+bahisanaliz31.com,bahisanaliz32.com,bahisanaliz33.com,bahisanaliz34.com,bahisanaliz35.com,bahisanaliz36.com,bahisanaliz37.com,bahisanaliz38.com,bahisanaliz39.com,bahisanaliz40.com,bahisanaliz41.com,bahisanaliz42.com,bahisanaliz43.com,bahisanaliz44.com,bahisanaliz45.com,bahisanaliz46.com,bahisanaliz47.com,bahisanaliz48.com,bahisanaliz49.com,bahisanaliz50.com###bottomBx
+bahisanaliz31.com,bahisanaliz32.com,bahisanaliz33.com,bahisanaliz34.com,bahisanaliz35.com,bahisanaliz36.com,bahisanaliz37.com,bahisanaliz38.com,bahisanaliz39.com,bahisanaliz40.com,bahisanaliz41.com,bahisanaliz42.com,bahisanaliz43.com,bahisanaliz44.com,bahisanaliz45.com,bahisanaliz46.com,bahisanaliz47.com,bahisanaliz48.com,bahisanaliz49.com,bahisanaliz50.com###SolBlok div.hideMobil
+bahisanaliz31.com,bahisanaliz32.com,bahisanaliz33.com,bahisanaliz34.com,bahisanaliz35.com,bahisanaliz36.com,bahisanaliz37.com,bahisanaliz38.com,bahisanaliz39.com,bahisanaliz40.com,bahisanaliz41.com,bahisanaliz42.com,bahisanaliz43.com,bahisanaliz44.com,bahisanaliz45.com,bahisanaliz46.com,bahisanaliz47.com,bahisanaliz48.com,bahisanaliz49.com,bahisanaliz50.com##iframe[src*="/a_kutu/"]
+[$domain=/(^\|.+\.)canlitribun\d+\.live/]###xbetpu
+bycasino223.com##.pushengage-opt-in__large-safari-style--light.pushengage-opt-in__large-safari-style--desktop.pushengage-opt-in__large-safari-style
+||www.1261mobilbahis.com^
+||1261mobilbahis.com^
+||1265mobilbahis.com^
+||www.1265mobilbahis.com^
+||www.1505bet10.com^
+||1500bet10.com^
+||1510bet10.com^
+||mobilbahis9920.com^
+||m-sekabet1340.com^
+||3089betnano.direct^
+||10001bets10.com^
+||10002bets10.com^
+||10003bets10.com^
+||1519bet10.com^
+||imajbet1149.com^
+||220supertolobet.com^
+||mobilbahis3152.com^
+||9940casibom.com^
+||betcup730.com^
+||5201casibom.com^
+||1231betebet.com^
+||1515bet10.com^
+||1271mobilbahis.com^
+||mobilbahis9101.com^
+||casinomaxi9101.com^
+||betcup.cc^
+||betasus1399.com^
+||meritking3201.com^
+||11009bets10.com^
+||11296bets10.com^
+||11374bets10.com^
+||11464bets10.com^
+||11365bets10.com^
+||12364bets10.com^
+||11364bets10.com^
+||100140bets10.com^
+||100141bets10.com^
+||11586bets10.com^
+||11573bets10.com^
+||11473bets10.com^
+||11363bets10.com^
+||11353bets10.com^
+||10112bets10.com^
+||9255bets10.com^
+||9256bets10.com^
+||10114bets10.com^

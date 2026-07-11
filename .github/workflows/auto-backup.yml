@@ -41,6 +41,11 @@ jobs:
             echo "📁 Yedekler klasörü oluşturuldu"
           fi
           
+      - name: Türev listeleri üret (hosts + kategori alt listeleri)
+        run: |
+          python scripts/generate_hosts.py
+          python scripts/generate_categories.py
+
       - name: Otomatik yedekleme çalıştır
         run: |
           if [ "${{ github.event.inputs.force_backup }}" = "true" ]; then
@@ -54,11 +59,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Yedekler klasöründe değişiklik var mı kontrol et
-          if git diff --quiet yedekler/ && git diff --cached --quiet yedekler/; then
-            echo "✅ Yeni yedek oluşturulmadı (değişiklik yok)"
+          # Yedekler + türev listelerde değişiklik var mı kontrol et
+          DERIV="yedekler/ hosts.txt turk-adfilter-bahis.txt turk-adfilter-lite.txt"
+          if git diff --quiet -- $DERIV && git diff --cached --quiet -- $DERIV; then
+            echo "✅ Değişiklik yok (yedek/türev güncel)"
           else
-            git add yedekler/
+            git add $DERIV
             
             # Commit mesajını oluştur
             COMMIT_MSG="🔄 Otomatik filtre yedekleme"

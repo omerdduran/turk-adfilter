@@ -1,0 +1,12 @@
+# categories-override.txt
+#
+# Otomatik kategori sınıflandırmasını (scripts/generate_categories.py) düzeltmek
+# için elle giriş. Nadiren gerekir — pattern çoğu bahis domainini zaten yakalar.
+#
+# Biçim:  <domain-parçası> = gambling | ads
+#
+# Örnekler:
+#   sohbetforum.com = ads       # yanlışlıkla bahis sayıldıysa lite'a al
+#   gizlikumar123.xyz = gambling # pattern yakalamadıysa bahise al
+#
+# (Bu satırların hepsi yorum; gerçek override'ları alta ekleyin.)

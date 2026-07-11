@@ -62,6 +62,18 @@
   https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
   ```
 
+## Kategori Listeleri
+
+`turk-adfilter.txt` (tam liste) her şeyi içerir. İhtiyacına göre alt listeleri de kullanabilirsin — hepsi ana listeden **otomatik üretilir**:
+
+| Liste | İçerik | RAW Link |
+|-------|--------|----------|
+| **Tam** | Reklam + izleyici + zararlı + **bahis** + phishing | `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt` |
+| 🎰 **Bahis Kalkanı** | Yalnızca illegal bahis/kumar siteleri | `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter-bahis.txt` |
+| 🧹 **Lite** | Bahis hariç; yalnızca reklam + izleyici | `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter-lite.txt` |
+
+> 🎰 **Bahis Kalkanı**, Türkiye'nin illegal bahis sitelerini engellemek isteyen aileler, okullar, işyerleri ve kurumlar için idealdir — küresel listelerin sunmadığı, Türkiye'ye özgü bir koruma katmanıdır.
+
 ## Kurulum (Özet)
 
 - **uBlock Origin:** Ayarlardan "Filtreler" sekmesine gidin, özel filtre olarak yukarıdaki RAW linki ekleyin.
