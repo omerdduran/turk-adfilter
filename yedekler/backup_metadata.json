@@ -42,10 +42,17 @@
         "size": 33581,
         "hash": "73035adb35eeed8f58fb8171792336dbaea390d1bbb4d1d41830a07e9defa356",
         "created_at": "2026-03-23T16:24:29.979641"
+      },
+      {
+        "backup_file": "hosts_20260711_222216.txt",
+        "timestamp": "20260711_222216",
+        "size": 35015,
+        "hash": "262004a1a3805c2103f2a3aa3840b597e156028213088712a106188e578193a9",
+        "created_at": "2026-07-11T22:22:16.182162"
       }
     ],
-    "last_hash": "73035adb35eeed8f58fb8171792336dbaea390d1bbb4d1d41830a07e9defa356",
-    "last_backup": "20260323_162429"
+    "last_hash": "262004a1a3805c2103f2a3aa3840b597e156028213088712a106188e578193a9",
+    "last_backup": "20260711_222216"
   },
   "turk-adfilter.txt": {
     "backups": [
