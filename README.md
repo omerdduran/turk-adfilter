@@ -11,7 +11,7 @@
 <div align="center">
 
 [![License: GNU 3.0](https://img.shields.io/badge/License-GNU%203.0-orange.svg)](https://opensource.org/license/gpl-3-0)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 [![Last Commit](https://img.shields.io/github/last-commit/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/commits/main)
 [![Open Issues](https://img.shields.io/github/issues/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/issues)
 [![Open PRs](https://img.shields.io/github/issues-pr/omerdduran/turk-adfilter)](https://github.com/omerdduran/turk-adfilter/pulls)

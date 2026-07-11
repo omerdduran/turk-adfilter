@@ -44,9 +44,10 @@ Listeye doğrudan katkıda bulunmak için:
    ```
    git commit -m "Yeni domainler eklendi: example.com, ads.example.com"
    ```
-5. Değişiklikleri GitHub'a push edin:
+5. Yeni bir dal (branch) oluşturup değişikliklerinizi o dala push edin (doğrudan `main`'e **push etmeyin**):
    ```
-   git push origin main
+   git checkout -b domain-ekleme
+   git push origin domain-ekleme
    ```
 6. GitHub'da ana repoya PR gönderin
 
