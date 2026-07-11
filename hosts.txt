@@ -1,17 +1,55 @@
 # Generated from turk-adfilter.txt for DNS blocklists
-# Total domains: 1336
+# Total domains: 1394
 
 0.0.0.0 0638.info
+0.0.0.0 10001bets10.com
+0.0.0.0 10002bets10.com
+0.0.0.0 10003bets10.com
+0.0.0.0 100140bets10.com
+0.0.0.0 100141bets10.com
+0.0.0.0 10112bets10.com
+0.0.0.0 10114bets10.com
 0.0.0.0 109.73.75.29
 0.0.0.0 109.73.75.3
+0.0.0.0 11009bets10.com
+0.0.0.0 11296bets10.com
+0.0.0.0 11353bets10.com
+0.0.0.0 11363bets10.com
+0.0.0.0 11364bets10.com
+0.0.0.0 11365bets10.com
+0.0.0.0 11374bets10.com
+0.0.0.0 11464bets10.com
+0.0.0.0 11473bets10.com
+0.0.0.0 11573bets10.com
+0.0.0.0 11586bets10.com
+0.0.0.0 1231betebet.com
+0.0.0.0 12364bets10.com
+0.0.0.0 1240best10.com
+0.0.0.0 1261mobilbahis.com
+0.0.0.0 1263best10.com
+0.0.0.0 1265mobilbahis.com
+0.0.0.0 1266best10.com
+0.0.0.0 1269best10.com
+0.0.0.0 1271mobilbahis.com
+0.0.0.0 1500bet10.com
+0.0.0.0 1508bels.com
+0.0.0.0 1510bet10.com
+0.0.0.0 1515bet10.com
+0.0.0.0 1519bet10.com
 0.0.0.0 1686607364.rsc.cdn77.org
 0.0.0.0 1rx.io
 0.0.0.0 217.195.197.45
+0.0.0.0 220supertolobet.com
 0.0.0.0 2mdn.net
 0.0.0.0 2o7.net
+0.0.0.0 3089betnano.direct
 0.0.0.0 4dex.io
+0.0.0.0 5201casibom.com
 0.0.0.0 82o9v830.com
 0.0.0.0 8digits.com
+0.0.0.0 9255bets10.com
+0.0.0.0 9256bets10.com
+0.0.0.0 9940casibom.com
 0.0.0.0 a-ads.com
 0.0.0.0 a.ads1.msads.net
 0.0.0.0 a.ads1.msn.com
@@ -403,11 +441,16 @@
 0.0.0.0 bcvcrdr.xyz
 0.0.0.0 beacon.securestudies.com
 0.0.0.0 beelert.com
+0.0.0.0 betasus1399.com
 0.0.0.0 betburdaaffiliates.com
 0.0.0.0 betcdn.biz
+0.0.0.0 betcup.cc
+0.0.0.0 betcup730.com
+0.0.0.0 betdeneme.xyz
 0.0.0.0 betendads.com
 0.0.0.0 betkanyon100.com
 0.0.0.0 betlox.com
+0.0.0.0 betnono2056.direct
 0.0.0.0 betwinnerpromo.com
 0.0.0.0 betzeplinreklam.com
 0.0.0.0 bildirnet.com
@@ -421,6 +464,7 @@
 0.0.0.0 block.s2block.com
 0.0.0.0 bluekai.com
 0.0.0.0 bo.facesbet.com
+0.0.0.0 bonto.run
 0.0.0.0 boomads.com
 0.0.0.0 bornobid.com
 0.0.0.0 bounceexchange.com
@@ -437,6 +481,8 @@
 0.0.0.0 c.gazetevatan.com
 0.0.0.0 campaign.nmobs.com
 0.0.0.0 casalemedia.com
+0.0.0.0 casbiom-tr.org
+0.0.0.0 casinomaxi9101.com
 0.0.0.0 cdn-highwinds.unityads.unity3d.com
 0.0.0.0 cdn-netmeraprod.turktelekom.com.tr
 0.0.0.0 cdn.adhouse.pro
@@ -562,6 +608,7 @@
 0.0.0.0 datacollection.beymen.com
 0.0.0.0 dataroid.com
 0.0.0.0 dbfukofby5ycr.cloudfront.net
+0.0.0.0 dedebet-mobilgirisyaptrr.com
 0.0.0.0 demand.supply
 0.0.0.0 demdex.net
 0.0.0.0 denemebonusuverensiteleriz.com
@@ -695,6 +742,7 @@
 0.0.0.0 ibillboard.com
 0.0.0.0 ifddigital.com
 0.0.0.0 ilividnewtab.com
+0.0.0.0 imajbet1149.com
 0.0.0.0 img.adnet.com.tr
 0.0.0.0 increaserev.com
 0.0.0.0 indexww.com
@@ -788,6 +836,7 @@
 0.0.0.0 logger-09.vty.dailymotion.com
 0.0.0.0 logger.virgul.com
 0.0.0.0 logs.viadata.store
+0.0.0.0 m-sekabet1340.com
 0.0.0.0 mackolikftp.tuttur.com
 0.0.0.0 mads.com
 0.0.0.0 madserv.net
@@ -819,6 +868,7 @@
 0.0.0.0 medyaklik.com
 0.0.0.0 medyanative.com
 0.0.0.0 medyanetads.com
+0.0.0.0 meritking3201.com
 0.0.0.0 metaffiliation.com
 0.0.0.0 metrica.yandex.com.tr
 0.0.0.0 metrics.egencia.com.tr
@@ -833,7 +883,10 @@
 0.0.0.0 mlstat.com
 0.0.0.0 moatads.com
 0.0.0.0 mobiadvert.livesportmedia.eu
+0.0.0.0 mobilbahis3152.com
 0.0.0.0 mobilbahis365.mobi
+0.0.0.0 mobilbahis9101.com
+0.0.0.0 mobilbahis9920.com
 0.0.0.0 mobile-collector.newrelic.com
 0.0.0.0 mobile-crash.newrelic.com
 0.0.0.0 mobile.logs.roku.com
@@ -896,6 +949,7 @@
 0.0.0.0 optad360.io
 0.0.0.0 optimizely.com
 0.0.0.0 organikhit.com
+0.0.0.0 orhanbektas.com.tr
 0.0.0.0 oringmedia.com
 0.0.0.0 orjinalmarket.net
 0.0.0.0 orjinalshop.net
@@ -1196,6 +1250,7 @@
 0.0.0.0 taboola.com
 0.0.0.0 tagon.co
 0.0.0.0 tagsadvancenative-glb8iionio2cozc.netdna-ssl.com
+0.0.0.0 tambetresmigirisim.vip
 0.0.0.0 tanidigital.com
 0.0.0.0 tapad.com
 0.0.0.0 tapfiliate.com
@@ -1309,6 +1364,9 @@
 0.0.0.0 ws.tapjoyads.com
 0.0.0.0 wtg-ads.com
 0.0.0.0 ww3.smartadserver.com
+0.0.0.0 www.1261mobilbahis.com
+0.0.0.0 www.1265mobilbahis.com
+0.0.0.0 www.1505bet10.com
 0.0.0.0 www.google-analytics.com
 0.0.0.0 www.googleadservices.com
 0.0.0.0 www.omaze.com

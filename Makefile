@@ -1,7 +1,7 @@
 .PHONY: test dedup plot-stats install-deps backup restore backup-info backup-cleanup
 
 # Default target (optional)
-all: test
+all: test test-unit
 
 test:
 	@echo '--- Filter Lint ---'
@@ -10,6 +10,10 @@ test:
 	python3 scripts/domain_check.py
 	@echo '\n--- Filter Stats ---'
 	python3 scripts/filter_stats.py
+
+test-unit:
+	@echo '--- Unit Tests (generate_formats) ---'
+	python3 -m unittest scripts.test_generate_formats
 
 dedup:
 	python3 scripts/remove_duplicates.py

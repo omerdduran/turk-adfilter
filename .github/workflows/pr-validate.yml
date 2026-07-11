@@ -48,3 +48,6 @@ jobs:
             exit 1
           fi
           echo "Duplicate bulunamadı."
+
+      - name: Birim testler (generate_formats)
+        run: python -m unittest scripts.test_generate_formats
