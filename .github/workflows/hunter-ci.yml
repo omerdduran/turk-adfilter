@@ -1,0 +1,29 @@
+name: hunter CI (Go)
+
+# Yalnızca hunter/ değişince koşar; pr-validate.yml (filtre kalite kapısı) ile kesişmez.
+on:
+  pull_request:
+    paths: ['hunter/**']
+  push:
+    branches: [main]
+    paths: ['hunter/**']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: go vet + test + build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hunter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache-dependency-path: hunter/go.sum
+      - run: go vet ./...
+      - run: go test ./...
+      - run: go build ./...

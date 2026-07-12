@@ -12,3 +12,13 @@ pnpm-lock.yaml
 dnsmasq.conf
 unbound.conf
 rpz.zone
+
+# hunter botu (Go) — yerel state ve secret
+hunter/*.db
+hunter/*.db-wal
+hunter/*.db-shm
+hunter/.env
+
+# Python bytecode cache
+__pycache__/
+*.pyc

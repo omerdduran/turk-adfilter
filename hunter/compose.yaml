@@ -1,0 +1,26 @@
+# hunter — Komodo/Docker Compose stack.
+# Kurulum: .env dosyasına GITHUB_TOKEN koy, `docker compose up -d`.
+# İlk 1-2 hafta HUNTER_DRY_RUN=true ile çalıştır (PR açmadan aday topla + kalibre et).
+services:
+  hunter:
+    build: .
+    image: turk-adfilter-hunter
+    container_name: turk-adfilter-hunter
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HUNTER_DB_PATH: /data/hunter.db
+      HUNTER_INTERVAL: 24h
+      HUNTER_DNS_SERVERS: "1.1.1.1:53,1.0.0.1:53,8.8.8.8:53"  # filtresiz; 2-of-3 quorum
+      HUNTER_SOURCES: "mirror,crtsh,crawl"
+      HUNTER_CONFIDENCE_MIN: "70"
+      LOG_FORMAT: json
+      # İlk kalibrasyon için: HUNTER_DRY_RUN=true (aşağıdaki .env'de de verilebilir)
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    volumes:
+      - hunter-data:/data
+
+volumes:
+  hunter-data:

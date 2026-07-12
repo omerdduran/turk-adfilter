@@ -1,0 +1,27 @@
+# Katman B — BEKLET. Paylaşımlı barındırma/CDN. Bu suffix'lere uyan adaylar PR'a
+# GİRMEZ; status=held olur ve "hunter status" elle-inceleme kuyruğunda görünür.
+# Gerekçe: koca bir CDN müşterisini yanlışlıkla bloklamak riskli — karar insana.
+
+cloudfront.net
+amazonaws.com
+akamaized.net
+akamaihd.net
+edgekey.net
+edgesuite.net
+cdn77.org
+azureedge.net
+azurewebsites.net
+b-cdn.net
+bunnycdn.com
+herokuapp.com
+netlify.app
+vercel.app
+pages.dev
+workers.dev
+web.app
+firebaseapp.com
+github.io
+githubusercontent.com
+wordpress.com
+blogspot.com
+translate.goog
