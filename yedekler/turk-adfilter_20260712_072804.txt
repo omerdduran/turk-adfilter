@@ -1,9 +1,11 @@
 ! Title: Turk-AdFilter – Turkish Ad & Tracker Blocklist
 ! Homepage: https://github.com/omerdduran/turk-adfilter/
+! Expires: 1 day
 ! Description: Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. AdGuard, uBlock Origin ve benzeri servislerde kullanılabilir.
 ! This is a community-driven blocklist to block Turkish ad, tracker, and malicious content providers. Usable with Pihole, AdGuard, uBlock Origin, etc.
 !
-! Version: 1.5.2 – 03.12.2025
+! Version: 1.9.0 – 12.07.2026
+! Last modified: 2026-07-12T07:22:35Z
 ! Maintainer: github.com/omerdduran
 !
 ! ---------------------------------------------------------
@@ -1250,7 +1252,6 @@
 ||rqr97sfd.xyz^
 ||siberreklam.com^$third-party
 ||baglanbize.net^
-||revotas.com^$third-party
 ||cdn.cdnhipter.xyz^
 ||kingads2.org^
 ||ad-service.shop^
@@ -1270,7 +1271,6 @@
 ||ads724.com^
 ||policycounsel.org^$popup
 ||d8c5y8fq3znwi.cloudfront.net^
-||medyanative.com^$third-party
 ||apptospace.com^
 ://sportframe*.co^$third-party
 ||publisher-network.com^$third-party
@@ -1279,113 +1279,109 @@
 ||clbanners9.com^$all
 ||referans.xyz^
 ||likevertising.com^
-||reklamdor.com^$third-party
+||ad-maven.com^
+||adf.ly^
+||adfoc.us^
+||admitad.com^
+||admob.com^
+||adoperator.com^
+||ads.brave.com^
+||ads.microsoft.com^
+||adsense.com^
+||adshrink.it^
+||adsterra.com^
+||adversal.com^
+||awin.com^
+||ay.live^
+||aylink.co^
+||bat.bing.com^
+||bc.vc^
+||bingads.microsoft.com^
+||buysellads.com^
+||cj.com^
+||clarity.ms^
+||clickadu.com^
+||clickaine.com^
+||clickbank.com^
+||clik.pw^
+||clk.sh^
+||cpm.link^
+||denemebonusuverensiteleriz.com^
+||doubleclick.com^
+||eroadvertising.com^
+||evadav.com^
+||exoclick.com^
+||ezoic.com^
+||froggyads.com^
+||galaksion.com^
+||googletagservices.com^
+||hilltopads.com^
+||link.tc^
+||link.tl^
+||linkperisi.com^
+||linkkisaltma.com^
+||linkvertise.com^
+||linkwi.se^
+||mc.webvisor.com^
+||mc.webvisor.ru^
+||mc.yandex.com^
+||media.net^
+||mediavine.com^
+||metrika.yandex.ru^
+||monetag.com^
+||monumetric.com^
+||ouo.io^
+||ouo.press^
+||popcent.net^
+||popmyads.com^
+||propellerads.com^
+||publift.com^
+||rakutenadvertising.com^
+||raptive.com^
+||revcontent.com^
+||revenuehits.com^
+||richads.com^
+||richpops.com^
+||setupad.com^
+||shemedia.com^
+||shotzon.com^
+||shrinkearn.com^
+||shrinkme.io^
+||smoner.com^
+||snigel.com^
+||tmearn.net^
+||tr.link^
+||trafficforce.com^
+||trafficshop.com^
+||trafficstars.com^
+||trlink.pro^
+||twinred.com^
+||wordego.com^
+||zeropark.com^
+||zoomd.com^
 ||pophit.net^$third-party
 ://r.reklam*.com^$third-party
 ://say.ac^$third-party
-||venediktaciri.com^$third-party
 ||88.150.149.92/~cosiker/$third-party
 ||ad*.bilgin.pro^
 ||ad*.tmgrup.com.tr^$third-party
-||adbetnetwork.com^$third-party
-||adbreak.cubecdn.net^$third-party
-||add.f5haber.com^$third-party
-||adeko.mobi^$third-party
-||adfor.io^$third-party
-||adfox.ru^$third-party
-||adhood.com^$third-party
-||adhouse.cubecdn.net^$third-party
-||adhouse.pro^$third-party
-||adnamo.net^$third-party
-||adnatro.com^$third-party
-||adnsafe.net^$third-party
-||adon.io^$third-party
-||adpozitif.com^$third-party
-||adrazzi.com^$third-party
-||adreda.com^$third-party
-||adrequests.com^$third-party
-||adrttt.com^$third-party
-||ads.web.tr^$third-party
-||adzbaba.com^$third-party
-||affiliateserver.hangikredi.com^$third-party
-||afyonturkreklam.com^$third-party
 ||amazonaws.com/ad-maven-public-cdn/$third-party
-||api.adnsafe.org^$third-party
-||app.gelirartisi.com^$third-party
-||ariyayin.com^$third-party
-||artemisaffiliates.com^$third-party
 ||aspartos.com^$all
 ||basvformu*.xyz^$third-party
-||bcvc.mobi^$third-party
-||betkanyon100.com^$third-party
-||betwinnerpromo.com^$third-party
-||bo.facesbet.com^$third-party
-||bwcdn.xyz^$third-party
-||bwtsrv.com^$third-party
-||cdn.klasseo.com^$third-party
-||cdn.smartclick.io^$third-party
-||clickmerkez.com^$third-party
 ||clinicsofturkey.com/attachment/$third-party
 ||contema.ru^$third-party
 ||content.acc-hd.de^$third-party
 ||derya.com^$script,third-party
-||dmcdn.yieldbird.com^$third-party
-||dogus-ads-cdn.dygdigital.com^$third-party
 ||dolarkurum.com^
-||engageya.com^$third-party
 ||files.pbgiris.com^$third-party
-||fvbaffiliate.com^$third-party
-||genelajans.com^$third-party
-||gmgreklam.com^$third-party
-||gorselcdn.com^$third-party
-||gorselpanel.com^$third-party
-||indirads.org^$third-party
-||inegolreklam.net^$third-party
-||installads.net^$third-party
-||installads.org^$third-party
-||ivr.com.tr^$third-party
 ||iyisayfa.net^$third-party
-||kalitereklam.com^$third-party
 ||kurulum.xyz^$third-party
-||load.sumome.com^$third-party
-||makroo.com^$third-party
-||metrics34.com^$third-party
-||minireklam.com^$third-party
-||mkazanc.com^$third-party
-||mobilpop.com^$third-party
-||mp.subservis.com^$third-party
-||n69adserv.com^$third-party
-||nativendo.com^$third-party
 ||numarabiz.com/scr^$third-party
-||numarapaneli.com^$third-party
-||nutga.com^$third-party
 ||partner.superbahisaffiliates*.com^
 ||partnerx.bethub.io^$all
-||permato.com^$third-party
-||piaads.com^$third-party
-||pmelon.com^$third-party
 ||redsurf.ru/bn/$third-party
-||ref.gitadres.com^$popup
-||rek.yemlee.com^$third-party
-||reklam7.com^$third-party
-||reklam8.net^$third-party
-||reklamaction.com^$third-party
-||reklamagaci.com^$third-party
-||reklamatik.com^$third-party
-||reklamnative.com^$third-party
-||reklamstore.com^$third-party
-||reviveservers.com^$third-party
-||segmentify.com^$third-party
-||seldos.com.tr^$third-party
 ||sinefilmizlesen.com^$third-party
-||tagon.co^$third-party
-||theadx.com^$third-party
-||trackocean.com^$third-party
-||vegabet.net^$third-party
-||virgul.com^$third-party
-||winaffiliates.com^$third-party
 ||wonoddgiris.com^$third-party
-||yedimedia.net^$third-party
 ||youtubesave.org^
 ||bitcasino365.b-cdn.net^
 ||d2pspvbdjxwkpo.cloudfront.net^
@@ -2095,8 +2091,6 @@ sabah.com.tr#$#header.advertControlArea { top: 0!important; }
 #$#.film-tab > div.playerimiz { display: block !important; }
 dizimax2.com#$#.swal2-container { display: none !important; }
 dizimax2.com#$#body { overflow: auto !important; padding-right: 0 !important; }
-fullhddizifilmizle2.net,fullhddizifilmizle3.net,fullhddizifilmizle4.net,fullhddizifilmizle5.net#$##player-before-ads { display: none !important; }
-fullhddizifilmizle2.net,fullhddizifilmizle3.net,fullhddizifilmizle4.net,fullhddizifilmizle5.net#$##player-has-ads { display: block !important; }
 fullhddizifilmizle2.net,fullhddizifilmizle3.net,fullhddizifilmizle4.net,fullhddizifilmizle5.net#$##player-before-ads { display: none !important; }
 fullhddizifilmizle2.net,fullhddizifilmizle3.net,fullhddizifilmizle4.net,fullhddizifilmizle5.net#$##player-has-ads { display: block !important; }
 dizipal1017.com,dizipal1.cloud,dizipal2.cloud,dizipal4.cloud,dizipal5.cloud,dizipal9.cloud,dizipal10.cloud,dizipal11.cloud,dizipal12.cloud,dizipal14.cloud,dizipal37.cloud,dizipal39.cloud,dizipal43.cloud,dizipal45.cloud,dizipal47.cloud,dizipal48.cloud,dizipal54.cloud,dizipal58.cloud,dizipal59.cloud,dizipal60.cloud,dizipal61.cloud,dizipal67.cloud,dizipal73.cloud,dizipal74.cloud,dizipal132.cloud,dizipal133.cloud,dizipal134.cloud,dizipal135.cloud,dizipal140.cloud#$#.card-video { display: block !important; }
@@ -5032,7 +5026,6 @@ qualitydergisi.com##.megaBanner
 teknobird.com,kredi.biz.tr,bodrumolay.com###custom_html-3
 ds-*.kxcdn.com^$domain=e-psikiyatri.com
 /api/banner$domain=e-psikiyatri.com
-||owlcarousel2.github.io^$domain=turizmgunlugu.com
 ||ayisozluk.com/reklamlogo/
 fullhdfilmizlesene.*,dizitime.*##.btbg
 cerkezkoyekspres.com##.mansetyanitekli-x
@@ -5095,7 +5088,6 @@ yeniakit.com.tr##a[href*="/ads/"][target="_blank"]
 m.pes24.com##div[class^="ui-popup"]
 ||makroo.kanal7-cdn.com/bip_ingilizce_floater/expand.js
 haber7.com##.main-menu > .main-menu-item > a[href="http://ekonomi.haber7.com/kobi"] > img
-||makroo.kanal7-cdn.com^$domain=donanimhaber.com|haber7.com
 ||makroo.kanal7-cdn.com/*_responsive_fullvideo/expand.js
 birhayalinpesinde.com##center > a[href][target="_blank"][rel].external > img
 birhayalinpesinde.com##.thecontent > .code-block > a[href][target="_blank"][rel].external > img
@@ -5852,7 +5844,6 @@ kocaelioncu.com##.left_ad_areas
 hendekgundem.com,borunsesi.com,buyukhaber.com,usakhabermerkezi.com,kocaelioncu.com##.right_ad_areas
 sariyeryenigun.com,ajans32.com##.right_banner
 demokratkocaeli.com,kamuajans.com##.rklm
-||videoclip.cdn.vidyome.com^$domain=kamuajans.com
 canakkaleolay.com##.row.hidden-xs img.img-responsive
 cumhuriyet.com.tr##.s300x250
 haberself.com##.sAd_box
@@ -5966,7 +5957,6 @@ akhisarhaber.com##marquee[id^="hitson"]
 bursadabugun.com##section[class^="ortablok"] > div.sag
 erzurumgazetesi.com.tr##table[width="468"]
 isguc.org##td[width="200"] a[target="_blank"] img[width="200"][alt]
-||ads.o-networkaffiliates.com^$popup
 ||affiliatelanding.*.com
 ||airporthaber.com/wk-uploads/banners/
 ||ajanshaber.com/files/banners/
@@ -6128,7 +6118,6 @@ selcuksportshd1590.xyz,selcuksportshd1591.xyz,selcuksportshd1592.xyz,selcuksport
 [$domain=/webspor\d+\.xyz/]##.nomobil
 [$domain=/webspor\d+\.xyz/]##.list > div.item:has(> a[target="_blank"])
 [$domain=/webspor\d+\.xyz/]#$?#video > style { remove: true; }
-[$domain=/dizikral(?:\d+\.pro|\.live)/]#$#body > header { margin-top: 0 !important; }
 [$domain=/dizikral(?:\d+\.pro|\.live)/]#$#body > header { margin-top: 0 !important; }
 ||kuponuna*.top/r/
 kuponuna284.top,kuponuna285.top,kuponuna286.top,kuponuna287.top,kuponuna288.top,kuponuna289.top,kuponuna290.top,kuponuna291.top,kuponuna292.top,kuponuna293.top,kuponuna294.top##.iframe_728
@@ -6523,45 +6512,28 @@ www.memurlar.net###PersonalDataInfoBar > div
 www.eleman.net##.is-open.js-modal-mobile.c-modal
 www.nowtv.com.tr##.consent-banner
 www.nowtv.com.tr##.gospock-banner-widget-center-right-aligned.gospock-banner
-www.haberler.com###cconsent-bar
-www.eleman.net##.is-open.js-modal-mobile.c-modal
-www.odatv.com##.privacy-banner
 www.sinemalar.com##.active.cookie-disclaimer.dialog
-www.sinemalar.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
 www.sinemalar.com##.ad-300x250.empower-ad.ad
 www.sinemalar.com##.top.billboard.empower-ad.ad
 www.sinemalar.com##.bottom.billboard.empower-ad.ad
-www.trthaber.com##.cookie-policy-container
 arsiv.mackolik.com##.cookie-consent-rectangle
-www.doviz.com##.x-comet-dialog-visible.x-comet-dialog.x-comet-reset
 www.doviz.com##.reveal.cookie-disclaimer
 www.memurlar.net##.click-tracker.item.col-6.pc\:col-6
-www.memurlar.net###PersonalDataInfoBar > div
-www.internethaber.com##.privacy-banner
 www.internethaber.com##div.masthead-fixed.desktop-ad.adpro:nth-of-type(1)
 www.internethaber.com##.mb-site.ad-box-big.desktop-ad.adpro
 www.internethaber.com##.w-336.w-lg-300 > .mb-site.ad-box.desktop-ad.adpro
 www.internethaber.com##.mb-site.ad-box.desktop-ad.adpro
 www.fanatik.com.tr###\39 927946\,22420904089\/fanatik\/anasayfa\/header_728x90_masthead
-www.donanimhaber.com##.cookie-kutu
 www.yenicaggazetesi.com.tr##.mb-0.mt-4.banner-wide.banner.container > dfp-ad
 www.nefisyemektarifleri.com###webpush-info-div
 onedio.com##.p-2\.5.text-white.bg-opacity-90.bg-gray-900.fixed.left-0.bottom-0.w-full.bg-black-70.u-center.z-cookie.modal--cookie
-www.ntv.com.tr##.bar--cookie-bar.bar
 www.cumhuriyet.com.tr##.right-row.col-lg-4.col-md-4.col-sm-4.col-xs-12 > [href="https://tatil.cumhuriyet.com.tr"]
-www.haber7.com##.cookie-message
 www.yasemin.com##div.mt20.content-ad:nth-of-type(3)
 www.haber7.com##.comment-ad > .content
-www.sondakika.com##.show.notification-popup
-www.sondakika.com##.vl-notif-inner
-www.sondakika.com###cconsent-bar
-www.ensonhaber.com##.cookiepolicy-banner
 www.mynet.com###privacy-notification
 ||eksiseyler.com/sozluk/baslik/6955054?style=white$subdocument
 ||www.buljet.com/sayfa/iframe?yatay=1$subdocument
 ||www.filmcus.site/wp-content/uploads/2025/02/reklam.bmp$image
-||www.filmbari.com/uploads/chps3.webp$image
-||www.filmbari.com/uploads/chps3.webp$image
 ||www.filmbari.com/uploads/chps3.webp$image
 www.buzfilmizle3.com##.poper_show.poper
 www.buzfilmizle3.com##.iv6bGFFrBm2OTsdCZq8K
@@ -6615,4 +6587,62 @@ dizirella.com##.videoust
 ||dizi25.life/assets/images/*.gif$image
 dizi25.life##img[src^="/assets/images/"][src$=".gif"]
 [$domain=/sporcafe-.*\.xyz/]###betting-sites-section
+||www.1261mobilbahis.com^
+||1261mobilbahis.com^
+||1265mobilbahis.com^
+||www.1265mobilbahis.com^
+||orhanbektas.com.tr^
+||betdeneme.xyz^
+||1508bels.com^
+||www.1505bet10.com^
+||1500bet10.com^
+||1510bet10.com^
+||mobilbahis9920.com^
+||m-sekabet1340.com^
+||3089betnano.direct^
+||betnono2056.direct^
+||10001bets10.com^
+||10002bets10.com^
+||10003bets10.com^
+||1519bet10.com^
+||imajbet1149.com^
+||220supertolobet.com^
+||mobilbahis3152.com^
+||9940casibom.com^
+||betcup730.com^
+||5201casibom.com^
+||bonto.run^
+||1231betebet.com^
+||casbiom-tr.org^
+||1515bet10.com^
+||1271mobilbahis.com^
+||mobilbahis9101.com^
+||casinomaxi9101.com^
+||dedebet-mobilgirisyaptrr.com^
+||betcup.cc^
+||betasus1399.com^
+||meritking3201.com^
+||11009bets10.com^
+||1240best10.com^
+||1263best10.com^
+||1266best10.com^
+||1269best10.com^
+||11296bets10.com^
+||11374bets10.com^
+||11464bets10.com^
+||11365bets10.com^
+||12364bets10.com^
+||11364bets10.com^
+||tambetresmigirisim.vip^
+||100140bets10.com^
+||100141bets10.com^
+||11586bets10.com^
+||11573bets10.com^
+||11473bets10.com^
+||11363bets10.com^
+||11353bets10.com^
+||10112bets10.com^
+||9255bets10.com^
+||9256bets10.com^
+||10114bets10.com^
 
