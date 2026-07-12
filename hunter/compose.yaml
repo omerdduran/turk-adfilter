@@ -12,7 +12,7 @@ services:
       HUNTER_DB_PATH: /data/hunter.db
       HUNTER_INTERVAL: 24h
       HUNTER_DNS_SERVERS: "1.1.1.1:53,1.0.0.1:53,8.8.8.8:53"  # filtresiz; 2-of-3 quorum
-      HUNTER_SOURCES: "mirror,crtsh,crawl"
+      HUNTER_SOURCES: "mirror,crtsh,crawl,phishing"
       HUNTER_CONFIDENCE_MIN: "70"
       LOG_FORMAT: json
       # İlk kalibrasyon için: HUNTER_DRY_RUN=true (aşağıdaki .env'de de verilebilir)

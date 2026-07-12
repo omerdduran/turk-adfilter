@@ -31,6 +31,10 @@ GAMBLING_PATTERNS = [
     "betvole", "supertotobet", "tolobet", "imajbet", "meritking", "dumanbet",
     "slot", "poker", "rulet", "baccarat", "gambling", "mobilbahis", "restbet",
     "betcup", "betebet", "betasus", "grandpashabet", "pusulabet", "betwoon",
+    "betwinner", "pashagaming", "winxbet", "betgit", "elexbet", "betpark", "cratosslot",
+    "discountcasino", "betlike", "maltcasino", "ngsbahis", "favorisen", "tempobet", "youwin",
+    "betsat", "artemisbet", "kralbet", "bahigo", "redwin", "sahabet", "betpuan", "jetbahis",
+    "asyabahis", "perabet", "dinamobet", "betmarino", "betorder",
 ]
 GAMBLING_RE = re.compile("|".join(re.escape(p) for p in GAMBLING_PATTERNS), re.IGNORECASE)
 

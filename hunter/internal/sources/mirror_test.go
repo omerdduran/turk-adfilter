@@ -19,16 +19,27 @@ func TestVariants(t *testing.T) {
 		{"casino.com", nil},
 	}
 	for _, c := range cases {
-		got := Variants(c.in)
+		got := Variants(c.in, 6)
 		if !reflect.DeepEqual(got, c.want) {
-			t.Errorf("Variants(%q)=%v, beklenen %v", c.in, got, c.want)
+			t.Errorf("Variants(%q,6)=%v, beklenen %v", c.in, got, c.want)
 		}
+	}
+}
+
+func TestVariantsMaxStep(t *testing.T) {
+	// maxStep parametresi varyant sayısını belirler.
+	if got := Variants("bets10.com", 20); len(got) != 20 {
+		t.Errorf("maxStep=20 → 20 varyant bekleniyordu, %d alındı", len(got))
+	}
+	// maxStep<1 → 6'ya düşer (güvenli varsayılan).
+	if got := Variants("bets10.com", 0); len(got) != 6 {
+		t.Errorf("maxStep=0 → 6'ya düşmeli, %d alındı", len(got))
 	}
 }
 
 func TestVariantsMultiGroup(t *testing.T) {
 	// İki rakam grubu → her biri ayrı ayrı +1..+6 = 12 varyant.
-	got := Variants("10001bets10.com")
+	got := Variants("10001bets10.com", 6)
 	if len(got) != 12 {
 		t.Fatalf("12 varyant bekleniyordu (2 grup × 6), %d alındı: %v", len(got), got)
 	}
@@ -40,7 +51,7 @@ func TestVariantsMultiGroup(t *testing.T) {
 
 func TestVariantsOverflowSkipped(t *testing.T) {
 	// >9 haneli grup taşma riskiyle atlanır.
-	got := Variants("bet12345678901.com") // 11 hane
+	got := Variants("bet12345678901.com", 6) // 11 hane
 	if got != nil {
 		t.Errorf("11 haneli grup atlanmalı, %v alındı", got)
 	}
@@ -48,7 +59,7 @@ func TestVariantsOverflowSkipped(t *testing.T) {
 
 func TestMirrorDiscoverDedupAndCap(t *testing.T) {
 	seed := []string{"bets10.com", "mobilbahis1.com"}
-	m := NewMirror(seed, 5, 42)
+	m := NewMirror(seed, 5, 42, 6)
 	got, err := m.Discover(context.Background())
 	if err != nil {
 		t.Fatal(err)

@@ -4,14 +4,15 @@ import "strings"
 
 // Signals, bir adayın güven skorunu belirleyen sinyaller.
 type Signals struct {
-	Source         string // "mirror" | "crtsh" | "crawl"
+	Source         string // "mirror" | "crtsh" | "crawl" | "phishing"
 	GamblingMatch  bool
+	PhishMatch     bool // banka/kurum deseni
 	AdToken        bool
 	CrawlSiteCount int // crawl: kaç seed sitede görüldü
 	MultiSource    bool
 	SuspiciousTLD  bool
 	ProbeAlive     bool
-	FreshCert      bool // crtsh: cert ≤7 gün
+	FreshCert      bool // crtsh/phishing: cert ≤7 gün
 	DeepSubdomain  bool // ≥5 label
 }
 
@@ -78,11 +79,16 @@ func Score(s Signals) int {
 		score += 45 // kanıtlanmış kaynak; aktif+gambling aday probe'suz da eşiği (70) geçmeli
 	case "crtsh":
 		score += 25
+	case "phishing":
+		score += 25
 	case "crawl":
 		score += 20
 	}
 	if s.GamblingMatch {
 		score += 25
+	}
+	if s.PhishMatch {
+		score += 20
 	}
 	if s.AdToken {
 		score += 20

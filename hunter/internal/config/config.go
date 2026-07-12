@@ -33,7 +33,8 @@ type Config struct {
 	DNSQPS         int
 
 	// mirror
-	MirrorCap int
+	MirrorCap     int
+	MirrorMaxStep int // her sayı grubunu +1..+MirrorMaxStep artır
 
 	// crt.sh
 	CrtshBrands     []string // boşsa seed'ten türetilir
@@ -73,10 +74,16 @@ const (
 // Cloudflare/403 verenler (technopat, hepsiburada, trendyol, eksisozluk, incisozluk)
 // bilinçli olarak dışarıda; site_health backoff'u zaten pasifleştirir.
 var defaultCrawlSites = []string{
-	"sozcu.com.tr", "hurriyet.com.tr", "milliyet.com.tr", "fanatik.com.tr",
-	"sporx.com", "ntv.com.tr", "haberturk.com", "mynet.com",
+	// haber
+	"sozcu.com.tr", "hurriyet.com.tr", "milliyet.com.tr", "haberturk.com",
+	"cumhuriyet.com.tr", "ensonhaber.com", "mynet.com", "haber7.com",
+	"internethaber.com", "t24.com.tr", "gazetevatan.com", "star.com.tr",
+	"takvim.com.tr", "cnnturk.com", "birgun.net", "oksijen.com.tr", "gzt.com",
+	// spor
+	"fanatik.com.tr", "sporx.com", "aspor.com.tr", "fotomac.com.tr", "ntv.com.tr",
+	// teknoloji / genel
 	"onedio.com", "webtekno.com", "shiftdelete.net", "donanimhaber.com",
-	"cumhuriyet.com.tr", "ensonhaber.com",
+	"webrazzi.com", "chip.com.tr", "log.com.tr",
 }
 
 // Load, ortam değişkenlerini okuyup Config üretir ve doğrular.
@@ -88,7 +95,7 @@ func Load() (*Config, error) {
 		SeedURL:         envStr("HUNTER_SEED_URL", defaultSeedURL),
 		DBPath:          envStr("HUNTER_DB_PATH", "/data/hunter.db"),
 		Interval:        envDur("HUNTER_INTERVAL", 24*time.Hour),
-		Sources:         envList("HUNTER_SOURCES", []string{"mirror", "crtsh", "crawl"}),
+		Sources:         envList("HUNTER_SOURCES", []string{"mirror", "crtsh", "crawl", "phishing"}),
 		ConfidenceMin:   envInt("HUNTER_CONFIDENCE_MIN", 70),
 		MaxPerPR:        envInt("HUNTER_MAX_PER_PR", 30),
 		// Hepsi FİLTRESİZ resolver (Cloudflare x2 + Google). Quad9/9.9.9.9 gibi
@@ -98,6 +105,7 @@ func Load() (*Config, error) {
 		DNSConcurrency:  envInt("HUNTER_DNS_CONCURRENCY", 8),
 		DNSQPS:          envInt("HUNTER_DNS_QPS", 20),
 		MirrorCap:       envInt("HUNTER_MIRROR_CAP", 6000),
+		MirrorMaxStep:   envInt("HUNTER_MIRROR_MAX_STEP", 20),
 		CrtshBrands:     envList("HUNTER_CRTSH_BRANDS", nil),
 		CrtshPerRun:     envInt("HUNTER_CRTSH_PER_RUN", 5),
 		CrtshThrottle:   envDur("HUNTER_CRTSH_THROTTLE", 20*time.Second),
@@ -143,6 +151,9 @@ func (c *Config) validate() error {
 	}
 	if c.DNSConcurrency < 1 {
 		return fmt.Errorf("HUNTER_DNS_CONCURRENCY en az 1 olmalı: %d", c.DNSConcurrency)
+	}
+	if c.MirrorMaxStep < 1 || c.MirrorMaxStep > 50 {
+		return fmt.Errorf("HUNTER_MIRROR_MAX_STEP 1-50 aralığında olmalı: %d", c.MirrorMaxStep)
 	}
 	return nil
 }

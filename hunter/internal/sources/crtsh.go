@@ -14,6 +14,7 @@ import (
 // alan adlarını bulur. crt.sh YAVAŞ + rate-limit'li olduğu için marka rotasyonu
 // (cursor main'de), throttle ve circuit breaker uygulanır.
 type Crtsh struct {
+	name       string   // kaynak adı: "crtsh" (bahis) | "phishing" (banka/kurum)
 	brands     []string // bu çalışmanın markaları (rotasyon main'de)
 	client     *httpx.Client
 	throttle   time.Duration
@@ -22,9 +23,10 @@ type Crtsh struct {
 	testURL    string // test için endpoint override (boşsa gerçek crt.sh)
 }
 
-// NewCrtsh kurar.
+// NewCrtsh, crt.sh'i bahis markalarıyla sorgulayan bir kaynak kurar.
 func NewCrtsh(brands []string, client *httpx.Client, throttle time.Duration, windowDays int) *Crtsh {
 	return &Crtsh{
+		name:       "crtsh",
 		brands:     brands,
 		client:     client,
 		throttle:   throttle,
@@ -33,7 +35,7 @@ func NewCrtsh(brands []string, client *httpx.Client, throttle time.Duration, win
 	}
 }
 
-func (c *Crtsh) Name() string { return "crtsh" }
+func (c *Crtsh) Name() string { return c.name }
 
 type crtEntry struct {
 	NameValue string `json:"name_value"`
@@ -83,7 +85,7 @@ func (c *Crtsh) Discover(ctx context.Context) ([]Candidate, error) {
 				if _, dup := seen[norm]; dup {
 					continue
 				}
-				seen[norm] = Candidate{Domain: norm, Source: "crtsh", Brand: brand, CertTime: certTime}
+				seen[norm] = Candidate{Domain: norm, Source: c.name, Brand: brand, CertTime: certTime}
 			}
 		}
 	}

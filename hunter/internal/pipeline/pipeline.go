@@ -182,6 +182,7 @@ func (p *Pipeline) signals(a *aggregate, pr ProbeResult) Signals {
 	return Signals{
 		Source:         primarySource(a.sourceSet),
 		GamblingMatch:  IsGambling(a.Domain),
+		PhishMatch:     IsPhishing(a.Domain),
 		AdToken:        HasAdToken(a.Domain),
 		CrawlSiteCount: countIf(a.sourceSet["crawl"], len(a.seenOn)),
 		MultiSource:    len(a.sourceSet) >= 2,
@@ -266,9 +267,9 @@ func mergeByDomain(raw []sources.Candidate) map[string]*aggregate {
 	return out
 }
 
-// primarySource, en güçlü kaynağı döndürür (mirror > crtsh > crawl).
+// primarySource, en güçlü kaynağı döndürür (mirror > crtsh > phishing > crawl).
 func primarySource(set map[string]bool) string {
-	for _, s := range []string{"mirror", "crtsh", "crawl"} {
+	for _, s := range []string{"mirror", "crtsh", "phishing", "crawl"} {
 		if set[s] {
 			return s
 		}

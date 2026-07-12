@@ -28,6 +28,7 @@ func TestCrtshParsesAndFilters(t *testing.T) {
 	// crt.sh URL'ini test sunucusuna yönlendirmek için client'ı doğrudan çağırmıyoruz;
 	// bunun yerine Crtsh'i test sunucusuyla kuramadığımızdan URL'i override ederiz:
 	c := &Crtsh{
+		name:       "crtsh",
 		brands:     []string{"casibom"},
 		client:     httpx.New(5*time.Second, "test", 1<<20),
 		throttle:   0,
@@ -66,6 +67,7 @@ func TestCrtshCircuitBreaker(t *testing.T) {
 	}))
 	defer srv.Close()
 	c := &Crtsh{
+		name:       "crtsh",
 		brands:     []string{"a", "b", "c", "d", "e", "f"},
 		client:     httpx.New(2*time.Second, "test", 1<<20),
 		throttle:   0,

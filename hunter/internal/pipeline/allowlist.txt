@@ -98,6 +98,11 @@ papara.com
 ininal.com
 iyzico.com
 paytr.com
+turkiyefinans.com.tr
+kuveytturk.com.tr
+teb.com.tr
+sekerbank.com.tr
+ptt.gov.tr
 
 # --- sözlük / topluluk (crawl'da beliren birinci-taraf) ---
 eksisozluk.com

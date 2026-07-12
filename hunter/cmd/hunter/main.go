@@ -206,6 +206,18 @@ var defaultCrtshBrands = []string{
 	"marsbahis", "matadorbet", "grandpashabet", "meritking", "tipobet",
 	"betturkey", "imajbet", "pusulabet", "dumanbet", "betwoon", "bahsegel",
 	"casinomaxi", "superbahis", "betnano",
+	"betwinner", "pashagaming", "winxbet", "betgit", "elexbet", "betpark",
+	"cratosslot", "betlike", "ngsbahis", "tempobet", "youwin", "betsat",
+	"artemisbet", "kralbet", "bahigo", "sahabet", "jetbahis", "asyabahis",
+	"perabet", "dinamobet",
+}
+
+// defaultPhishingBrands, phishing kaynağının aradığı banka/kurum markaları
+// (ayırt edici — genel kelime değil).
+var defaultPhishingBrands = []string{
+	"garantibbva", "ziraatbank", "isbankasi", "akbank", "yapikredi", "halkbank",
+	"vakifbank", "denizbank", "qnbfinans", "enpara", "papara", "ininal",
+	"turkiyefinans", "kuveytturk", "edevlet",
 }
 
 // buildSources, etkin kaynakları kurar.
@@ -214,11 +226,19 @@ func buildSources(cfg *config.Config, seed []string, st *store.Store) []sources.
 	for _, name := range cfg.Sources {
 		switch name {
 		case "mirror":
-			out = append(out, sources.NewMirror(seed, cfg.MirrorCap, time.Now().UnixNano()))
+			out = append(out, sources.NewMirror(seed, cfg.MirrorCap, time.Now().UnixNano(), cfg.MirrorMaxStep))
 		case "crtsh":
-			brands := rotateBrands(cfg, st)
+			all := cfg.CrtshBrands
+			if len(all) == 0 {
+				all = defaultCrtshBrands
+			}
+			brands := rotateBrands(st, all, cfg.CrtshPerRun, "crtsh_brand_cursor")
 			cl := httpx.New(70*time.Second, cfg.CrawlUA, 20<<20) // crt.sh yavaş
 			out = append(out, sources.NewCrtsh(brands, cl, cfg.CrtshThrottle, cfg.CrtshWindowDays))
+		case "phishing":
+			brands := rotateBrands(st, defaultPhishingBrands, cfg.CrtshPerRun, "phish_brand_cursor")
+			cl := httpx.New(70*time.Second, cfg.CrawlUA, 20<<20)
+			out = append(out, sources.NewPhishing(brands, cl, cfg.CrtshThrottle, cfg.CrtshWindowDays))
 		case "crawl":
 			cl := httpx.New(cfg.CrawlTimeout, cfg.CrawlUA, 3<<20)
 			out = append(out, sources.NewCrawl(cfg.CrawlSites, cl, st))
@@ -227,25 +247,21 @@ func buildSources(cfg *config.Config, seed []string, st *store.Store) []sources.
 	return out
 }
 
-// rotateBrands, crt.sh markalarını run başına döndürür (cursor SQLite meta'da).
-func rotateBrands(cfg *config.Config, st *store.Store) []string {
-	all := cfg.CrtshBrands
-	if len(all) == 0 {
-		all = defaultCrtshBrands
-	}
-	per := cfg.CrtshPerRun
+// rotateBrands, marka listesini run başına `per` kadar döndürür (cursor SQLite
+// meta'da, cursorKey ile). crt.sh ve phishing kaynakları ayrı cursor kullanır.
+func rotateBrands(st *store.Store, all []string, per int, cursorKey string) []string {
 	if per <= 0 || per >= len(all) {
 		return all
 	}
 	cur := 0
-	if v, _ := st.MetaGet("crtsh_brand_cursor"); v != "" {
+	if v, _ := st.MetaGet(cursorKey); v != "" {
 		cur, _ = strconv.Atoi(v)
 	}
 	sel := make([]string, 0, per)
 	for i := 0; i < per; i++ {
 		sel = append(sel, all[(cur+i)%len(all)])
 	}
-	_ = st.MetaSet("crtsh_brand_cursor", strconv.Itoa((cur+per)%len(all)))
+	_ = st.MetaSet(cursorKey, strconv.Itoa((cur+per)%len(all)))
 	return sel
 }
 

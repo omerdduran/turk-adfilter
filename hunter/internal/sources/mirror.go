@@ -17,16 +17,20 @@ var digitRE = regexp.MustCompile(`\d+`)
 // Seed olarak turk-adfilter-bahis.txt kullanılır (tek doğruluk kaynağı).
 // Discover ağ yapmaz; yalnız varyant üretir — DNS doğrulaması huninin işi.
 type Mirror struct {
-	seed []string // bahis domainleri
-	cap  int      // run başına üretilecek maksimum varyant
-	rnd  *rand.Rand
+	seed    []string // bahis domainleri
+	cap     int      // run başına üretilecek maksimum varyant
+	maxStep int      // her sayı grubunu +1..+maxStep artır
+	rnd     *rand.Rand
 }
 
-// NewMirror, verilen seed ve varyant tavanıyla bir Mirror kaynağı üretir.
-// runSalt her çalışmada farklı örnekleme için kullanılır (Date/rand yasak olan
-// ortamlarda dışarıdan verilir).
-func NewMirror(seed []string, cap int, runSalt int64) *Mirror {
-	return &Mirror{seed: seed, cap: cap, rnd: rand.New(rand.NewSource(runSalt))}
+// NewMirror, verilen seed, varyant tavanı ve adım aralığıyla bir Mirror kaynağı
+// üretir. runSalt her çalışmada farklı örnekleme için kullanılır (Date/rand yasak
+// olan ortamlarda dışarıdan verilir).
+func NewMirror(seed []string, cap int, runSalt int64, maxStep int) *Mirror {
+	if maxStep < 1 {
+		maxStep = 6
+	}
+	return &Mirror{seed: seed, cap: cap, maxStep: maxStep, rnd: rand.New(rand.NewSource(runSalt))}
 }
 
 func (m *Mirror) Name() string { return "mirror" }
@@ -36,7 +40,7 @@ func (m *Mirror) Name() string { return "mirror" }
 func (m *Mirror) Discover(ctx context.Context) ([]Candidate, error) {
 	seen := make(map[string]Candidate)
 	for _, base := range m.seed {
-		for _, v := range Variants(base) {
+		for _, v := range Variants(base, m.maxStep) {
 			norm, ok := Normalize(v)
 			if !ok || norm == base {
 				continue
@@ -62,11 +66,14 @@ func (m *Mirror) Discover(ctx context.Context) ([]Candidate, error) {
 	return out, nil
 }
 
-// Variants, bir domaindeki HER rakam grubunu +1..+6 artırarak varyantlar üretir.
-// scripts/find_new_domains.py gen_variants portu, iki düzeltmeyle:
-//   - sıfır-dolgu KORUNUR (007bet → 008bet..013bet; Python'da kayboluyordu)
+// Variants, bir domaindeki HER rakam grubunu +1..+maxStep artırarak varyantlar
+// üretir. scripts/find_new_domains.py gen_variants portu, iki düzeltmeyle:
+//   - sıfır-dolgu KORUNUR (007bet → 008bet..; Python'da kayboluyordu)
 //   - >9 haneli grup atlanır (int64 taşma koruması)
-func Variants(domain string) []string {
+func Variants(domain string, maxStep int) []string {
+	if maxStep < 1 {
+		maxStep = 6
+	}
 	var out []string
 	for _, loc := range digitRE.FindAllStringIndex(domain, -1) {
 		numStr := domain[loc[0]:loc[1]]
@@ -78,7 +85,7 @@ func Variants(domain string) []string {
 			continue
 		}
 		width := len(numStr)
-		for i := 1; i <= 6; i++ {
+		for i := 1; i <= maxStep; i++ {
 			v := domain[:loc[0]] + fmt.Sprintf("%0*d", width, n+i) + domain[loc[1]:]
 			out = append(out, v)
 		}
