@@ -49,5 +49,13 @@ jobs:
           fi
           echo "Duplicate bulunamadı."
 
-      - name: Birim testler (generate_formats)
-        run: python -m unittest scripts.test_generate_formats
+      - name: Birim testler (format üreticileri)
+        # TestHostsConsistency (turk-adfilter.txt ↔ hosts.txt senkronu) HARİÇ:
+        # PR'lar kaynak-only ekler (turk-adfilter.txt); türev hosts.txt merge sonrası
+        # auto-backup/version-bump ile üretilir, bu yüzden PR anında drift normaldir.
+        run: |
+          python -m unittest \
+            scripts.test_generate_formats.TestExtractDomains \
+            scripts.test_generate_formats.TestGenerateDnsmasq \
+            scripts.test_generate_formats.TestGenerateUnbound \
+            scripts.test_generate_formats.TestGenerateRpz
