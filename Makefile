@@ -1,4 +1,4 @@
-.PHONY: test dedup plot-stats install-deps backup restore backup-info backup-cleanup
+.PHONY: all test test-unit lint dedup install-deps stats backup backup-force backup-info restore restore-list backup-cleanup
 
 # Default target (optional)
 all: test test-unit
@@ -14,6 +14,10 @@ test:
 test-unit:
 	@echo '--- Unit Tests (generate_formats) ---'
 	python3 -m unittest scripts.test_generate_formats
+
+lint:
+	@echo '--- AGLint (AdGuard filter linter) ---'
+	npx aglint
 
 dedup:
 	python3 scripts/remove_duplicates.py

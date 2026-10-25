@@ -5,6 +5,17 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.1.0/) temellidir ve pr
 
 All notable changes to this project are documented in this file.
 
+## [1.9.1] - 2026-07-12
+
+Yama sürümü: yeni domain adayları ve kalite kapısı düzeltmeleri. / Patch release: new domain candidates and CI gate fixes.
+
+### 🚀 Eklenenler / Added
+- **30 yeni bahis/kumar domaini** (hunter adayları, PR #59).
+
+### 🧰 Bakım / Maintenance
+- PR doğrulama iş akışında `hosts.txt` senkron testi kapsam dışı bırakıldı — kaynak-only PR'larda drift normaldir.
+- `aglint` yalnızca filtre listelerini denetleyecek şekilde kısıtlandı (`.aglintignore`).
+
 ## [1.9.0] - 2026-07-12
 
 v1.8.0'dan bu yana biriken tüm çalışma tek sürümde toplandı: kategori alt listeleri, tek-tık abonelik, self-hosted geri bildirim formu, SEO/GEO altyapısı ve gerçek bir kalite kapısı. / A consolidation release gathering everything since v1.8.0.
@@ -35,5 +46,6 @@ v1.8.0'dan bu yana biriken tüm çalışma tek sürümde toplandı: kategori alt
 ## [1.8.0] - 2026-03-23
 - DNS format üreticisi (dnsmasq, Unbound, BIND RPZ) + kurulum dokümantasyonu.
 
+[1.9.1]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/omerdduran/turk-adfilter/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/omerdduran/turk-adfilter/releases/tag/v1.8.0

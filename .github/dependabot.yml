@@ -1,0 +1,55 @@
+version: 2
+
+updates:
+  # GitHub Actions — weekly, they go stale silently otherwise.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "chore(ci)"
+    groups:
+      actions-minor:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # Root package.json — only the AGLint filter linter.
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "chore(deps)"
+
+  # Next.js + Fumadocs site. Patch/minor arrive as one PR; majors stay separate
+  # because a Fumadocs/Next major is a migration, not a bump.
+  - package-ecosystem: npm
+    directory: "/frontend"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "chore(deps)"
+    groups:
+      web-minor-and-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # Python tooling (matplotlib for the stats plot).
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "chore(deps)"
