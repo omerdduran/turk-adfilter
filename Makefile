@@ -6,10 +6,10 @@ all: test test-unit
 test:
 	@echo '--- Filter Lint ---'
 	python3 scripts/filter_lint.py
-	@echo '\n--- Domain Check ---'
+	@echo '\n--- Domain Check (DNS, süre sınırlı) ---'
 	python3 scripts/domain_check.py
-	@echo '\n--- Filter Stats ---'
-	python3 scripts/filter_stats.py
+	@echo '\n--- Filter Stats (çevrimdışı) ---'
+	python3 scripts/filter_stats.py --no-resolve
 
 test-unit:
 	@echo '--- Unit Tests (generate_formats) ---'
