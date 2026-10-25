@@ -404,6 +404,8 @@ def main():
         if candidates:
             print(f"crt.sh: {len(candidates)} yeni aday, DNS kontrolü yapılıyor")
             alive = {domain: bool(ip) for domain, ip in resolve_many(sorted(candidates)).items()}
+            for domain, ok in sorted(alive.items()):
+                print(f"  {'+' if ok else '·'} {domain}{'' if ok else ' (çözülmedi, atlandı)'}")
             additions.extend(domain for domain, ip in sorted(alive.items()) if ip)
         else:
             print("crt.sh: yeni aday yok")
