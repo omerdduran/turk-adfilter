@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="[&_.fumadocs-nav]:bg-white/95 [&_.fumadocs-nav]:dark:bg-[#191919]/95 [&_.fumadocs-nav]:backdrop-blur-sm [&_.fumadocs-nav]:border-b [&_.fumadocs-nav]:border-gray-200 [&_.fumadocs-nav]:dark:border-gray-800 [&_.fumadocs-nav]:shadow-sm">
+    <div className="[&_#nd-nav>div]:bg-white/95 [&_#nd-nav>div]:dark:bg-[#191919]/95 [&_#nd-nav>div]:backdrop-blur-sm [&_#nd-nav>div]:border-b [&_#nd-nav>div]:border-gray-200 [&_#nd-nav>div]:dark:border-gray-800 [&_#nd-nav>div]:shadow-sm">
       <HomeLayout {...baseOptions}>
         {children}
         <Footer />

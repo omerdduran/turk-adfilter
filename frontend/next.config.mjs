@@ -5,6 +5,11 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  // Next 16 infers the workspace root from lockfiles. Pin it to the app so
+  // standalone output stays at .next/standalone/server.js (the Dockerfile path).
+  turbopack: {
+    root: process.cwd(),
+  },
   // Self-host (Docker) için minimal Node.js sunucusu üretir: .next/standalone
   // içinde server.js + gerekli node_modules bundle'lanır. Vercel bunu yok sayar.
   output: 'standalone',

@@ -4,7 +4,8 @@ description: Türkiye merkezli reklam ve izleyici engelleme listesi hakkında bi
 ---
 
 import { Accordions, Accordion } from 'fumadocs-ui/components/accordion';
-import { Globe, RefreshCw, Shield, Github, HelpCircle, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
+import { Globe, RefreshCw, Shield, HelpCircle, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
+import GithubIcon from '@/components/github-icon';
 
 # Turk-AdFilter Projesi
 
@@ -28,7 +29,7 @@ Bu proje, Türkçe internet kullanıcıları için özel olarak oluşturulmuş v
     Pi-hole, AdGuard, uBlock Origin ve diğer popüler reklam engelleyiciler ile uyumludur
   </Card>
 
-  <Card title='Açık Kaynak' icon={<Github className="w-5 h-5" />}>
+  <Card title='Açık Kaynak' icon={<GithubIcon className="w-5 h-5" />}>
     GPL-3.0 lisansı altında özgürce kullanılabilir
   </Card>
 </Cards>
@@ -89,7 +90,7 @@ Bu proje, Türkçe internet kullanıcıları için özel olarak oluşturulmuş v
     3. RAW bağlantısını kopyalayıp ilgili uygulamaya ekleyin
   </Accordion>
 
-  <Accordion id='katkida-bulun' title="Projeye nasıl katkıda bulunabilirim?" icon={<Github className="w-5 h-5" />}>
+  <Accordion id='katkida-bulun' title="Projeye nasıl katkıda bulunabilirim?" icon={<GithubIcon className="w-5 h-5" />}>
     Projeye katkıda bulunmak için:
 
     1. GitHub üzerinden issue açabilirsiniz
@@ -114,7 +115,7 @@ Turk-AdFilter'ı kullanmaya başlamak için rehberimizi takip edin:
     title="Katkıda Bulunma" 
     href="/docs/katki"
     description="Projeye nasıl katkıda bulunabilirsiniz"
-    icon={<Github className="w-5 h-5" />}
+    icon={<GithubIcon className="w-5 h-5" />}
   />
   <Card 
     title="SSS" 
@@ -124,6 +125,6 @@ Turk-AdFilter'ı kullanmaya başlamak için rehberimizi takip edin:
   />
 </Cards>
 
-<Callout title="Daha Fazla Bilgi" icon={<Github className="w-5 h-5" />}>
+<Callout title="Daha Fazla Bilgi" icon={<GithubIcon className="w-5 h-5" />}>
   Detaylı bilgi için [GitHub Repository](https://github.com/omerdduran/turk-adfilter)'mizi ziyaret edebilirsiniz.
 </Callout>
