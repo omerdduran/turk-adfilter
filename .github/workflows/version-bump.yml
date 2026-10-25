@@ -11,6 +11,10 @@ on:
     paths:
       - 'turk-adfilter.txt'
 
+concurrency:
+  group: main-writes
+  cancel-in-progress: false
+
 jobs:
   version-bump:
     if: github.event.pull_request.merged == true
@@ -98,8 +102,18 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add turk-adfilter.txt CHANGELOG.md
           git commit -m "chore(release): bump ${{ steps.bump_type.outputs.type }} version [skip ci]" || echo "No changes to commit"
-          git pull --no-rebase --no-edit origin main
-          git push
+          # main'e iki iş akışı yazabildiği için push tek denemede reddedilebilir:
+          # pull + push'u kısa bir geri çekilmeyle tekrar dene.
+          for attempt in 1 2 3; do
+            git pull --no-rebase --no-edit origin main
+            if git push; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::main'e push 3 denemede başarısız oldu"
+          exit 1
 
       - name: Generate hosts.txt
         run: |

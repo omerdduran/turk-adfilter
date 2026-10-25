@@ -11,6 +11,13 @@ on:
         default: false
         type: boolean
 
+# Aynı merge'de hem bu iş akışı hem sürüm bump'ı main'e yazmaya çalışıyor; ikisi
+# aynı concurrency grubunda olduğu için sırayla koşarlar, aksi hâlde ikincisinin
+# push'u "fetch first" ile reddedilir.
+concurrency:
+  group: main-writes
+  cancel-in-progress: false
+
 jobs:
   backup-filters:
     runs-on: ubuntu-latest
