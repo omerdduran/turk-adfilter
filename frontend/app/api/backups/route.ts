@@ -79,8 +79,6 @@ export async function GET() {
           ...backup,
           downloadUrl: `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/yedekler/${backup.backup_file}`,
           githubUrl: `https://github.com/omerdduran/turk-adfilter/blob/main/yedekler/${backup.backup_file}`,
-          codebergUrl: `https://codeberg.org/omerdduran/turk-adfilter/src/branch/main/yedekler/${backup.backup_file}`,
-          codebergRawUrl: `https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/yedekler/${backup.backup_file}`,
           readableDate: formatTimestamp(backup.timestamp),
           readableSize: formatSize(backup.size)
         }))

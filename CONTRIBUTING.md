@@ -78,4 +78,4 @@ Katkıda bulunan tüm katılımcılara teşekkür ederiz! Sizin sayenizde daha i
 ## İletişim
 
 - GitHub: [@omerdduran/turk-adfilter](https://github.com/omerdduran/turk-adfilter)
-- Discord: [Discord Sunucusu](https://discord.gg/u2eRbGnd)
+- Discussions: [Sorular ve öneriler](https://github.com/omerdduran/turk-adfilter/discussions)
