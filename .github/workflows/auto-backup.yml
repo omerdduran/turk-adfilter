@@ -89,3 +89,10 @@ jobs:
         run: |
           echo "📊 Yedek İstatistikleri:"
           python scripts/backup_filters.py --info
+
+      - name: Değişmez testleri (türev dosyalar + başlık + changelog)
+        # Türev dosyalar bu iş akışında yeniden üretildiği için "hosts.txt ⊆ ana
+        # liste", "alt listeler ana listenin alt kümesi" gibi kontroller burada
+        # anlamlı; PR anında değil.
+        run: |
+          python -m unittest scripts.test_filter_invariants

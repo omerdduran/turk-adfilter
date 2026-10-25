@@ -12,8 +12,9 @@ test:
 	python3 scripts/filter_stats.py --no-resolve
 
 test-unit:
-	@echo '--- Unit Tests (generate_formats) ---'
+	@echo '--- Unit Tests (generate_formats + filter invariants) ---'
 	python3 -m unittest scripts.test_generate_formats
+	python3 -m unittest scripts.test_filter_invariants
 
 lint:
 	@echo '--- AGLint (AdGuard filter linter) ---'

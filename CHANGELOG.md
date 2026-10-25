@@ -5,6 +5,49 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.1.0/) temellidir ve pr
 
 All notable changes to this project are documented in this file.
 
+## [1.9.6] - 2026-10-25
+
+Güvenlik: kök araç zincirindeki `js-yaml` güncellendi. / Security: root tooling `js-yaml` bump.
+
+- `js-yaml` 4.1.0 → 4.3.2 (Dependabot, kök `package-lock.json`); beş açık js-yaml uyarısı kapandı.
+
+## [1.9.5] - 2026-10-25
+
+Güvenlik: kök araç zincirindeki `source-map-js` güncellendi. / Security: root tooling `source-map-js` bump.
+
+- `source-map-js` 1.2.1 → 1.2.2 (Dependabot, kök `package-lock.json`).
+
+## [1.9.4] - 2026-10-25
+
+Web yığını Next 16 ve Fumadocs 16'ya yükseltildi. / Web stack upgraded to Next 16 and Fumadocs 16.
+
+### 🧰 Bakım / Maintenance
+- `next` 15.3.6 → 16.4.3, React 19.3.1, `fumadocs-core`/`fumadocs-ui` 16.17.8, `fumadocs-mdx` 15.4.10, Tailwind 4.3.3, `typescript` 5.9; kökte AGLint 3.0.3.
+- `lucide-react` 1.x marka ikonlarını kaldırdığı için GitHub ikonu `frontend/components/github-icon.tsx` bileşenine taşındı.
+- Frontend için CI kapısı: `pr-web-validate.yml` — `npm ci`, derleme + tip kontrolü, standalone çıktısının varlığı.
+- GitHub Actions sürümleri güncellendi (checkout/setup-node/setup-python v7, release-drafter v7); CI Node 20 → 22.
+
+## [1.9.3] - 2026-10-25
+
+Depo hijyeni ve kalite kapıları. / Repo hygiene and gate gaps.
+
+### 🧰 Bakım / Maintenance
+- `frontend/.idea/workspace.xml` artık izlenmiyor; `.gitignore`'a `.idea/`, `.vscode/`, `__pycache__/`, `*.pyc`, `.venv/` ve yerel `.env` dosyaları eklendi.
+- `.aglintignore`'daki ölü `hunter/` girdisi kaldırıldı; `make lint` hedefi eklendi.
+- `SECURITY.md` eklendi; `CODE_OF_CONDUCT.md`'ye ihlal bildirim adresi; `dependabot.yml` (haftalık Actions, aylık npm/pip, minor+patch gruplu).
+- Depo ayarları: Dependabot güvenlik güncellemeleri, secret scanning ve push protection açıldı.
+
+## [1.9.2] - 2026-10-25
+
+Ölü Codeberg/Discord referansları temizlendi, release hattındaki takılma giderildi. / Dead Codeberg & Discord references removed; the stalled release pipeline fixed.
+
+### 🐛 Düzeltilenler / Fixed
+- **Release hattı takılması:** `filter_stats.py` 1.446 domaini tek tek DNS ile çözüyordu (~105 sn yerelde, CI'da 7+ dakika askıda). Yeni `scripts/dns_probe.py` sınırlı eşzamanlı çözümleme yapıyor (256 thread, `DNS_PROBE_TIMEOUT`); `filter_stats.py --no-resolve`, `domain_check.py` de aynı probe'u kullanıyor.
+
+### 🧰 Bakım / Maintenance
+- **Codeberg aynası ve Discord sunucusu kaldırıldı**: README'ler, kurulum dokümanı, `llms.txt`, navigasyon, API rotaları ve yedek sayfası; `discord-release-notify.yml` silindi, `DISCORD_WEBHOOK_URL` secret'ı temizlendi.
+- Topluluk kanalı olarak GitHub Discussions açıldı; sitedeki kaynak seçici tek GitHub kaynağına indirildi.
+
 ## [1.9.1] - 2026-07-12
 
 Yama sürümü: yeni domain adayları ve kalite kapısı düzeltmeleri. / Patch release: new domain candidates and CI gate fixes.
@@ -46,6 +89,11 @@ v1.8.0'dan bu yana biriken tüm çalışma tek sürümde toplandı: kategori alt
 ## [1.8.0] - 2026-03-23
 - DNS format üreticisi (dnsmasq, Unbound, BIND RPZ) + kurulum dokümantasyonu.
 
+[1.9.6]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.5...v1.9.6
+[1.9.5]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.4...v1.9.5
+[1.9.4]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.3...v1.9.4
+[1.9.3]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.2...v1.9.3
+[1.9.2]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.1...v1.9.2
 [1.9.1]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/omerdduran/turk-adfilter/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/omerdduran/turk-adfilter/releases/tag/v1.8.0
