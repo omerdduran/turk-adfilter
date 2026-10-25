@@ -1,0 +1,43 @@
+name: PR Doğrula (Web Derleme)
+
+# Frontend'in derlendiğini ve tip kontrolünden geçtiğini doğrular.
+# Filtre listesi kapısı ayrı iş akışında (pr-validate.yml) kalır; böylece liste
+# PR'ları gereksiz yere Next.js derlemez, site PR'ları da liste linterini beklemez.
+on:
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/pr-web-validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Next.js derleme + tip kontrolü
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v7
+
+      - name: Node.js kur
+        uses: actions/setup-node@v7
+        with:
+          # Dockerfile ile aynı sürüm: dağıtımda node:22-alpine çalışıyor.
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Derleme (tip kontrolü dahil)
+        run: npm run build
+
+      - name: Standalone çıktısı üretildi mi?
+        # Docker imajı .next/standalone/server.js üzerine kurulu; sessizce
+        # kaybolursa dağıtım kırılır, bu yüzden burada doğrulanır.
+        run: test -f .next/standalone/server.js
