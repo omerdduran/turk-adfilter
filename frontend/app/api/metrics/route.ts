@@ -63,21 +63,13 @@ export async function GET() {
     });
   }
 
-  const filterListUrls = {
-    github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt",
-    codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt"
-  };
-
-  const hostsListUrls = {
-    github: "https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt",
-    codeberg: "https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt"
-  };
+  const filterListUrl = "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt";
+  const hostsListUrl = "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt";
 
   try {
-    // Fetch both lists from GitHub (as primary source)
     const [filterList, hostsList] = await Promise.all([
-      fetchFilterList(filterListUrls.github),
-      fetchFilterList(hostsListUrls.github)
+      fetchFilterList(filterListUrl),
+      fetchFilterList(hostsListUrl)
     ]);
 
     const metrics = {

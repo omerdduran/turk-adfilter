@@ -11,8 +11,6 @@ interface BackupFile {
   created_at: string;
   downloadUrl: string;
   githubUrl: string;
-  codebergUrl: string;
-  codebergRawUrl: string;
   readableDate: string;
   readableSize: string;
 }
@@ -254,13 +252,6 @@ export default function BackupsPage() {
                             >
                               <Download className="w-4 h-4" />
                               GitHub
-                            </button>
-                            <button
-                              onClick={() => handleDownload(backup.codebergRawUrl, backup.backup_file)}
-                              className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm"
-                            >
-                              <Download className="w-4 h-4" />
-                              Codeberg
                             </button>
                           </div>
                         </div>
