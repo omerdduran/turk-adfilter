@@ -2,13 +2,6 @@
   "hosts.txt": {
     "backups": [
       {
-        "backup_file": "hosts_20251203_225837.txt",
-        "timestamp": "20251203_225837",
-        "size": 31899,
-        "hash": "2e1ea548906e11c73ebfcb018ae8752a004a41b36ae980d249a50cd7d35c8c11",
-        "created_at": "2025-12-03T22:58:37.058915"
-      },
-      {
         "backup_file": "hosts_20251204_002317.txt",
         "timestamp": "20251204_002317",
         "size": 31899,
@@ -70,20 +63,20 @@
         "size": 35766,
         "hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
         "created_at": "2026-10-25T08:40:43.614300"
+      },
+      {
+        "backup_file": "hosts_20261025_084426.txt",
+        "timestamp": "20261025_084426",
+        "size": 35766,
+        "hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
+        "created_at": "2026-10-25T08:44:26.480428"
       }
     ],
     "last_hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
-    "last_backup": "20261025_084043"
+    "last_backup": "20261025_084426"
   },
   "turk-adfilter.txt": {
     "backups": [
-      {
-        "backup_file": "turk-adfilter_20260323_161819.txt",
-        "timestamp": "20260323_161819",
-        "size": 377996,
-        "hash": "16aa63fbf01c44d85482540b649c6e1d05b047cbe6ee52bc508935129d4da4a7",
-        "created_at": "2026-03-23T16:18:19.330992"
-      },
       {
         "backup_file": "turk-adfilter_20260323_162429.txt",
         "timestamp": "20260323_162429",
@@ -146,9 +139,16 @@
         "size": 375956,
         "hash": "1e89e34e74836c56408f82998fcd836f66eb7c2c466aa0484dada5c651ad9f2d",
         "created_at": "2026-10-25T08:40:43.616008"
+      },
+      {
+        "backup_file": "turk-adfilter_20261025_084426.txt",
+        "timestamp": "20261025_084426",
+        "size": 375956,
+        "hash": "da1f09526dcd5c61f72c77912c4c900688d7bef13fc292adce5660b3f388d6a5",
+        "created_at": "2026-10-25T08:44:26.481762"
       }
     ],
-    "last_hash": "1e89e34e74836c56408f82998fcd836f66eb7c2c466aa0484dada5c651ad9f2d",
-    "last_backup": "20261025_084043"
+    "last_hash": "da1f09526dcd5c61f72c77912c4c900688d7bef13fc292adce5660b3f388d6a5",
+    "last_backup": "20261025_084426"
   }
 }
