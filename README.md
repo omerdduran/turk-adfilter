@@ -42,24 +42,12 @@
 > 💡 **Tek tıkla ekle:** Yukarıdaki butonlar listeyi uBlock Origin / AdGuard'a otomatik ekler. Buton çalışmazsa aşağıdaki RAW linklerini manuel ekleyebilirsiniz.
 
 - **Filtre Listesi RAW Linki:**
-  
-  GitHub:
   ```
   https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
   ```
-  Codeberg:
-  ```
-  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt
-  ```
 - **DNS tabanlı reklam engelleyiciler (ör. Pi-hole, AdGuard DNS) için:**
-  
-  GitHub:
   ```
-  https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
-  ```
-  Codeberg:
-  ```
-  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
+  https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt
   ```
 
 ## Kategori Listeleri
@@ -134,6 +122,7 @@ Detaylı kurulum ve dokümantasyon için: [Kurulum Rehberi](https://www.reklamsi
 
 ## Katkı
 - Yeni domain eklemek, hata bildirmek veya dokümantasyona katkı sağlamak için GitHub üzerinden [Issue](https://github.com/omerdduran/turk-adfilter/issues) açabilir veya [Pull Request](https://github.com/omerdduran/turk-adfilter/pulls) gönderebilirsiniz.
+- Sorularınız ve önerileriniz için [Discussions](https://github.com/omerdduran/turk-adfilter/discussions) bölümünü kullanabilirsiniz.
 - Sadece Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcıları eklenmelidir.
 - Domain eklerken alfabetik sıraya ve Adblock Plus sözdizimine dikkat edin. Örnek: `||example.com^`
 - Detaylı katkı rehberi için [Katkı Rehberi](https://www.reklamsiz-turkiye.com/docs/katki) veya web arayüzündeki "Katkı" sayfasına bakabilirsiniz.

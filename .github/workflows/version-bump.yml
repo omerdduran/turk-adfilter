@@ -13,6 +13,11 @@ jobs:
     permissions:
       contents: write
       pull-requests: read
+    env:
+      # The DNS liveness probes below are bounded: domains that do not answer in
+      # time are reported as unknown instead of stalling the job (a serial probe
+      # of 6 400 domains measured ~8 minutes and once hung past the job limit).
+      DNS_PROBE_TIMEOUT: '90'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -46,7 +51,7 @@ jobs:
 
       - name: Filter stats (bilgilendirme amaçlı)
         run: |
-          python scripts/filter_stats.py
+          python scripts/filter_stats.py --no-resolve
 
       - name: Get latest tag
         id: get_tag

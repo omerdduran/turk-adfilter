@@ -54,7 +54,7 @@ def convert_mdx_to_markdown(content: str) -> str:
     # Add contact section
     content += '\n\n## İletişim\n\n'
     content += '- GitHub: [@omerdduran/turk-adfilter](https://github.com/omerdduran/turk-adfilter)\n'
-    content += '- Discord: [Discord Sunucusu](https://discord.gg/u2eRbGnd)\n'
+    content += '- Discussions: [Sorular ve öneriler](https://github.com/omerdduran/turk-adfilter/discussions)\n'
 
     return content
 

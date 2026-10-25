@@ -5,7 +5,6 @@
 ## Filtre Listeleri (abonelik linkleri)
 - Adblock / uBlock Origin / AdGuard: https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
 - DNS / hosts (Pi-hole, AdGuard Home): https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt
-- Codeberg aynası: https://codeberg.org/omerdduran/turk-adfilter
 
 ## Bağlantılar
 - Web sitesi: https://reklamsiz-turkiye.com

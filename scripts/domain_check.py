@@ -1,8 +1,9 @@
-import re
-import socket
 import sys
 
+from dns_probe import deadline_seconds, resolve_many, workers
+
 FILTER_LIST = 'turk-adfilter.txt'
+
 
 def extract_domains(filename):
     domains = []
@@ -14,23 +15,32 @@ def extract_domains(filename):
                 domains.append(domain)
     return domains
 
-def check_domain(domain):
-    try:
-        ip = socket.gethostbyname(domain)
-        return True, ip
-    except Exception:
-        return False, None
 
 def main():
     domains = extract_domains(FILTER_LIST)
-    results = []
-    for domain in domains:
-        active, ip = check_domain(domain)
-        results.append((domain, active, ip))
+    results = resolve_many(domains)
+
+    active = sum(1 for ip in results.values() if ip)
+    inactive = len(results) - active
+    unknown = len(domains) - len(results)
+
     print(f"{'Domain':40} | {'Active':6} | IP")
-    print('-'*60)
-    for domain, active, ip in results:
-        print(f"{domain:40} | {str(active):6} | {ip if ip else '-'}")
+    print('-' * 60)
+    for domain in domains:
+        if domain not in results:
+            print(f"{domain:40} | {'?':6} | -")
+            continue
+        ip = results[domain]
+        print(f"{domain:40} | {str(bool(ip)):6} | {ip or '-'}")
+
+    print('-' * 60)
+    print(f"Aktif: {active} · Pasif: {inactive} · Yanıtsız: {unknown}")
+    if unknown:
+        print(
+            f"Uyarı: {unknown} domain {deadline_seconds():.0f} saniye içinde yanıt vermedi "
+            f"({workers()} eşzamanlı sorgu; DNS_PROBE_TIMEOUT ile artırılabilir)."
+        )
+
 
 if __name__ == '__main__':
-    main() 
+    main()

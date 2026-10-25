@@ -66,7 +66,6 @@ const jsonLd = {
       logo: `${SITE_URL}/assets/logo.png`,
       sameAs: [
         'https://github.com/omerdduran/turk-adfilter',
-        'https://codeberg.org/omerdduran/turk-adfilter',
       ],
     },
     {

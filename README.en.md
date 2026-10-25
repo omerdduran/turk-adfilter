@@ -5,24 +5,12 @@
 ## Quick Start
 
 - **Filter List RAW Link:**
-  
-  GitHub:
   ```
   https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt
   ```
-  Codeberg:
-  ```
-  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/turk-adfilter.txt
-  ```
 - **For DNS-based blockers (e.g., Pi-hole, AdGuard DNS):**
-- 
-  GitHub:
   ```
-  https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/hosts.txt
-  ```
-  Codeberg:
-  ```
-  https://codeberg.org/omerdduran/turk-adfilter/raw/branch/main/hosts.txt
+  https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt
   ```
 
 ## Category Lists
@@ -83,6 +71,7 @@ Each release includes files for dnsmasq, Unbound, and BIND RPZ. Download from th
 
 ## Contribution
 - You can suggest new domains or report issues via GitHub Issues or Pull Requests.
+- For questions and general discussion, use [GitHub Discussions](https://github.com/omerdduran/turk-adfilter/discussions).
 - Only add Turkish ad, tracker, or harmful domains.
 - Follow Adblock Plus syntax (e.g., `||example.com^`).
 

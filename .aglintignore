@@ -3,7 +3,6 @@
 # script/ürün dosyaları) — aglint bunları .txt sanıp yanlış hata üretir.
 node_modules
 frontend
-hunter
 yedekler
 scripts
 categories-override.txt

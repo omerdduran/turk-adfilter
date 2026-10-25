@@ -22,6 +22,12 @@ Turk-AdFilter topluluğuna katkı sağlayan herkesin, saygılı ve kapsayıcı b
 
 Davranış kurallarına uyulması, tüm katılımcıların sorumluluğundadır. Kuralları ihlal edenler, uyarı alabilir, katkıdan men edilebilir ya da daha ileri yaptırımlarla karşılaşabilir.
 
+## İhlal Bildirimi / Enforcement
+
+Kural ihlallerini **[me@omerduran.dev](mailto:me@omerduran.dev)** adresine bildirebilirsiniz. Tüm bildirimler gizli tutulur ve en kısa sürede yanıtlanır.
+
+Report violations to **[me@omerduran.dev](mailto:me@omerduran.dev)**. All reports are kept confidential.
+
 ## Lisans
 
 Bu davranış kuralları, [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) sürüm 2.1’e dayanmaktadır.

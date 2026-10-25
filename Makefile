@@ -1,4 +1,4 @@
-.PHONY: test dedup plot-stats install-deps backup restore backup-info backup-cleanup
+.PHONY: all test test-unit lint dedup install-deps stats backup backup-force backup-info restore restore-list backup-cleanup
 
 # Default target (optional)
 all: test test-unit
@@ -6,14 +6,18 @@ all: test test-unit
 test:
 	@echo '--- Filter Lint ---'
 	python3 scripts/filter_lint.py
-	@echo '\n--- Domain Check ---'
+	@echo '\n--- Domain Check (DNS, süre sınırlı) ---'
 	python3 scripts/domain_check.py
-	@echo '\n--- Filter Stats ---'
-	python3 scripts/filter_stats.py
+	@echo '\n--- Filter Stats (çevrimdışı) ---'
+	python3 scripts/filter_stats.py --no-resolve
 
 test-unit:
 	@echo '--- Unit Tests (generate_formats) ---'
 	python3 -m unittest scripts.test_generate_formats
+
+lint:
+	@echo '--- AGLint (AdGuard filter linter) ---'
+	npx aglint
 
 dedup:
 	python3 scripts/remove_duplicates.py
