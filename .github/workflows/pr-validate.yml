@@ -69,3 +69,6 @@ jobs:
           python -m unittest \
             scripts.test_filter_invariants.TestFilterHeader \
             scripts.test_filter_invariants.TestChangelogMatchesList
+
+      - name: Tazelik hattı birim testleri (ağsız)
+        run: python -m unittest scripts.test_refresh_candidates
