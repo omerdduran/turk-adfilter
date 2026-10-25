@@ -145,6 +145,13 @@ Detaylı kurulum ve dokümantasyon için: [Kurulum Rehberi](https://www.reklamsi
 - Kurallar yerel olarak uygulanır, veri paylaşımı yapılmaz.
 - Gizlilik ve güvenlik avantajları için [Gizlilik](https://www.reklamsiz-turkiye.com/docs/gizlilik) adresine bakabilirsiniz.
 
+## Hukuki
+- Liste **"olduğu gibi"** sunulur; hatasızlık garantisi yoktur ve **hukuki tavsiye değildir**. Kurumsal kullanımda (okul, işyeri, kamu) kendi test ve onay sürecinizi yürütün.
+- Kod ve listeler **GPL-3.0** ile lisanslıdır. Kural kökeni, upstream lisansları (EasyList, AdGuard, uBlock uAssets) ve atıf politikası: [ATTRIBUTION.md](ATTRIBUTION.md).
+- Listeye **para karşılığı domain eklenmez veya çıkarılmaz**; bağış engelleme kararlarını etkilemez.
+- Yanlış engelleme bildirimi için [Issue](https://github.com/omerdduran/turk-adfilter/issues) açın veya [Discussions](https://github.com/omerdduran/turk-adfilter/discussions) bölümünü kullanın; düzeltmeler öncelikli ele alınır.
+- Ayrıntılı sayfa: [Hukuki Bilgilendirme](https://reklamsiz-turkiye.com/docs/hukuki)
+
 ## Lisans
 
 Bu proje [GNU GENERAL PUBLIC LICENSE](LICENSE) ile lisanslıdır. Türkçe versiyonu için [buraya](GPL-3.0-TR) bakabilirsiniz.

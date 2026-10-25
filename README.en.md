@@ -75,6 +75,13 @@ Each release includes files for dnsmasq, Unbound, and BIND RPZ. Download from th
 - Only add Turkish ad, tracker, or harmful domains.
 - Follow Adblock Plus syntax (e.g., `||example.com^`).
 
+## Legal
+- The list is provided **as is**, without warranty, and is **not legal advice**. Institutions should run their own review before deploying it.
+- Code and lists are licensed under **GPL-3.0**. Rule provenance, upstream licences (EasyList, AdGuard, uBlock uAssets) and the attribution policy: [ATTRIBUTION.md](ATTRIBUTION.md).
+- **No domain is added or removed in exchange for payment**; donations never influence a blocking decision.
+- Report a false positive via [Issues](https://github.com/omerdduran/turk-adfilter/issues) or [Discussions](https://github.com/omerdduran/turk-adfilter/discussions); fixes are prioritised.
+- Longer version (Turkish): https://reklamsiz-turkiye.com/docs/hukuki
+
 ## License
 This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
 
