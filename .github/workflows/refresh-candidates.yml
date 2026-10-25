@@ -1,0 +1,114 @@
+name: Haftalık Tazelik (aday PR'ı)
+
+# Haftada bir üç kaynağı tarar ve TEK bir PR açar:
+#   1. crt.sh     — bilinen bahis markalarının yeni numaralı mirror'ları
+#   2. liveness   — iki turdur çözülmeyen sade domain kuralları (mezarlıkla birlikte)
+#   3. dikkat     — listeye giren marka GAMBLING_PATTERNS'te yoksa uyarır
+#
+# Otomatik merge yok. Değişiklik yoksa yalnızca durum dosyası commit'lenir.
+on:
+  schedule:
+    - cron: '0 4 * * 1'   # Pazartesi 04:00 UTC (07:00 TRT)
+  workflow_dispatch:
+    inputs:
+      tokens:
+        description: 'crt.sh için sorgulanacak marka token sayısı'
+        required: false
+        default: '8'
+      skip_crt:
+        description: 'crt.sh kaynağını atla (sadece temizlik)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# main'e yazan diğer iş akışlarıyla sıraya girer (bkz. version-bump.yml).
+concurrency:
+  group: main-writes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Aday üret
+    runs-on: ubuntu-latest
+    env:
+      # DNS taraması sınırlı: cevap vermeyen domain "ölü" değil "yanıtsız" sayılır.
+      DNS_PROBE_TIMEOUT: '180'
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v7
+
+      - name: Python kur
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+
+      - name: Adayları üret
+        env:
+          TOKENS: ${{ inputs.tokens || '8' }}
+          SKIP_CRT: ${{ inputs.skip_crt }}
+        run: |
+          FLAGS="--tokens ${TOKENS} --apply --json-out /tmp/plan.json --pr-body /tmp/pr-body.md"
+          if [ "${SKIP_CRT}" = "true" ]; then FLAGS="$FLAGS --no-crt"; fi
+          python scripts/refresh_candidates.py $FLAGS
+
+      - name: Liste değişti mi?
+        id: diff
+        run: |
+          if git diff --quiet -- turk-adfilter.txt; then
+            echo "list_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "list_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Yalnızca durum değişti → main'e commit
+        if: steps.diff.outputs.list_changed == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/liveness.json
+          if git diff --cached --quiet; then
+            echo "durum değişmedi, commit yok"
+            exit 0
+          fi
+          git commit -m "chore(freshness): liveness state [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --no-rebase --no-edit origin main
+            if git push; then echo "pushed on attempt $attempt"; exit 0; fi
+            sleep 5
+          done
+          echo "::error::durum commit'i push edilemedi"
+          exit 1
+
+      - name: Liste değişti → PR aç
+        if: steps.diff.outputs.list_changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="refresh/$(date -u +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add turk-adfilter.txt data/liveness.json
+          git commit -m "chore(freshness): haftalık aday güncellemesi"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore(freshness): haftalık aday güncellemesi ($(date -u +%Y-%m-%d))" \
+            --body-file /tmp/pr-body.md
+
+      - name: Özet
+        if: always()
+        run: |
+          if [ ! -f /tmp/plan.json ]; then
+            echo "plan üretilmedi"
+            exit 0
+          fi
+          jq -r '"taranan: \(.probed) · yanıtsız: \(.unresolved)",
+                 "eklenen: \(.additions | join(", "))",
+                 "silinen: \(.removals | join(", "))",
+                 "mezarlıktan dönen: \(.resurrections | join(", "))"' /tmp/plan.json
