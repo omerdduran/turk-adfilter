@@ -162,7 +162,7 @@ jobs:
 
       - name: Publish Release using Release Drafter
         id: publish_release
-        uses: release-drafter/release-drafter@v6.1.0
+        uses: release-drafter/release-drafter@v7.10.0
         with:
           publish: true
           tag: ${{ steps.create_tag.outputs.version }}
