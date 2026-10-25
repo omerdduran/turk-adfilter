@@ -12,3 +12,17 @@ pnpm-lock.yaml
 dnsmasq.conf
 unbound.conf
 rpz.zone
+
+# Editor / IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local environment files (secrets live only on the server)
+.env
+.env.local
+.env.*.local
