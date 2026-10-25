@@ -1,10 +1,14 @@
 ! Title: Turk-AdFilter – Turkish Ad & Tracker Blocklist
 ! Homepage: https://github.com/omerdduran/turk-adfilter/
+! Expires: 1 day
 ! Description: Türkiye merkezli reklam, izleyici ve zararlı içerik sağlayıcılarını engelleyen topluluk tabanlı bir filtre listesidir. AdGuard, uBlock Origin ve benzeri servislerde kullanılabilir.
 ! This is a community-driven blocklist to block Turkish ad, tracker, and malicious content providers. Usable with Pihole, AdGuard, uBlock Origin, etc.
 !
-! Version: 1.8.0 – 23.03.2026
+! Version: 1.9.6 – 25.10.2026
+! Last modified: 2026-10-25T12:35:00Z
 ! Maintainer: github.com/omerdduran
+! License: GPL-3.0
+! Attribution: https://github.com/omerdduran/turk-adfilter/blob/main/ATTRIBUTION.md
 !
 ! ---------------------------------------------------------
 ! KURALLAR HAKKINDA / ABOUT THE RULES
@@ -6644,3 +6648,33 @@ dizi25.life##img[src^="/assets/images/"][src$=".gif"]
 ||9256bets10.com^
 ||10114bets10.com^
 
+||10004bets10.com^
+||10005bets10.com^
+||10006bets10.com^
+||10007bets10.com^
+||10008bets10.com^
+||10009bets10.com^
+||10115bets10.com^
+||11369bets10.com^
+||1504bet10.com^
+||1511bet10.com^
+||1513bet10.com^
+||1514bet10.com^
+||1523bet10.com^
+||5202casibom.com^
+||5203casibom.com^
+||5205casibom.com^
+||casinomaxi9102.com^
+||casinomaxi9103.com^
+||casinomaxi9104.com^
+||casinomaxi9105.com^
+||casinomaxi9106.com^
+||casinomaxi9107.com^
+||mobilbahis9102.com^
+||mobilbahis9103.com^
+||mobilbahis9104.com^
+||mobilbahis9105.com^
+||mobilbahis9106.com^
+||mobilbahis9107.com^
+||mobilbahis9922.com^
+||www.1511bet10.com^
