@@ -5,6 +5,18 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.1.0/) temellidir ve pr
 
 All notable changes to this project are documented in this file.
 
+## [1.9.6] - 2026-10-25
+
+Güvenlik: kök araç zincirindeki `js-yaml` güncellendi. / Security: root tooling `js-yaml` bump.
+
+- `js-yaml` 4.1.0 → 4.3.2 (Dependabot, kök `package-lock.json`); beş açık js-yaml uyarısı kapandı.
+
+## [1.9.5] - 2026-10-25
+
+Güvenlik: kök araç zincirindeki `source-map-js` güncellendi. / Security: root tooling `source-map-js` bump.
+
+- `source-map-js` 1.2.1 → 1.2.2 (Dependabot, kök `package-lock.json`).
+
 ## [1.9.4] - 2026-10-25
 
 Web yığını Next 16 ve Fumadocs 16'ya yükseltildi. / Web stack upgraded to Next 16 and Fumadocs 16.
@@ -77,6 +89,8 @@ v1.8.0'dan bu yana biriken tüm çalışma tek sürümde toplandı: kategori alt
 ## [1.8.0] - 2026-03-23
 - DNS format üreticisi (dnsmasq, Unbound, BIND RPZ) + kurulum dokümantasyonu.
 
+[1.9.6]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.5...v1.9.6
+[1.9.5]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.4...v1.9.5
 [1.9.4]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.3...v1.9.4
 [1.9.3]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.2...v1.9.3
 [1.9.2]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.1...v1.9.2

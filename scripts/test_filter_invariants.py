@@ -91,6 +91,19 @@ class TestChangelogMatchesList(unittest.TestCase):
         )
         self.assertIn(f"[{version}]:", changelog, f"missing compare link for {version}")
 
+    def test_compare_link_points_at_the_previous_release(self):
+        changelog = CHANGELOG.read_text(encoding="utf-8")
+        documented = re.findall(r"^## \[(\d+\.\d+\.\d+)\]", changelog, re.MULTILINE)
+        self.assertGreaterEqual(len(documented), 2, "need two releases to compare")
+        current, previous = documented[0], documented[1]
+        link = re.search(rf"^\[{re.escape(current)}\]: (\S+)$", changelog, re.MULTILINE)
+        if link is None:
+            self.fail(f"no compare link for {current}")
+        self.assertTrue(
+            link.group(1).endswith(f"/compare/v{previous}...v{current}"),
+            f"{current} compares against the wrong release: {link.group(1)}",
+        )
+
 
 class TestDerivedLists(unittest.TestCase):
     @classmethod

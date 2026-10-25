@@ -51,10 +51,13 @@ def main():
     first_entry = re.search(r"^## \[", text, re.MULTILINE)
     if not first_entry:
         raise SystemExit("update_changelog: no '## [' heading found in CHANGELOG.md")
+
+    # Resolve the previous release before the new entry exists, otherwise the
+    # compare link points at the version we are documenting right now.
+    previous = re.search(r"^## \[(\d+\.\d+\.\d+)\]", text, re.MULTILINE)
     text = text[: first_entry.start()] + entry + text[first_entry.start() :]
 
     if f"[{version}]:" not in text:
-        previous = re.search(r"^## \[(\d+\.\d+\.\d+)\]", text[len(entry) :], re.MULTILINE)
         if previous:
             reference = f"[{version}]: {REPO}/compare/v{previous.group(1)}...v{version}\n"
             anchor = re.search(r"^\[\d+\.\d+\.\d+\]:", text, re.MULTILINE)

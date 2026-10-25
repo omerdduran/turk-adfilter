@@ -8,6 +8,7 @@ on:
       - 'turk-adfilter.txt'
       - '.aglintrc.yaml'
       - 'scripts/**'
+      - 'CHANGELOG.md'
 
 permissions:
   contents: read
@@ -59,3 +60,12 @@ jobs:
             scripts.test_generate_formats.TestGenerateDnsmasq \
             scripts.test_generate_formats.TestGenerateUnbound \
             scripts.test_generate_formats.TestGenerateRpz
+
+      - name: Değişmezler (başlık + changelog)
+        # Türev-liste testleri burada çalışmaz: kaynak-only bir PR (özellikle kural
+        # silen bir PR) türev dosyaları bilinçli olarak güncellemez, o testler merge
+        # sonrası auto-backup iş akışında koşar.
+        run: |
+          python -m unittest \
+            scripts.test_filter_invariants.TestFilterHeader \
+            scripts.test_filter_invariants.TestChangelogMatchesList

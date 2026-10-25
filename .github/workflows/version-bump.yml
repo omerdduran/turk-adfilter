@@ -1,10 +1,15 @@
 name: Version Bump & Release
 
+# Yalnızca filtre listesi içeriği değiştiğinde sürüm atar. Web, doküman, CI ve
+# araç değişiklikleri release üretmez; aksi hâlde her küçük PR ayrı bir sürüm
+# oluyor ve sürüm numarası anlamını yitiriyor.
 on:
   pull_request_target:
     types: [closed]
     branches:
       - main
+    paths:
+      - 'turk-adfilter.txt'
 
 jobs:
   version-bump:
@@ -78,11 +83,20 @@ jobs:
         run: |
           python scripts/bump_version.py ${{ steps.bump_type.outputs.type }}
 
+      - name: Update CHANGELOG
+        # Sürüm başlığı ile changelog aynı anda yazılmazsa changelog her sürümde
+        # tam bir geri kalır (v1.9.2-v1.9.4 böyle belgesiz yayınlandı).
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python scripts/update_changelog.py
+
       - name: Commit and push version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add turk-adfilter.txt
+          git add turk-adfilter.txt CHANGELOG.md
           git commit -m "chore(release): bump ${{ steps.bump_type.outputs.type }} version [skip ci]" || echo "No changes to commit"
           git pull --no-rebase --no-edit origin main
           git push
