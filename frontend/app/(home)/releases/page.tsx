@@ -7,10 +7,10 @@ import {
   Tag,
   Download,
   ExternalLink,
-  Github,
   ChevronDown,
   Rss,
 } from "lucide-react";
+import GithubIcon from "@/components/github-icon";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -160,7 +160,7 @@ export default function ReleasesPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4" />
               GitHub'da Görüntüle
             </a>
             <a

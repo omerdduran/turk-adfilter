@@ -8,7 +8,7 @@ import {
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
-import { Github } from 'lucide-react';
+import GithubIcon from '@/components/github-icon';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -18,7 +18,7 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDXContent = page.data.body;
-  const githubUrl = `https://github.com/omerdduran/turk-adfilter/edit/main/frontend/content/docs/${page.file.path}`;
+  const githubUrl = `https://github.com/omerdduran/turk-adfilter/edit/main/frontend/content/docs/${page.path}`;
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
@@ -31,7 +31,7 @@ export default async function Page(props: {
           rel="noopener noreferrer"
           className="w-fit border rounded-xl p-2 font-medium text-sm text-fd-secondary-foreground bg-fd-secondary transition-colors hover:text-fd-accent-foreground hover:bg-fd-accent flex items-center gap-2"
         >
-          <Github size={16} />
+          <GithubIcon size={16} />
           GitHub'da Düzenle
         </a>
       </div>

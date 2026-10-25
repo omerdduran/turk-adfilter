@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-# Turk-AdFilter web sitesi (Next.js 15 + fumadocs) — self-host için standalone imaj.
+# Turk-AdFilter web sitesi (Next.js 16 + fumadocs) — self-host için standalone imaj.
 # Site dinamiktir (app/api/*), bu yüzden static export değil Node.js runtime kullanılır.
 # Domain (metadataBase) kodda sabit olduğu için build-arg gerekmez; GITHUB_TOKEN /
 # NEXTAUTH_URL çalışma anında docker compose .env'den gelir.

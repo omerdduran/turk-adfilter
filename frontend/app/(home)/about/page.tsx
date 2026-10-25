@@ -1,4 +1,5 @@
-import { Github, Users, Shield, Code, Heart } from 'lucide-react';
+import { Users, Shield, Code, Heart } from 'lucide-react';
+import GithubIcon from '@/components/github-icon';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -102,7 +103,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-red-600 dark:text-red-400 hover:underline"
               >
-                <Github className="mr-2" />
+                <GithubIcon className="mr-2" />
                 GitHub'da Katkıda Bulun
               </a>
             </div>
