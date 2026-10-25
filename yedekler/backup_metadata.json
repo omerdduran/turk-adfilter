@@ -2,13 +2,6 @@
   "hosts.txt": {
     "backups": [
       {
-        "backup_file": "hosts_20260226_164944.txt",
-        "timestamp": "20260226_164944",
-        "size": 33581,
-        "hash": "73035adb35eeed8f58fb8171792336dbaea390d1bbb4d1d41830a07e9defa356",
-        "created_at": "2026-02-26T16:49:44.496882"
-      },
-      {
         "backup_file": "hosts_20260323_162429.txt",
         "timestamp": "20260323_162429",
         "size": 33581,
@@ -70,20 +63,20 @@
         "size": 35766,
         "hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
         "created_at": "2026-10-25T12:35:02.091301"
+      },
+      {
+        "backup_file": "hosts_20261025_125506.txt",
+        "timestamp": "20261025_125506",
+        "size": 35766,
+        "hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
+        "created_at": "2026-10-25T12:55:06.802061"
       }
     ],
     "last_hash": "e04f007aa8853723f407e12cc6511d643c018c6283b4135cba941a0479c36d63",
-    "last_backup": "20261025_123502"
+    "last_backup": "20261025_125506"
   },
   "turk-adfilter.txt": {
     "backups": [
-      {
-        "backup_file": "turk-adfilter_20260711_195655.txt",
-        "timestamp": "20260711_195655",
-        "size": 375355,
-        "hash": "6d17639d4758b3deac453db8a07e3a6dea104d8c41d75fe738e0f7f7b7b799c5",
-        "created_at": "2026-07-11T19:56:55.815993"
-      },
       {
         "backup_file": "turk-adfilter_20260712_072804.txt",
         "timestamp": "20260712_072804",
@@ -146,9 +139,16 @@
         "size": 376059,
         "hash": "87e062337b65705abe4cded52f78446e84022866926366271d5d0d3e664b4909",
         "created_at": "2026-10-25T12:50:42.917403"
+      },
+      {
+        "backup_file": "turk-adfilter_20261025_125506.txt",
+        "timestamp": "20261025_125506",
+        "size": 376059,
+        "hash": "2aaecd304c6d99714cfbf7319c8f499ce6acac33df705cf67b08bc1823624712",
+        "created_at": "2026-10-25T12:55:06.803141"
       }
     ],
-    "last_hash": "87e062337b65705abe4cded52f78446e84022866926366271d5d0d3e664b4909",
-    "last_backup": "20261025_125042"
+    "last_hash": "2aaecd304c6d99714cfbf7319c8f499ce6acac33df705cf67b08bc1823624712",
+    "last_backup": "20261025_125506"
   }
 }
