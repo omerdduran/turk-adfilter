@@ -5,6 +5,10 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.1.0/) temellidir ve pr
 
 All notable changes to this project are documented in this file.
 
+## [1.9.7] - 2026-10-25
+
+- docs: add a legal notice and an attribution policy (#85)
+
 ## [1.9.6] - 2026-10-25
 
 Güvenlik: kök araç zincirindeki `js-yaml` güncellendi. / Security: root tooling `js-yaml` bump.
@@ -89,6 +93,7 @@ v1.8.0'dan bu yana biriken tüm çalışma tek sürümde toplandı: kategori alt
 ## [1.8.0] - 2026-03-23
 - DNS format üreticisi (dnsmasq, Unbound, BIND RPZ) + kurulum dokümantasyonu.
 
+[1.9.7]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.6...v1.9.7
 [1.9.6]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.5...v1.9.6
 [1.9.5]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.4...v1.9.5
 [1.9.4]: https://github.com/omerdduran/turk-adfilter/compare/v1.9.3...v1.9.4
