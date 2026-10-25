@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Depoyu çek
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Node.js kur
         uses: actions/setup-node@v4
