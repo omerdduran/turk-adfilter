@@ -1,4 +1,4 @@
-.PHONY: all test test-unit lint dedup install-deps stats backup backup-force backup-info restore restore-list backup-cleanup
+.PHONY: all test test-unit lint dedup install-deps stats backup backup-force backup-info backup-dedupe restore restore-list backup-cleanup
 
 # Default target (optional)
 all: test test-unit
@@ -12,10 +12,11 @@ test:
 	python3 scripts/filter_stats.py --no-resolve
 
 test-unit:
-	@echo '--- Unit Tests (generate_formats + invariants + freshness) ---'
+	@echo '--- Unit Tests (generate_formats + invariants + freshness + backup) ---'
 	python3 -m unittest scripts.test_generate_formats
 	python3 -m unittest scripts.test_filter_invariants
 	python3 -m unittest scripts.test_refresh_candidates
+	python3 -m unittest scripts.test_backup_filters
 
 lint:
 	@echo '--- AGLint (AdGuard filter linter) ---'
@@ -44,6 +45,10 @@ backup-force:
 backup-info:
 	@echo '--- Yedek Bilgileri ---'
 	python3 scripts/backup_filters.py --info
+
+backup-dedupe:
+	@echo '--- Tekrar Eden Yedekleri Temizle ---'
+	python3 scripts/backup_filters.py --dedupe
 
 restore:
 	@echo '--- İnteraktif Geri Yükleme ---'

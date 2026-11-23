@@ -25,6 +25,8 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
 
       - name: aglint bağımlılığını kur
         run: npm ci
@@ -72,3 +74,6 @@ jobs:
 
       - name: Tazelik hattı birim testleri (ağsız)
         run: python -m unittest scripts.test_refresh_candidates
+
+      - name: Yedekleme birim testleri (ağsız)
+        run: python -m unittest scripts.test_backup_filters
