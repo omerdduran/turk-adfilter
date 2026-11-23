@@ -1,0 +1,190 @@
+name: PR Doğrula
+
+# Tüm PR'larda çalışır; ağır işler yalnızca ilgili dosyalar değiştiğinde koşar.
+# Tek bir "PR Kapısı" işi zorunlu statü kontrolü olarak tanımlanabilsin diye
+# filtre ve web kontrolleri aynı iş akışında toplandı: path filtresiyle hiç
+# çalışmayan bir workflow'a zorunlu check bağlanamıyordu.
+#
+# pull_request (pull_request_target DEĞİL) → fork PR'larında token read-only.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Değişiklik kapsamı
+    runs-on: ubuntu-latest
+    outputs:
+      filter: ${{ steps.detect.outputs.filter }}
+      web: ${{ steps.detect.outputs.web }}
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Değişen dosyaları sınıflandır
+        id: detect
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags origin "$BASE_REF"
+          files="$(git diff --name-only "origin/$BASE_REF...HEAD")"
+          printf '%s\n' "$files"
+
+          filter=false
+          web=false
+          if grep -Eq '^(turk-adfilter\.txt|\.aglintrc\.yaml|CHANGELOG\.md|pyproject\.toml|scripts/|\.github/workflows/pr-checks\.yml)' <<< "$files"; then
+            filter=true
+          fi
+          if grep -Eq '^(frontend/|\.github/workflows/pr-checks\.yml)' <<< "$files"; then
+            web=true
+          fi
+
+          echo "filter=$filter" >> "$GITHUB_OUTPUT"
+          echo "web=$web" >> "$GITHUB_OUTPUT"
+
+  filter:
+    name: Filtre kalite kontrolü
+    needs: changes
+    if: needs.changes.outputs.filter == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v7
+
+      - name: Node.js kur
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: aglint bağımlılığını kur
+        run: npm ci
+
+      - name: AGLint (AdGuard filtre linteri)
+        run: npx aglint
+
+      - name: Python kur
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+
+      - name: Python lint (ruff)
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: check scripts
+
+      - name: filter_lint (format, duplicate, geçersiz karakter)
+        run: python scripts/filter_lint.py
+
+      - name: Duplicate kontrolü (temizlik değişiklik yaratmamalı)
+        run: |
+          python scripts/remove_duplicates.py
+          if ! git diff --quiet turk-adfilter.txt; then
+            echo "::error::Listede duplicate ||domain^ kuralları var. Yerelde 'python scripts/remove_duplicates.py' çalıştırıp commit'leyin."
+            git diff --stat turk-adfilter.txt
+            exit 1
+          fi
+          echo "Duplicate bulunamadı."
+
+      - name: Birim testler (format üreticileri)
+        # TestHostsConsistency (turk-adfilter.txt ↔ hosts.txt senkronu) HARİÇ:
+        # PR'lar kaynak-only ekler (turk-adfilter.txt); türev hosts.txt merge sonrası
+        # auto-backup/version-bump ile üretilir, bu yüzden PR anında drift normaldir.
+        run: |
+          python -m unittest \
+            scripts.test_generate_formats.TestExtractDomains \
+            scripts.test_generate_formats.TestGenerateDnsmasq \
+            scripts.test_generate_formats.TestGenerateUnbound \
+            scripts.test_generate_formats.TestGenerateRpz
+
+      - name: Değişmezler (başlık + changelog)
+        # Türev-liste testleri burada çalışmaz: kaynak-only bir PR (özellikle kural
+        # silen bir PR) türev dosyaları bilinçli olarak güncellemez, o testler merge
+        # sonrası auto-backup iş akışında koşar.
+        run: |
+          python -m unittest \
+            scripts.test_filter_invariants.TestFilterHeader \
+            scripts.test_filter_invariants.TestChangelogMatchesList
+
+      - name: Tazelik hattı birim testleri (ağsız)
+        run: python -m unittest scripts.test_refresh_candidates
+
+      - name: Yedekleme birim testleri (ağsız)
+        run: python -m unittest scripts.test_backup_filters
+
+  web:
+    name: Next.js derleme + tip kontrolü
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v7
+
+      - name: Node.js kur
+        uses: actions/setup-node@v7
+        with:
+          # Dockerfile ile aynı sürüm: dağıtımda node:22-alpine çalışıyor.
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Biçim kontrolü (Prettier)
+        run: npm run format:check
+
+      - name: Birim testleri (Vitest)
+        run: npm test
+
+      - name: Tip kontrolü (TypeScript)
+        run: npm run typecheck
+
+      - name: Derleme (tip kontrolü dahil)
+        run: npm run build
+
+      - name: Standalone çıktısı üretildi mi?
+        # Docker imajı .next/standalone/server.js üzerine kurulu; sessizce
+        # kaybolursa dağıtım kırılır, bu yüzden burada doğrulanır.
+        run: test -f .next/standalone/server.js
+
+  gate:
+    name: PR Kapısı
+    needs: [changes, filter, web]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zorunlu kontrollerin sonucunu değerlendir
+        env:
+          CHANGES: ${{ needs.changes.result }}
+          FILTER: ${{ needs.filter.result }}
+          WEB: ${{ needs.web.result }}
+        run: |
+          echo "kapsam: $CHANGES, filtre: $FILTER, web: $WEB"
+          if [ "$CHANGES" != "success" ]; then
+            echo "::error::Değişiklik kapsamı belirlenemedi."
+            exit 1
+          fi
+          for result in "$FILTER" "$WEB"; do
+            if [ "$result" != "success" ] && [ "$result" != "skipped" ]; then
+              echo "::error::Zorunlu kontrollerden biri başarısız oldu."
+              exit 1
+            fi
+          done
+          echo "Tüm zorunlu kontroller geçti (ilgisiz olanlar atlandı)."
