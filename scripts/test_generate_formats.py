@@ -80,7 +80,7 @@ class TestGenerateDnsmasq(unittest.TestCase):
         outfile.close()
         generate_dnsmasq(domains, outfile.name)
         with open(outfile.name, 'r') as f:
-            lines = [l for l in f.readlines() if l.strip() and not l.startswith('#')]
+            lines = [line for line in f.readlines() if line.strip() and not line.startswith('#')]
         os.unlink(outfile.name)
         self.assertEqual(len(lines), 1)
 
@@ -106,7 +106,7 @@ class TestGenerateUnbound(unittest.TestCase):
         with open(outfile.name, 'r') as f:
             lines = f.readlines()
         os.unlink(outfile.name)
-        zone_lines = [l for l in lines if 'local-zone' in l]
+        zone_lines = [line for line in lines if 'local-zone' in line]
         for line in zone_lines:
             self.assertTrue(line.startswith('    '))
 

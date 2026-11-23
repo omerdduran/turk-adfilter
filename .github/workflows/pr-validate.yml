@@ -39,6 +39,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Python lint (ruff)
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: check scripts
+
       - name: filter_lint (format, duplicate, geçersiz karakter)
         run: python scripts/filter_lint.py
 

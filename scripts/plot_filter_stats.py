@@ -13,7 +13,7 @@ def run_stats_script():
         result = subprocess.run(['python3', script_path], capture_output=True, text=True, check=True, encoding='utf-8')
         return result.stdout
     except FileNotFoundError:
-        print(f"Error: 'python3' interpreter not found or not in PATH. Make sure Python 3 is installed and accessible.")
+        print("Error: 'python3' interpreter not found or not in PATH. Make sure Python 3 is installed and accessible.")
         return None
     except subprocess.CalledProcessError as e:
         print(f"Error running {script_path}: {e}")
@@ -155,4 +155,4 @@ if __name__ == '__main__':
     except ImportError:
         print("Error: matplotlib is not installed. Please install it using 'pip install matplotlib'")
     else:
-        main() 
+        main()

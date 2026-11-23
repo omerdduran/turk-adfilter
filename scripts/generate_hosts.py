@@ -59,4 +59,4 @@ def extract_domains(input_filename, output_filename):
 
 
 if __name__ == "__main__":
-    extract_domains('turk-adfilter.txt', 'hosts.txt') 
+    extract_domains('turk-adfilter.txt', 'hosts.txt')

@@ -12,7 +12,6 @@ consumer depends on:
   because that is the whole reason they exist.
 """
 
-import os
 import re
 import unittest
 from pathlib import Path

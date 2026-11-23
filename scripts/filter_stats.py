@@ -1,5 +1,4 @@
 import argparse
-import sys
 from collections import Counter
 
 from dns_probe import deadline_seconds, resolve_many, workers

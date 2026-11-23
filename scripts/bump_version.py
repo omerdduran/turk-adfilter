@@ -57,4 +57,4 @@ for i, line in enumerate(lines):
 with open(FILTER_LIST, 'w', encoding='utf-8') as f:
     f.writelines(lines)
 
-print(f'Updated version to {new_version} on {today} (Last modified: {iso_now})') 
+print(f'Updated version to {new_version} on {today} (Last modified: {iso_now})')
