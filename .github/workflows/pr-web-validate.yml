@@ -43,7 +43,7 @@ jobs:
       - name: Birim testleri (Vitest)
         run: npm test
 
-      - name: Tip kontrolü (TypeScript 7)
+      - name: Tip kontrolü (TypeScript)
         run: npm run typecheck
 
       - name: Derleme (tip kontrolü dahil)
