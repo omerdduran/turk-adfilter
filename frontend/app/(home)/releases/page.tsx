@@ -2,14 +2,7 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-  Calendar,
-  Tag,
-  Download,
-  ExternalLink,
-  ChevronDown,
-  Rss,
-} from "lucide-react";
+import { Calendar, Tag, Download, ExternalLink, ChevronDown, Rss } from "lucide-react";
 import GithubIcon from "@/components/github-icon";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -83,9 +76,7 @@ export default function ReleasesPage() {
       setCurrentPage(nextPage);
       setHasMore(data.hasMore);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to load more releases"
-      );
+      setError(err instanceof Error ? err.message : "Failed to load more releases");
     } finally {
       setIsLoadingMore(false);
     }
@@ -178,9 +169,7 @@ export default function ReleasesPage() {
         <div className="space-y-6">
           {releases.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">
-                Henüz yayınlanmış sürüm bulunmuyor.
-              </p>
+              <p className="text-muted-foreground">Henüz yayınlanmış sürüm bulunmuyor.</p>
             </div>
           ) : (
             releases.map((release) => (
@@ -257,24 +246,18 @@ export default function ReleasesPage() {
                               ),
                               // Customize paragraph styles
                               p: ({ children }) => (
-                                <p className="mb-2 leading-relaxed">
-                                  {children}
-                                </p>
+                                <p className="mb-2 leading-relaxed">{children}</p>
                               ),
                               // Customize list styles
                               ul: ({ children }) => (
-                                <ul className="list-disc list-inside mb-2 space-y-1">
-                                  {children}
-                                </ul>
+                                <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>
                               ),
                               ol: ({ children }) => (
                                 <ol className="list-decimal list-inside mb-2 space-y-1">
                                   {children}
                                 </ol>
                               ),
-                              li: ({ children }) => (
-                                <li className="text-sm">{children}</li>
-                              ),
+                              li: ({ children }) => <li className="text-sm">{children}</li>,
                               // Customize code styles
                               code: ({ children, className }) => {
                                 const isInline = !className;
@@ -324,9 +307,7 @@ export default function ReleasesPage() {
                                 </th>
                               ),
                               td: ({ children }) => (
-                                <td className="border border-border px-3 py-2">
-                                  {children}
-                                </td>
+                                <td className="border border-border px-3 py-2">{children}</td>
                               ),
                             }}
                           >

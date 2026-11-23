@@ -52,9 +52,7 @@ export default function Captcha({ onVerify }: CaptchaProps) {
         src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.56"
         strategy="afterInteractive"
       />
-      <label className="block text-sm font-medium mb-1 text-left">
-        Güvenlik Doğrulaması
-      </label>
+      <label className="block text-sm font-medium mb-1 text-left">Güvenlik Doğrulaması</label>
       <p className="text-left opacity-50 text-xs mb-2">
         Spam&apos;i önlemek için lütfen doğrulamayı tamamlayın.
       </p>

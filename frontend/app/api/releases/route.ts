@@ -6,7 +6,7 @@ const REPO_NAME = "turk-adfilter";
 
 // Cache for releases
 let releasesCache: {
-  data: any[];
+  data: GitHubRelease[];
   timestamp: number;
 } | null = null;
 
@@ -50,10 +50,7 @@ const cleanReleaseBody = (body: string): string => {
 
 export async function GET(request: Request) {
   if (!GITHUB_TOKEN) {
-    return NextResponse.json(
-      { message: "GitHub token is not configured" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "GitHub token is not configured" }, { status: 500 });
   }
 
   const { searchParams } = new URL(request.url);
@@ -91,7 +88,7 @@ export async function GET(request: Request) {
           headers: {
             "Cache-Control": "public, max-age=1800, stale-while-revalidate=300",
           },
-        }
+        },
       );
     }
 
@@ -103,7 +100,7 @@ export async function GET(request: Request) {
           Authorization: `Bearer ${GITHUB_TOKEN}`,
           Accept: "application/vnd.github.v3+json",
         },
-      }
+      },
     );
 
     if (!response.ok) {
@@ -120,11 +117,7 @@ export async function GET(request: Request) {
         ...release,
         body: cleanReleaseBody(release.body),
       }))
-      .sort(
-        (a, b) =>
-          new Date(b.published_at).getTime() -
-          new Date(a.published_at).getTime()
-      );
+      .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 
     // Update cache
     releasesCache = {
@@ -156,16 +149,15 @@ export async function GET(request: Request) {
         headers: {
           "Cache-Control": "public, max-age=1800, stale-while-revalidate=300",
         },
-      }
+      },
     );
   } catch (error) {
     console.error("Error fetching releases:", error);
     return NextResponse.json(
       {
-        message:
-          error instanceof Error ? error.message : "Failed to fetch releases",
+        message: error instanceof Error ? error.message : "Failed to fetch releases",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

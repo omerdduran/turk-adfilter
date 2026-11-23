@@ -42,6 +42,11 @@ updates:
       web-minor-and-patch:
         patterns: ["*"]
         update-types: ["minor", "patch"]
+    # typescript-eslint henüz TS 7 API'sini desteklemiyor (TS 7.1 bekleniyor).
+    # Proje, araçlar için TS 6 API'sini kullanıyor; 7.x major PR'ı açılmasın.
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   # Python tooling (matplotlib for the stats plot).
   - package-ecosystem: pip

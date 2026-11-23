@@ -1,6 +1,5 @@
-import { Users, Shield, Code, Heart } from 'lucide-react';
-import GithubIcon from '@/components/github-icon';
-import Link from 'next/link';
+import { Users, Shield, Code } from "lucide-react";
+import GithubIcon from "@/components/github-icon";
 
 export default function AboutPage() {
   return (
@@ -21,12 +20,15 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold mb-4 text-foreground">Proje Hikayesi</h2>
             <div className="prose dark:prose-invert max-w-none">
               <p>
-                Turk-AdFilter, Türkiye'deki internet kullanıcılarının karşılaştığı reklam ve izleme sorunlarına çözüm olarak 2025 yılında başlatıldı. 
-                Proje, Türk web sitelerindeki reklamları ve izleyicileri hedefleyen, topluluk tarafından desteklenen açık kaynaklı bir filtre listesi olarak geliştirildi.
+                Turk-AdFilter, Türkiye'deki internet kullanıcılarının karşılaştığı reklam ve izleme
+                sorunlarına çözüm olarak 2025 yılında başlatıldı. Proje, Türk web sitelerindeki
+                reklamları ve izleyicileri hedefleyen, topluluk tarafından desteklenen açık kaynaklı
+                bir filtre listesi olarak geliştirildi.
               </p>
               <p>
-                Amacımız, Türk internet kullanıcılarına daha temiz, daha hızlı ve daha güvenli bir internet deneyimi sunmaktır. 
-                Bu hedefe ulaşmak için sürekli olarak filtre listemizi güncelliyor ve geliştiriyoruz.
+                Amacımız, Türk internet kullanıcılarına daha temiz, daha hızlı ve daha güvenli bir
+                internet deneyimi sunmaktır. Bu hedefe ulaşmak için sürekli olarak filtre listemizi
+                güncelliyor ve geliştiriyoruz.
               </p>
             </div>
           </section>
@@ -38,13 +40,15 @@ export default function AboutPage() {
               <div className="bg-card p-6 rounded-lg shadow-sm border">
                 <h3 className="text-xl font-semibold mb-3 text-foreground">Misyonumuz</h3>
                 <p className="text-muted-foreground">
-                  Türk internet kullanıcılarına reklamsız, izleyicisiz ve daha güvenli bir internet deneyimi sunmak.
+                  Türk internet kullanıcılarına reklamsız, izleyicisiz ve daha güvenli bir internet
+                  deneyimi sunmak.
                 </p>
               </div>
               <div className="bg-card p-6 rounded-lg shadow-sm border">
                 <h3 className="text-xl font-semibold mb-3 text-foreground">Vizyonumuz</h3>
                 <p className="text-muted-foreground">
-                  Türkiye'nin en kapsamlı ve güncel reklam engelleme listesi olmak ve topluluk katkılarıyla sürekli gelişmek.
+                  Türkiye'nin en kapsamlı ve güncel reklam engelleme listesi olmak ve topluluk
+                  katkılarıyla sürekli gelişmek.
                 </p>
               </div>
             </div>
@@ -89,7 +93,8 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold mb-4 text-foreground">Katkıda Bulunma</h2>
             <div className="bg-card p-6 rounded-lg shadow-sm border">
               <p className="text-muted-foreground mb-4">
-                Turk-AdFilter, topluluk katkılarıyla büyüyen bir projedir. Projeye katkıda bulunmak için:
+                Turk-AdFilter, topluluk katkılarıyla büyüyen bir projedir. Projeye katkıda bulunmak
+                için:
               </p>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6">
                 <li>GitHub üzerinden issue açabilirsiniz</li>
@@ -115,7 +120,15 @@ export default function AboutPage() {
             <div className="bg-card p-6 rounded-lg shadow-sm border">
               <ul className="space-y-2 text-muted-foreground">
                 <li>GitHub Issues üzerinden iletişime geçebilirsiniz</li>
-                <li>E-posta ile iletişime geçebilirsiniz: <a href="mailto:hi@omerduran.dev" className="text-red-600 dark:text-red-400 hover:underline">hi@omerduran.dev</a></li>
+                <li>
+                  E-posta ile iletişime geçebilirsiniz:{" "}
+                  <a
+                    href="mailto:hi@omerduran.dev"
+                    className="text-red-600 dark:text-red-400 hover:underline"
+                  >
+                    hi@omerduran.dev
+                  </a>
+                </li>
               </ul>
             </div>
           </section>
@@ -123,4 +136,4 @@ export default function AboutPage() {
       </main>
     </div>
   );
-} 
+}

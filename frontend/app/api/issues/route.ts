@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { CAP_SITEVERIFY_URL } from "../../../lib/cap";
+import { createRateLimiter } from "../../../lib/rate-limit";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const CAP_SECRET = process.env.CAP_SECRET; // sunucu ortamında; git'te DEĞİL
@@ -10,29 +11,7 @@ const MAX_TITLE = 200;
 const MAX_BODY = 5000;
 
 // Basit IP başına oran sınırı (turk-adfilter-prod tek instance → in-memory yeterli).
-const RATE_LIMIT = 3; // saatte
-const RATE_WINDOW_MS = 60 * 60 * 1000;
-const hits = new Map<string, number[]>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  if (recent.length >= RATE_LIMIT) {
-    hits.set(ip, recent);
-    return true;
-  }
-  recent.push(now);
-  hits.set(ip, recent);
-  // Ara sıra eski girdileri temizle (bellek şişmesini önle).
-  if (hits.size > 5000) {
-    for (const [k, v] of hits) {
-      const alive = v.filter((t) => now - t < RATE_WINDOW_MS);
-      if (alive.length === 0) hits.delete(k);
-      else hits.set(k, alive);
-    }
-  }
-  return false;
-}
+const rateLimiter = createRateLimiter({ limit: 3, windowMs: 60 * 60 * 1000 });
 
 // Cap token'ını sunucu tarafında doğrula.
 // Dönüş: "ok" | "invalid" | "unreachable"
@@ -66,10 +45,10 @@ export async function POST(request: Request) {
     request.headers.get("x-real-ip") ||
     "unknown";
 
-  if (isRateLimited(ip)) {
+  if (rateLimiter.isRateLimited(ip)) {
     return NextResponse.json(
       { message: "Çok fazla istek gönderildi. Lütfen bir süre sonra tekrar deneyin." },
-      { status: 429 }
+      { status: 429 },
     );
   }
 
@@ -114,7 +93,7 @@ export async function POST(request: Request) {
   if (verdict === "invalid") {
     return NextResponse.json(
       { message: "Güvenlik doğrulaması geçersiz. Lütfen tekrar deneyin." },
-      { status: 400 }
+      { status: 400 },
     );
   }
   // verdict === "unreachable": Cap servisi anlık erişilemez — form kilitlenmesin
@@ -124,26 +103,23 @@ export async function POST(request: Request) {
   }
 
   try {
-    const response = await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${GITHUB_TOKEN}`,
-          Accept: "application/vnd.github+json",
-          "Content-Type": "application/json",
-        },
-        // Gövde, labels ve assignee sunucuda oluşturulur — istemciye güvenilmez.
-        body: JSON.stringify({
-          title,
-          body:
-            `## Açıklama\n\n${description}\n\n## Önem Seviyesi\n\n${PRIORITY_TR[prio]}\n\n` +
-            `---\n<sub>🌐 reklamsiz-turkiye.com geri bildirim formundan otomatik oluşturuldu.</sub>`,
-          labels: ["user-feedback", `priority: ${prio}`],
-          assignees: ["omerdduran"],
-        }),
-      }
-    );
+    const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json",
+      },
+      // Gövde, labels ve assignee sunucuda oluşturulur — istemciye güvenilmez.
+      body: JSON.stringify({
+        title,
+        body:
+          `## Açıklama\n\n${description}\n\n## Önem Seviyesi\n\n${PRIORITY_TR[prio]}\n\n` +
+          `---\n<sub>🌐 reklamsiz-turkiye.com geri bildirim formundan otomatik oluşturuldu.</sub>`,
+        labels: ["user-feedback", `priority: ${prio}`],
+        assignees: ["omerdduran"],
+      }),
+    });
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
@@ -156,7 +132,7 @@ export async function POST(request: Request) {
     console.error("[issues] oluşturma hatası:", error);
     return NextResponse.json(
       { message: "Gönderilemedi. Lütfen daha sonra tekrar deneyin." },
-      { status: 502 }
+      { status: 502 },
     );
   }
 }

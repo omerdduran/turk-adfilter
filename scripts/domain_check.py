@@ -1,4 +1,3 @@
-import sys
 
 from dns_probe import deadline_seconds, resolve_many, workers
 

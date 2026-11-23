@@ -19,4 +19,4 @@ def remove_duplicates(filename):
     print(f"Removed duplicates. {len(seen)} unique domains remain.")
 
 if __name__ == '__main__':
-    remove_duplicates(FILTER_LIST) 
+    remove_duplicates(FILTER_LIST)

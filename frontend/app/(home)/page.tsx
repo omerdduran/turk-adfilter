@@ -1,8 +1,18 @@
 "use client";
 
-import Link from 'next/link';
-import { Shield, Download, Users, BookOpen, Code, Check, ExternalLink, Copy, Zap } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import Link from "next/link";
+import {
+  Shield,
+  Download,
+  Users,
+  BookOpen,
+  Code,
+  Check,
+  ExternalLink,
+  Copy,
+  Zap,
+} from "lucide-react";
+import React, { useState, useEffect } from "react";
 
 type Metrics = {
   totalDomains: number;
@@ -15,23 +25,42 @@ export default function HomePage() {
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const filterListLink = "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt";
+  const filterListLink =
+    "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/turk-adfilter.txt";
   const hostsListLink = "https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/hosts.txt";
 
   const categoryLists = [
-    { emoji: "🛡️", title: "Tam Liste", badge: "Önerilen", desc: "Reklam, izleyici, zararlı içerik ve bahis dahil her şeyi engeller. Tam koruma.", file: "turk-adfilter.txt" },
-    { emoji: "🎰", title: "Bahis Kalkanı", badge: null, desc: "Yalnızca illegal bahis/kumar sitelerini engeller. Aile, okul, işyeri ve kurumlar için.", file: "turk-adfilter-bahis.txt" },
-    { emoji: "🧹", title: "Lite", badge: null, desc: "Bahis hariç yalnızca reklam ve izleyicileri engeller.", file: "turk-adfilter-lite.txt" },
+    {
+      emoji: "🛡️",
+      title: "Tam Liste",
+      badge: "Önerilen",
+      desc: "Reklam, izleyici, zararlı içerik ve bahis dahil her şeyi engeller. Tam koruma.",
+      file: "turk-adfilter.txt",
+    },
+    {
+      emoji: "🎰",
+      title: "Bahis Kalkanı",
+      badge: null,
+      desc: "Yalnızca illegal bahis/kumar sitelerini engeller. Aile, okul, işyeri ve kurumlar için.",
+      file: "turk-adfilter-bahis.txt",
+    },
+    {
+      emoji: "🧹",
+      title: "Lite",
+      badge: null,
+      desc: "Bahis hariç yalnızca reklam ve izleyicileri engeller.",
+      file: "turk-adfilter-lite.txt",
+    },
   ];
 
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await fetch('/api/metrics');
+        const response = await fetch("/api/metrics");
         const data = await response.json();
         setMetrics(data);
       } catch (error) {
-        console.error('Error fetching metrics:', error);
+        console.error("Error fetching metrics:", error);
       } finally {
         setIsLoading(false);
       }
@@ -60,20 +89,26 @@ export default function HomePage() {
               Turk-AdFilter
             </h1>
           </div>
-          
+
           <p className="text-xl md:text-2xl font-medium text-center max-w-2xl mb-8 text-gray-700 dark:text-gray-300">
             Türkiye merkezli reklam, izleyici ve zararlı içerik engelleyici
           </p>
-          
+
           <p className="mb-10 max-w-2xl text-center text-gray-600 dark:text-gray-400">
             Topluluk tabanlı filtre listemiz, Pi-hole, AdGuard, uBlock Origin ve benzeri servislerle
             uyumlu şekilde çalışarak Türk web sitelerindeki reklamları ve izleyicileri engeller.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-12">
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> %100 Açık Kaynak</span>
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Düzenli Güncelleme</span>
-            <span className="flex items-center"><Check size={16} className="mr-1 text-green-500" /> Topluluk Destekli</span>
+            <span className="flex items-center">
+              <Check size={16} className="mr-1 text-green-500" /> %100 Açık Kaynak
+            </span>
+            <span className="flex items-center">
+              <Check size={16} className="mr-1 text-green-500" /> Düzenli Güncelleme
+            </span>
+            <span className="flex items-center">
+              <Check size={16} className="mr-1 text-green-500" /> Topluluk Destekli
+            </span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center">
@@ -104,14 +139,14 @@ export default function HomePage() {
               Dokümantasyonu Gör
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto w-full text-center">
             <div>
               <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">
                 {isLoading ? (
                   <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
                 ) : (
-                  metrics?.totalDomains.toLocaleString() ?? '0'
+                  (metrics?.totalDomains.toLocaleString() ?? "0")
                 )}
               </div>
               <p className="text-gray-600 dark:text-gray-400">Toplam Domain</p>
@@ -121,7 +156,7 @@ export default function HomePage() {
                 {isLoading ? (
                   <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
                 ) : (
-                  metrics?.filterListDomains.toLocaleString() ?? '0'
+                  (metrics?.filterListDomains.toLocaleString() ?? "0")
                 )}
               </div>
               <p className="text-gray-600 dark:text-gray-400">Reklam Filtresi</p>
@@ -131,17 +166,19 @@ export default function HomePage() {
                 {isLoading ? (
                   <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-28 mx-auto rounded"></div>
                 ) : (
-                  metrics?.hostsListDomains.toLocaleString() ?? '0'
+                  (metrics?.hostsListDomains.toLocaleString() ?? "0")
                 )}
               </div>
               <p className="text-gray-600 dark:text-gray-400">DNS Filtresi</p>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">%40</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500 mb-2">
+                %40
+              </div>
               <p className="text-gray-600 dark:text-gray-400">Hız Artışı</p>
             </div>
           </div>
-          
+
           {metrics?.lastUpdated && (
             <p className="text-sm text-gray-500 dark:text-gray-500 mb-12 text-center">
               Son güncelleme: {metrics.lastUpdated} <span className="ml-1">(GMT+3)</span>
@@ -156,33 +193,39 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-gray-200">
             Neden Turk-AdFilter?
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 dark:bg-[#121212] p-6 rounded-xl shadow-sm">
               <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <Shield size={24} className="text-red-600 dark:text-red-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Türkiye Odaklı Koruma</h3>
+              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+                Türkiye Odaklı Koruma
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Özellikle Türk web sitelerindeki rahatsız edici reklamları ve izleyicileri engeller.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 dark:bg-[#121212] p-6 rounded-xl shadow-sm">
               <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <Users size={24} className="text-red-600 dark:text-red-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Topluluk Gücü</h3>
+              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+                Topluluk Gücü
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Filtremiz sürekli gelişiyor ve topluluğun katkılarıyla büyüyor.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 dark:bg-[#121212] p-6 rounded-xl shadow-sm">
               <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <Code size={24} className="text-red-600 dark:text-red-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Geniş Uyumluluk</h3>
+              <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+                Geniş Uyumluluk
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Pi-hole, AdGuard, uBlock Origin ve diğer popüler araçlarla uyumlu.
               </p>
@@ -205,12 +248,17 @@ export default function HomePage() {
               const raw = `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/${cat.file}`;
               const abp = `abp:subscribe?location=${encodeURIComponent(raw)}&title=${encodeURIComponent("Turk-AdFilter " + cat.title)}`;
               return (
-                <div key={cat.file} className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow flex flex-col">
+                <div
+                  key={cat.file}
+                  className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow flex flex-col"
+                >
                   <div className="text-3xl mb-3">{cat.emoji}</div>
                   <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200 flex items-center gap-2">
                     {cat.title}
                     {cat.badge && (
-                      <span className="text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 px-2 py-0.5 rounded-full">{cat.badge}</span>
+                      <span className="text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 px-2 py-0.5 rounded-full">
+                        {cat.badge}
+                      </span>
                     )}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4 flex-1 text-sm">{cat.desc}</p>
@@ -235,10 +283,12 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-gray-200">
             Nasıl Kullanılır
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 min-w-0">
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
-              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">uBlock Origin ile</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                uBlock Origin ile
+              </h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>uBlock Origin ayarlarını açın</li>
                 <li>Filtre listeleri sekmesine gidin</li>
@@ -247,9 +297,11 @@ export default function HomePage() {
               </ol>
               <CopyableLink link={filterListLink} />
             </div>
-            
+
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
-              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">AdGuard ile</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                AdGuard ile
+              </h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>AdGuard ayarlarını açın</li>
                 <li>Filtreler bölümüne gidin</li>
@@ -258,19 +310,23 @@ export default function HomePage() {
               </ol>
               <CopyableLink link={filterListLink} />
             </div>
-            
+
             <div className="bg-white dark:bg-[#191919] p-6 rounded-xl shadow min-w-0">
-              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">Pi-hole ile</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                Pi-hole ile
+              </h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
                 <li>Pi-hole yönetim panelinize giriş yapın</li>
                 <li>"Group Management" &gt; "Adlists" sekmesine gidin</li>
                 <li>"Add a new adlist" kısmına aşağıdaki URL\'yi ekleyin:</li>
-                <li>"Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın</li>
+                <li>
+                  "Add" butonuna tıklayın ve ardından "Update Gravity" ile güncellemeleri uygulayın
+                </li>
               </ol>
               <CopyableLink link={hostsListLink} />
             </div>
           </div>
-          
+
           <div className="mt-10 text-center">
             <Link
               href="/docs/kurulum"
@@ -281,17 +337,18 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>      
-      
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-4 bg-gradient-to-r from-red-600 to-red-700 dark:from-red-800 dark:to-red-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">İnterneti Temiz Tut!</h2>
           <p className="mb-8 text-lg max-w-2xl mx-auto">
-            Turk-AdFilter ile Türk web sitelerinde daha güvenli ve temiz bir internet deneyimi yaşayın.
-            Şimdi filtre listemizi ekleyin ve internette gezinirken rahatsız edici reklamlardan, izleyicilerden kurtulun.
+            Turk-AdFilter ile Türk web sitelerinde daha güvenli ve temiz bir internet deneyimi
+            yaşayın. Şimdi filtre listemizi ekleyin ve internette gezinirken rahatsız edici
+            reklamlardan, izleyicilerden kurtulun.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap items-start">
             <a
               href="https://github.com/omerdduran/turk-adfilter"
@@ -299,12 +356,19 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="bg-white text-red-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold shadow flex items-center justify-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="mr-2" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                className="mr-2"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
               </svg>
               GitHub'da Katkıda Bulun
             </a>
-            
+
             {/* DNS filtresi (hosts.txt) */}
             <a
               href={hostsListLink}
@@ -341,7 +405,7 @@ function CopyableLink({ link }: { link: string }) {
       await navigator.clipboard.writeText(link);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
-    } catch (err) {
+    } catch {
       setCopied(false);
     }
   };
@@ -362,9 +426,9 @@ function CopyableLink({ link }: { link: string }) {
         aria-label="Kopyala"
       >
         <span className="sr-only">Kopyala</span>
-        <Copy size={18} className={copied ? 'text-green-500' : 'text-gray-500'} />
+        <Copy size={18} className={copied ? "text-green-500" : "text-gray-500"} />
         <span className="absolute opacity-0 pointer-events-none group-hover:opacity-100 group-focus:opacity-100 bg-gray-800 text-white text-xs rounded px-2 py-1 -mt-10 left-1/2 -translate-x-1/2 transition-opacity duration-200">
-          {copied ? 'Kopyalandı!' : 'Kopyala'}
+          {copied ? "Kopyalandı!" : "Kopyala"}
         </span>
       </button>
     </div>

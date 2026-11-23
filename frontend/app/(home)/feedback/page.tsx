@@ -8,7 +8,8 @@ export default function FeedbackPage() {
           Geri Bildirimleriniz bizim için önemli!
         </h1>
         <p className="text-lg text-muted-foreground">
-          Turk-AdFilter ile ilgili herhangi bir geri bildirim veya öneriniz varsa lütfen bize ulaşın.
+          Turk-AdFilter ile ilgili herhangi bir geri bildirim veya öneriniz varsa lütfen bize
+          ulaşın.
         </p>
       </div>
       <IssueForm />

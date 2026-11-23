@@ -145,4 +145,4 @@ def main():
 
 if __name__ == '__main__':
     # Sorun bulunduğunda sıfırdan farklı çıkış kodu ver ki CI kalite kapısı kırılsın.
-    sys.exit(1 if main() else 0) 
+    sys.exit(1 if main() else 0)

@@ -1,19 +1,18 @@
 import { NextResponse } from "next/server";
+import type { GitHubRelease } from "../route";
 
 export async function GET() {
   try {
     // Use the existing releases API to get all releases
     const response = await fetch(
-      `${
-        process.env.NEXTAUTH_URL || "http://localhost:3000"
-      }/api/releases?all=true`
+      `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/api/releases?all=true`,
     );
 
     if (!response.ok) {
       throw new Error("Failed to fetch releases");
     }
 
-    const releases = await response.json();
+    const releases = (await response.json()) as GitHubRelease[];
     const rssContent = generateRSS(releases);
 
     return new NextResponse(rssContent, {
@@ -26,17 +25,14 @@ export async function GET() {
     console.error("Error generating RSS feed:", error);
     return NextResponse.json(
       {
-        message:
-          error instanceof Error
-            ? error.message
-            : "Failed to generate RSS feed",
+        message: error instanceof Error ? error.message : "Failed to generate RSS feed",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
-function generateRSS(releases: any[]): string {
+function generateRSS(releases: GitHubRelease[]): string {
   const baseUrl = "https://reklamsiz-turkiye.com";
   const currentDate = new Date().toISOString();
 
