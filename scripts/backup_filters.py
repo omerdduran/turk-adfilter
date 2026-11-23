@@ -47,6 +47,47 @@ class FilterBackup:
         with open(self.metadata_file, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2, ensure_ascii=False)
     
+    def delete_backup_file(self, backup):
+        """Yedek dosyasını diskten sil"""
+        backup_path = self.backup_dir / backup['backup_file']
+        if backup_path.exists():
+            backup_path.unlink()
+            return True
+        return False
+
+    def dedupe_backups(self, quiet=False):
+        """Aynı hash'e sahip yedeklerden yalnızca en yenisini tut."""
+        metadata = self.load_metadata()
+        deleted = 0
+
+        for file_meta in metadata.values():
+            backups = file_meta.get('backups', [])
+            seen = {}
+            kept = []
+            removed = []
+            for backup in backups:
+                previous = seen.get(backup.get('hash'))
+                if previous is not None:
+                    kept.remove(previous)
+                    removed.append(previous)
+                seen[backup.get('hash')] = backup
+                kept.append(backup)
+            if kept:
+                referenced = {backup['backup_file'] for backup in kept}
+                for old_backup in removed:
+                    if old_backup['backup_file'] not in referenced:
+                        self.delete_backup_file(old_backup)
+                    deleted += 1
+                file_meta['backups'] = kept
+                file_meta['last_backup'] = kept[-1]['timestamp']
+
+        if deleted:
+            self.save_metadata(metadata)
+            print(f"🧹 {deleted} tekrar eden yedek silindi")
+        elif not quiet:
+            print("✅ Tekrar eden yedek yok")
+        return deleted
+
     def needs_backup(self, filename):
         """Dosyanın yedeklenmesi gerekip gerekmediğini kontrol et"""
         if not os.path.exists(filename):
@@ -109,12 +150,13 @@ class FilterBackup:
                 
                 # Eski yedek dosyalarını sil
                 for old_backup in old_backups:
-                    old_file = self.backup_dir / old_backup['backup_file']
-                    if old_file.exists():
-                        old_file.unlink()
+                    if self.delete_backup_file(old_backup):
                         print(f"🗑️  Eski yedek silindi: {old_backup['backup_file']}")
             
             self.save_metadata(metadata)
+
+            # Aynı içerikli eski kopyaları temizle (ör. --force tekrarları)
+            self.dedupe_backups(quiet=True)
             
             print(f"✅ Yedek oluşturuldu: {filename} -> {backup_filename}")
             return True
@@ -183,12 +225,16 @@ def main():
     parser.add_argument('--list', action='store_true', help='Mevcut yedekleri listele')
     parser.add_argument('--file', help='Belirli bir dosyayı yedekle')
     parser.add_argument('--info', action='store_true', help='Yedek bilgilerini göster')
+    parser.add_argument('--dedupe', action='store_true', help='Aynı içerikli yedeklerden yalnızca en yenisini tut')
     
     args = parser.parse_args()
     
     backup = FilterBackup()
     
-    if args.info:
+    if args.dedupe:
+        backup.dedupe_backups()
+        
+    elif args.info:
         info = backup.get_backup_info()
         print(f"📊 Yedek İstatistikleri:")
         print(f"   Toplam dosya: {info['total_files']}")
