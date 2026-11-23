@@ -49,12 +49,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-500">
-          <p>
-            © {new Date().getFullYear()} Turk-AdFilter. Tüm hakları saklıdır.
-          </p>
+          <p>© {new Date().getFullYear()} Turk-AdFilter. Tüm hakları saklıdır.</p>
           <p className="mt-2">
-            Turk-AdFilter bir açık kaynak projesidir ve GPL-3.0 lisansı altında
-            dağıtılmaktadır.
+            Turk-AdFilter bir açık kaynak projesidir ve GPL-3.0 lisansı altında dağıtılmaktadır.
           </p>
         </div>
       </div>

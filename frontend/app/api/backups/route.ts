@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 interface BackupInfo {
   backup_file: string;
@@ -18,9 +18,34 @@ interface BackupMetadata {
   [filename: string]: FileBackups;
 }
 
+interface ProcessedBackup extends BackupInfo {
+  downloadUrl: string;
+  githubUrl: string;
+  readableDate: string;
+  readableSize: string;
+}
+
+interface ProcessedFileBackups {
+  lastBackup: string;
+  lastHash: string;
+  backups: ProcessedBackup[];
+}
+
+interface BackupStats {
+  totalFiles: number;
+  totalBackups: number;
+  lastBackup: string | null;
+  lastBackupTimestamp: string;
+}
+
+export interface BackupResponse {
+  backups: Record<string, ProcessedFileBackups>;
+  stats: BackupStats;
+}
+
 // Cache for backup data
 let backupCache: {
-  data: any;
+  data: BackupResponse;
   timestamp: number;
 } | null = null;
 
@@ -33,26 +58,27 @@ export async function GET() {
     if (backupCache && now - backupCache.timestamp < CACHE_DURATION) {
       return NextResponse.json(backupCache.data, {
         headers: {
-          'Cache-Control': 'public, max-age=300, stale-while-revalidate=60'
-        }
+          "Cache-Control": "public, max-age=300, stale-while-revalidate=60",
+        },
       });
     }
 
     // Fetch metadata from GitHub
-    const metadataUrl = 'https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/yedekler/backup_metadata.json';
-    
+    const metadataUrl =
+      "https://raw.githubusercontent.com/omerdduran/turk-adfilter/refs/heads/main/yedekler/backup_metadata.json";
+
     const response = await fetch(metadataUrl);
-    
+
     if (!response.ok) {
       if (response.status === 404) {
         return NextResponse.json({
-          error: 'Henüz yedek dosyası oluşturulmamış',
+          error: "Henüz yedek dosyası oluşturulmamış",
           backups: {},
           stats: {
             totalFiles: 0,
             totalBackups: 0,
-            lastBackup: null
-          }
+            lastBackup: null,
+          },
         });
       }
       throw new Error(`GitHub'dan metadata alınamadı: ${response.statusText}`);
@@ -62,76 +88,77 @@ export async function GET() {
     const metadata: BackupMetadata = JSON.parse(metadataContent);
 
     // Process backup data
-    const processedBackups: any = {};
+    const processedBackups: Record<string, ProcessedFileBackups> = {};
     let totalBackups = 0;
-    let latestTimestamp = '';
+    let latestTimestamp = "";
 
     Object.entries(metadata).forEach(([filename, fileData]) => {
       const backups = fileData.backups || [];
-      
+
       // Sort backups by timestamp (newest first)
       const sortedBackups = backups.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
-      
+
       processedBackups[filename] = {
         lastBackup: fileData.last_backup,
         lastHash: fileData.last_hash,
-        backups: sortedBackups.map(backup => ({
+        backups: sortedBackups.map((backup) => ({
           ...backup,
           downloadUrl: `https://raw.githubusercontent.com/omerdduran/turk-adfilter/main/yedekler/${backup.backup_file}`,
           githubUrl: `https://github.com/omerdduran/turk-adfilter/blob/main/yedekler/${backup.backup_file}`,
           readableDate: formatTimestamp(backup.timestamp),
-          readableSize: formatSize(backup.size)
-        }))
+          readableSize: formatSize(backup.size),
+        })),
       };
 
       totalBackups += backups.length;
-      
+
       // Find latest timestamp
       if (backups.length > 0) {
-        const fileLatest = backups.reduce((latest, backup) => 
-          backup.timestamp > latest ? backup.timestamp : latest, '');
+        const fileLatest = backups.reduce(
+          (latest, backup) => (backup.timestamp > latest ? backup.timestamp : latest),
+          "",
+        );
         if (fileLatest > latestTimestamp) {
           latestTimestamp = fileLatest;
         }
       }
     });
 
-    const result = {
+    const result: BackupResponse = {
       backups: processedBackups,
       stats: {
         totalFiles: Object.keys(metadata).length,
         totalBackups,
         lastBackup: latestTimestamp ? formatTimestamp(latestTimestamp) : null,
-        lastBackupTimestamp: latestTimestamp
-      }
+        lastBackupTimestamp: latestTimestamp,
+      },
     };
 
     // Update cache
     backupCache = {
       data: result,
-      timestamp: now
+      timestamp: now,
     };
 
     return NextResponse.json(result, {
       headers: {
-        'Cache-Control': 'public, max-age=300, stale-while-revalidate=60'
-      }
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=60",
+      },
     });
-
   } catch (error) {
-    console.error('Error reading backup data:', error);
+    console.error("Error reading backup data:", error);
     return NextResponse.json(
-      { 
-        error: 'Yedek verileri okunurken hata oluştu',
-        message: error instanceof Error ? error.message : 'Unknown error',
+      {
+        error: "Yedek verileri okunurken hata oluştu",
+        message: error instanceof Error ? error.message : "Unknown error",
         backups: {},
         stats: {
           totalFiles: 0,
           totalBackups: 0,
-          lastBackup: null
-        }
+          lastBackup: null,
+        },
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -147,26 +174,26 @@ function formatTimestamp(timestamp: string): string {
     const second = parseInt(timestamp.substr(13, 2));
 
     const date = new Date(year, month, day, hour, minute, second);
-    
-    return date.toLocaleString('tr-TR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
+
+    return date.toLocaleString("tr-TR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     });
-  } catch (error) {
+  } catch {
     return timestamp; // Fallback to original if parsing fails
   }
 }
 
 function formatSize(bytes: number): string {
-  if (bytes === 0) return '0 B';
-  
+  if (bytes === 0) return "0 B";
+
   const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
+  const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
-} 
+
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
+}

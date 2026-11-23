@@ -34,6 +34,18 @@ jobs:
       - name: Bağımlılıkları kur
         run: npm ci
 
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Biçim kontrolü (Prettier)
+        run: npm run format:check
+
+      - name: Birim testleri (Vitest)
+        run: npm test
+
+      - name: Tip kontrolü (TypeScript 7)
+        run: npm run typecheck
+
       - name: Derleme (tip kontrolü dahil)
         run: npm run build
 

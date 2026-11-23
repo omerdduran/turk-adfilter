@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
 type GithubIconProps = SVGProps<SVGSVGElement> & {
   size?: number | string;
